@@ -7,12 +7,15 @@
 */
 
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
+import om from "../photos/om.jpeg";
+import "../styles.css"
 
 export default function Navbar() {
 	return <nav className="nav">
 		<Link to="/" className="site-title">
 			Arizona Konkani Association
 		</Link>
+      	{/*<img src={om} className="rounded-image" />*/}
 		<ul>
 			<CustomLink to="/about">About</CustomLink>
 			<CustomLink to="/newsletter">Newsletter</CustomLink>
