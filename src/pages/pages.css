@@ -1,0 +1,84 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
+.om_text_box {
+    background-image: url(/src/photos/om2.jpeg);
+    color: rgb(49, 212, 221);
+    font-weight:800;
+    padding: 2px 4px; /* Smaller padding */
+    line-height: 1.2; /* Smaller line height */
+    display: inline-block; /* Makes the element only as wide as necessary */
+    border-radius: 20px;
+}
+
+.text_box {
+    background: linear-gradient(to right, #e8a2a8, #e0c0a2, #c89691);
+    color: rgb(0, 0, 0);
+    font-weight:800;
+    padding: 2px 4px; /* Smaller padding */
+    line-height: 1.2; /* Smaller line height */
+    display: inline-block; /* Makes the element only as wide as necessary */
+    border-radius: 20px;
+}
+
+.title {
+    background-color: black;
+    color: white;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight:800;
+    padding: 2px 4px; /* Smaller padding */
+    line-height: 1.2; /* Smaller line height */
+    display: inline-block; /* Makes the element only as wide as necessary */
+    border-radius: 20px;
+    
+}
+
+.member-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    background: linear-gradient(to right, #e8a2a8, #e0c0a2, #c89691);
+    border-radius: 5px;
+    display: inline-block; /* consider removing*/
+  }
+  
+  .member-image {
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+    border-color: rgb(0, 0, 0);
+    border-style:solid;
+    border-width:3mm;
+  }
+  
+  .member-bio {
+    flex-grow: 1;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    /* Apply your desired bio styles here */
+  }
+
+  @media (max-width: 600px) {
+    .member-container {
+      flex-direction: column;
+      align-items: start;
+    }
+  
+    .member-image {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    .member-bio {
+      flex-grow: 0;
+    }
+  }
+  
+  
+

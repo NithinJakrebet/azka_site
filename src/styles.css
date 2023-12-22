@@ -14,20 +14,21 @@ body {
 }
 
 .nav {
-    background-color: rgb(0, 0, 0);
+    /* background-color: rgba(0, 0, 0, 0.653); */
+    background-image: url(/src/photos/om2.jpeg);
     color: rgb(255, 255, 255);
     display: flex;
     justify-content: space-between;
-    
-    gap: 1rem;
+    /*gap: 1rem;*/
     padding: 0 1rem;
     font-weight: 400;
     border-radius: 0px 0px 5px 5px;
     text-rendering: auto;
 }
 
+
 .site-title {
-    font-size: 3rem;
+    font-size: 2rem;
     min-width: 20rem;
     justify-content: left;
 }
@@ -36,6 +37,7 @@ body {
     border-radius: 50%;
     height: 120px;
     width: 120px;
+    
 }
   
 
@@ -58,8 +60,28 @@ body {
 
 .nav li.active {
     background-color: #555;
+    border-radius: 50%;
 }
 
 .nav li:hover {
     background-color: #777;
+    border-radius: 50%;
 }
+
+/* You can define some global styles for appearing animation */
+@keyframes appear {
+    from {
+      opacity: 0;
+      transform: translateY(20vh);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+  
+  /* And apply it to your component */
+  .appear-on-scroll {
+    animation: appear 0.6s ease-out forwards;
+  }
+  

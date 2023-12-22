@@ -13,12 +13,11 @@
     flex-grow: 0;
     transition: translate 300ms ease-in-out;
     border-radius: 20px;
-    /*width: 200px; /* Set the width of the image display area */
-    /*height: 150px; /* Set the height of the image display area */
-    object-fit: cover; /* This will cover the area with the image, potentially cropping it */
+    object-fit: cover; 
     object-position: 50% 40%;
-    border-color: black;
-    border-style: double;
+    border-color: rgba(0, 0, 0, 0.601);
+    border-style:solid;
+    border-width:3mm;
 }
 
 .img-slider-btn {
