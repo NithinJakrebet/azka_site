@@ -2,7 +2,7 @@
 
 import React from "react";
 import { ImageSlider } from "../components/ImageSlider.tsx";
-import './pages.css';
+import '../styling/pages.css';
 import AnimatedPage from "../components/AnimatedPage.jsx";
 import AppearOnScroll from "../components/AppearOnScroll"; // Import the new component
 

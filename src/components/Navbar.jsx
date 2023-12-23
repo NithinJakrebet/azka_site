@@ -8,7 +8,8 @@
 
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import om from "../photos/om.jpeg";
-import "../styles.css"
+import "../styling/styles.css"
+import "../styling/navbar.css"
 
 export default function Navbar() {
 	return <nav className="nav">

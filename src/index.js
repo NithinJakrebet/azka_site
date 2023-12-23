@@ -1,9 +1,9 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { BrowserRouter } from 'react-router-dom';
-import './index.css';
+import './styling/index.css';
 import App from './App';
-import "./styles.css"
+import "./styling/styles.css"
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(

@@ -1,6 +1,6 @@
 import React from "react";
 import AnimatedPage from "../components/AnimatedPage";
-
+import "../styling/pages.css";
 
 function Contact() {
     return (

@@ -79,3 +79,11 @@
 .img-slider-btn:focus-visible {
     outline: auto;
 }
+
+.slideshow_container {
+    display: flex;
+    flex-direction: column; /* Stack items vertically */
+    align-items: center; /* Center items horizontally */
+    /* margin-bottom: 20px; */
+    /* border-radius: 5px; */
+  }

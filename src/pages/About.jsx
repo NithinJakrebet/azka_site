@@ -1,5 +1,5 @@
 import React from "react";
-import './pages.css';
+import "../styling/pages.css";
 import AnimatedPage from "../components/AnimatedPage";
 import shreeja from "../photos/exec_com/Shreeja.JPG";
 import Nithin from "../photos/exec_com/Nithin.JPG";

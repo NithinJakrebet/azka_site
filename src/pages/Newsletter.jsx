@@ -1,5 +1,5 @@
 import React from "react";
-import "./pages.css";
+import "../styling/pages.css";
 import AnimatedPage from "../components/AnimatedPage";
 
 
