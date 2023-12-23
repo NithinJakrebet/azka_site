@@ -6,24 +6,17 @@ body {
     margin: 0;
 }
 
-.om_text_box {
-    background-image: url(/src/photos/om2.jpeg);
-    color: rgb(49, 212, 221);
-    font-weight:800;
-    padding: 2px 4px; /* Smaller padding */
-    line-height: 1.2; /* Smaller line height */
-    display: inline-block; /* Makes the element only as wide as necessary */
-    border-radius: 20px;
-}
-
 .text_box {
-    background: linear-gradient(to right, #e8a2a8, #e0c0a2, #c89691);
-    color: rgb(0, 0, 0);
+    background-color: beige;
+    /* color: rgb(0, 0, 0); */
     font-weight:800;
     padding: 2px 4px; /* Smaller padding */
     line-height: 1.2; /* Smaller line height */
     display: inline-block; /* Makes the element only as wide as necessary */
     border-radius: 20px;
+    margin-bottom: 20px; /* Add space between the text and the slideshow */
+    font-size: 24px; /* Adjust font size as needed */
+    color: #333; 
 }
 
 .title {
@@ -38,11 +31,20 @@ body {
     
 }
 
+.slideshow_container {
+  display: flex;
+  flex-direction: column; /* Stack items vertically */
+  align-items: center; /* Center items horizontally */
+  /* margin-bottom: 20px; */
+  /* border-radius: 5px; */
+  display: inline-block; /* consider removing*/
+}
+
 .member-container {
     display: flex;
     align-items: center;
     margin-bottom: 20px;
-    background: linear-gradient(to right, #e8a2a8, #e0c0a2, #c89691);
+    background: linear-gradient(to bottom, #D0D0D0, #B0B0B0, #909090);
     border-radius: 5px;
     display: inline-block; /* consider removing*/
   }

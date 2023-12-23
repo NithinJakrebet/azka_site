@@ -1,8 +1,8 @@
 body {
   margin: 0;
-  font-family: cursive;
-  background-image: url(./photos/background.jpeg);
-  /* background: linear-gradient(to right, #BFCBC2, #A6A6A6, #8C8C8C); */
+  font-family:fantasy;
+  /* background-image: url(./photos/background.jpeg); */
+  background: linear-gradient(to right, #ba9570, #c8c8c8, #68a868);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

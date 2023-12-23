@@ -1,8 +1,8 @@
 import React from "react";
 import './pages.css';
 import AnimatedPage from "../components/AnimatedPage";
-import shreeja from "../photos/Shreeja.JPG";
-import Nithin from "../photos/Nithin.JPG";
+import shreeja from "../photos/exec_com/Shreeja.JPG";
+import Nithin from "../photos/exec_com/Nithin.JPG";
 import AppearOnScroll from "../components/AppearOnScroll"; // Import the new component
 
 
@@ -22,7 +22,7 @@ export default function About() {
   return (
     <AnimatedPage>
       <div>
-        <h1 className="text_box">Executive Committee</h1>
+        <h1>Executive Committee</h1>
         <AppearOnScroll>
             <CommitteeMember 
             name="Shreeja Baliga, President" 

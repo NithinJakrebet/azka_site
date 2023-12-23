@@ -19,8 +19,8 @@ const AppearOnScroll = ({ children }) => {
       ref={domRef}
       style={{
         opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'none' : 'translateY(20vh)',
-        transition: 'opacity 0.6s ease-out, transform 0.6s ease-out',
+        transform: isVisible ? 'none' : 'translateY(10vh)',
+        transition: 'opacity 0.3s ease-out, transform 0.3s ease-out',
       }}
     >
       {children}

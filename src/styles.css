@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-weight: bold;
+    font-weight: bolder;
 }
 
 body {
@@ -14,39 +14,40 @@ body {
 }
 
 .nav {
-    /* background-color: rgba(0, 0, 0, 0.653); */
-    background-image: url(/src/photos/om2.jpeg);
-    color: rgb(255, 255, 255);
+    /* background-color: rgba(255, 255, 255, 0.508); */
+    background-image: url(/src/photos/background.jpeg);
+    background-position: 0%; 
+    color: rgb(0, 0, 0);
     display: flex;
     justify-content: space-between;
-    /*gap: 1rem;*/
-    padding: 0 1rem;
+    gap: 1rem;
+    padding: 0 3rem;
     font-weight: 400;
-    border-radius: 0px 0px 5px 5px;
+    /* border-radius: 0px 0px 10px 10px; */
     text-rendering: auto;
 }
 
 
 .site-title {
-    font-size: 2rem;
+    font-size: 3rem;
     min-width: 20rem;
-    justify-content: left;
+    justify-content: center;
 }
 
 .rounded-image {
     border-radius: 50%;
     height: 120px;
     width: 120px;
-    
-}
-  
+}  
 
-.nav u1 {
+.nav ul {
     padding: 0;
     margin: 0;
     list-style: none;
     display: flex;
     gap: 1rem;
+    font-size: 28px;
+
 }
 
 .nav a {
@@ -59,13 +60,16 @@ body {
 }
 
 .nav li.active {
-    background-color: #555;
-    border-radius: 50%;
+    /* background-color: #555; */
+    font-size: larger;
+    text-decoration: underline;
+    transition: font-size, text-decoration .2s ease-in-out;
 }
 
 .nav li:hover {
-    background-color: #777;
+    background-color: #ffb300ab; 
     border-radius: 50%;
+    transition: background-color .2s ease-in-out;
 }
 
 /* You can define some global styles for appearing animation */
