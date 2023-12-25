@@ -1,12 +1,14 @@
 body {
   margin: 0;
-  font-family:fantasy;
+  font-family:'Times New Roman', Times, serif;
   /* background-image: url(./photos/background.jpeg); */
-  background: linear-gradient(to right, #ba9570, #c8c8c8, #68a868);
+  /* background: linear-gradient(to right, rgb(255, 157, 0), rgba(122, 122, 122, 0.605), rgb(1, 111, 1)); */
+  background-color: rgb(227, 227, 227);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  
 }
+
+
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',

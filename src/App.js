@@ -7,6 +7,7 @@ import About from './pages/About';
 import Contact from './pages/Contact';
 import Newsletter from "./pages/Newsletter";
 import Navbar from './components/Navbar';
+import Footer from "./components/Footer";
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
 					</Routes>
 				</AnimatePresence>
 			</div>
+			<Footer />
 		</>
 	);
 }

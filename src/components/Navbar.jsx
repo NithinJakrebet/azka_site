@@ -6,9 +6,8 @@
 - Contact, Zelle
 */
 
+import React, { useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import om from "../photos/om.jpeg";
-import "../styling/styles.css"
 import "../styling/navbar.css"
 
 export default function Navbar() {
