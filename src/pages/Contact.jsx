@@ -8,7 +8,7 @@ import tk from "../photos/tiktok.png"
 function Contact() {
     return (
         <AnimatedPage>
-            <div className="text_box">
+            <div className="text_box2">
                 <h1>Feel free to contact us at any of the following</h1>
                 <h3>Person 1 (position)</h3>
                 <h4>Insert Email Here</h4>
