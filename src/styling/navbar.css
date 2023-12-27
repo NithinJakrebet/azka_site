@@ -1,6 +1,5 @@
 * {
     box-sizing: border-box;  
-    
 }
 
 body {
@@ -11,23 +10,30 @@ body {
 
 nav {
     background-image: url(/src/photos/background.jpeg);
-    /* background-color: rgb(177, 221, 255); */
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
     background-position: 0%; 
     color: rgb(0, 0, 0);
     display: flex;
-    justify-content:space-between;
+    justify-content: space-between;
     text-rendering: auto;
     position: sticky;
     top: 0;
     z-index: 1000;
-    box-sizing: border-box;
 }
 
 .site-title {
     font-size: 2rem;
     font-weight: bolder;  
 }
+
+.nav .desktop {
+    list-style: none;
+    display: flex;
+    gap: 1rem;
+    margin: 0;
+    padding: 0;
+}
+
 
 .nav ul {
     padding: 0;
@@ -48,7 +54,6 @@ nav {
 }
 
 .nav li.active {
-    /* background-color: #555; */
     font-size: larger;
     font-weight: bolder;
     text-decoration: underline;
@@ -57,7 +62,60 @@ nav {
 
 .nav li:hover {
     background-color: #ffffff; 
-    border-radius: 50%;
+    /* border-radius: 50%; */
     transition: background-color .2s ease-in-out;
 }
 
+.hamburger-menu {
+    display: none;
+    cursor: pointer;
+    font-size: 60px; /* Adjust as needed */
+    justify-content: right;
+}
+
+.hamburger-menu:hover {
+    background-color: #ffffff;
+    border-radius: 50%;
+}
+
+.nav .dropdown {
+    display: none;
+    position: absolute;
+    /* background-color: #f9f9f9; */
+    background: linear-gradient(to bottom, rgb(255, 203, 118), rgb(197, 197, 197), rgb(73, 120, 73));
+    min-width: 160px;
+    right: 0;
+    left: 0;
+    top: 100%;
+    color: #000000;
+    z-index: 1;
+}
+
+/* Display dropdown menu when active */
+.nav .dropdown.active {
+    display: none;
+}
+
+@media screen and (max-width: 768px) {
+    .hamburger-menu {
+        display: block;
+    }
+
+    .nav .desktop {
+        display: none; /* Hide desktop menu in mobile view */
+    }
+
+    .nav .dropdown {
+        flex-direction: column;
+    }
+
+    .nav .dropdown.active {
+      
+        display: flex; /* Display dropdown in mobile view */
+    }
+
+    .nav li {
+        text-align: center;
+        width: 100%;
+    }
+}

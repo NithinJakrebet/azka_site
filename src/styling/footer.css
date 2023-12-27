@@ -10,8 +10,16 @@ body {
 }
 
 .logo {
-    justify-content: center;
-    align-items: center;
-    font-size: 48px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    background-image: url(/src/photos/background.jpeg);
+    margin: auto;
+    margin-top: 20px;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-size: 3rem;
+    font-weight: bold;
+    font-family: cursive;
+    background-color: blue;
+    background-position: 0%;
+    justify-content: space-between;
 }
