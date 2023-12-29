@@ -8,7 +8,7 @@ body {
 }
 
 .text_box {
-    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
     padding: 2px 4px; 
     display: inline-block;
     border-color: black;
@@ -16,11 +16,24 @@ body {
     border-radius:10px;
     margin-top: 20px;
     margin-bottom: 20px; 
-    font-size: 20px; 
+    font-size: 24px; 
     color: #000000; 
     justify-content: center;
     align-items: center;
+    font-weight: lighter;
+    max-width: fit-content;
 }
+
+.text_box h2 {
+  font-weight: bold;
+}
+
+.text_box h3 {
+  font-weight: bold;
+}
+
+
+
 
 .text_box2 {
   /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2); */
@@ -31,40 +44,39 @@ body {
   border-radius: 20px;
   margin-top: 20px;
   margin-bottom: 20px; 
-  font-size: 20px; 
+  font-size: 30px; 
   color: #000000; 
   justify-content: center;
   align-items: center;
 }
 
 .title {
-    background-color: black;
-    color: white;
-    font-family: Georgia, 'Times New Roman', Times, serif;
-    padding: 2px 4px; /* Smaller padding */
-    line-height: 1.2; /* Smaller line height */
-    display: inline-block; /* Makes the element only as wide as necessary */
-    border-radius: 20px;
-    
+    color: black;
+    font-weight: bold;
+    font-size: 40px;
 }
+
+
+
+
 
 .member-container {
     /* display: flex; */
     align-items: center;
-    margin-bottom: 20px;
+    margin-bottom: 80px;
     /* background: radial-gradient( #f5f5dc, #ffe3cc); */
     border-radius: 5px;
     display: inline-block; 
-    
+    max-width: 100%;
+    /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);     */
   }
   
   .member-image {
     margin-top: 1rem;
     /* display: flex; */
     /* align-items: center; */
-    width: 500px;
-    height: 500px;
-    margin-right: 20px;
+    width:375px;
+    height: 375px;
     object-fit: cover;
     border-radius: 50%;
     border-color: rgb(0, 0, 0);
@@ -74,7 +86,6 @@ body {
   
   .member-bio {
     flex-grow: 1;
-    font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 24px;
     min-width:fit-content;
   }
@@ -94,8 +105,9 @@ body {
       flex-grow: 0;
     }
   }
-  
-  
+
+
+
 
 .full-album-link {
   font-size: 32px;
@@ -117,7 +129,7 @@ body {
 .rounded-image {
   border-radius: 50%;
   object-fit:fill;
-  max-height: 80px; /* adjust the size as needed */
-  max-width: 80px; /* adjust the size as needed */
+  max-height: 40px; /* adjust the size as needed */
+  max-width: 40px; /* adjust the size as needed */
   margin: 0px 20px  0px 20px ;
 }

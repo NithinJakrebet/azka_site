@@ -6,7 +6,12 @@ import AnimatedPage from "../components/AnimatedPage";
 import Baliga from "../photos/exec_com/Baliga.jpeg";
 import Nithin from "../photos/exec_com/Nithin.JPG";
 import Kamath from "../photos/exec_com/Kamath.jpeg";
-import Hema from "../photos/exec_com/Hema.jpeg";
+import Hema from "../photos/exec_com/Hema.jpg";
+// import Gopika from "../photos/exec_com/Gopika.jpg";
+// import Sasikala from "../photos/exec_com/Sasikala.jpg";
+// import Vyshali from "../photos/exec_com/Vyshali.jpg";
+
+
 
 /*
 Presidents: Shreeja & Guru Baliga
@@ -23,7 +28,7 @@ function CommitteeMember({ name, bio, imageUrl }) {
     <div className="member-container">
       <img src={imageUrl} alt={name} className="member-image" />
       <div className="member-bio">
-        <h2>{name}</h2>
+        <h2 style={{fontWeight: "bold"}}>{name}</h2>
         <p>{bio}</p>
       </div>
     </div>
@@ -34,11 +39,11 @@ export default function About() {
   return (
     <AnimatedPage>
       <div>
-        <h1>Our Mission</h1>
+        {/* <h1>Our Mission</h1>
         <h3 className="text-box">Sample TextSample TextSample TextSample TextSample TextSample TextSample TextSample TextSample TextSample TextSample Text
         Sample TextSample TextSample TextSample TextSample TextSample TextSample TextSample TextSample TextSample TextSample Text
-        </h3>
-        <h1>Executive Committee</h1>
+        </h3> */}
+        <h1 className="title">Executive Committee</h1>
         <AppearOnScroll>
             <CommitteeMember 
             name="Presidents: Shreeja & Guru Baliga" 
@@ -53,8 +58,7 @@ export default function About() {
         <AppearOnScroll>
             <CommitteeMember
             name="Website Manager: Nithin Jakrebet" 
-            bio="Nithin has lived in Arizona his whole life, and is now a student at Arizona State University studying Computer Science. 
-            He enjoys spending his free time playing guitar, playing basketball, and convincing his friends that Konkani is a real language." 
+            bio="Nithin has lived in Arizona his whole life, and is now a student at Arizona State University studying Computer Science." 
             imageUrl={Nithin} 
             />
         </AppearOnScroll>
@@ -62,13 +66,14 @@ export default function About() {
             <CommitteeMember 
             name="Treasurer: Sasikala Kamath " 
             bio="" 
-            imageUrl={Nithin} 
+            // imageUrl={Sasikala} 
             />
         </AppearOnScroll>
         <AppearOnScroll>
             <CommitteeMember 
             name="Deputy Treasurer: Hema Prabhu" 
-            bio="" 
+            bio="Hema Prabhu, from Kanhangad, Kerala, moved to Phoenix, AZ in 1999. She is married to Panduranga Prabhu from Mangaluru. They have two
+             loving children Nisha and Nithin, and now reside in South Phoenix." 
             imageUrl={Hema} 
             />
         </AppearOnScroll>
@@ -76,7 +81,7 @@ export default function About() {
             <CommitteeMember 
             name="Director, Food Coordination: Gopika Pai" 
             bio="" 
-            imageUrl={Nithin} 
+            // imageUrl={Gopika} 
             />
         </AppearOnScroll>
         <AppearOnScroll>
@@ -93,7 +98,7 @@ export default function About() {
             <CommitteeMember 
             name="Cultural Activity & Entertainment Associate: Vyshali Mallya" 
             bio="" 
-            imageUrl={Nithin} 
+            // imageUrl={Vyshali} 
             />
         </AppearOnScroll>
       </div>

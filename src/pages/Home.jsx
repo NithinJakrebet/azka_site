@@ -65,24 +65,24 @@ export default function Home() {
         <AnimatedPage>
             <AppearOnScroll>
                     <div className="text_box">
-                        <h1>Upcoming Events</h1>
-                        <h1>Spring Picnic</h1>
-                        <h3>March 15, 2024 11:00AM</h3>
-                        <h3>Tumbleweed Park: 2250 S. McQueen Road Chandler, AZ 85286</h3> 
+                        <h2>Upcoming Events</h2>
+                        <h3>Spring Picnic</h3>
+                        <h4>March 15, 2024 11:00AM</h4>
+                        <h4>Tumbleweed Park: 2250 S. McQueen Road Chandler, AZ 85286</h4> 
                         <Dropdown
                             label="Ticket Info "
                             info={zelleInfo.springPicnic}
                         />
-                        <h1>Feed My Starving Children</h1>
-                        <h3>April 3, 2024 11:00AM</h3>
-                        <h3>1345 South Alma School Road, Mesa, AZ</h3>
+                        <h3>Feed My Starving Children</h3>
+                        <h4>April 3, 2024 11:00AM</h4>
+                        <h4>1345 South Alma School Road, Mesa, AZ</h4>
                         <Dropdown
                             label="Donation Info (optional)"
                             info={zelleInfo.starvingChildren}
                         /> 
-                        <h1>Talent Show</h1>
-                        <h3>May 10th, 2024 3:00PM</h3>
-                        <h3>122 E Culver St</h3>
+                        <h3>Talent Show</h3>
+                        <h4>May 10th, 2024 3:00PM</h4>
+                        <h4>122 E Culver St</h4>
                         <Dropdown
                             label="Ticket Info"
                             info={zelleInfo.talentShow}
@@ -91,7 +91,7 @@ export default function Home() {
             </AppearOnScroll>
             <AppearOnScroll> 
                 <div className="slideshow_container">
-                    <h1>2023 Picnic</h1>
+                    <h1 className="title">2023 Picnic</h1>
                 <a 
                     href="https://photos.google.com/share/AF1QipNCunLLYO7Zx3P26CtrFbAOBjBZauYKE5rfR9-AcWQp3pJWttmz09FCQb8XSsQaXQ?key=X1RTcFh4aWZ1bXRaQ1U3MTZ5QXpjRW5GdFN4TWpn"
                     target="_blank" 
@@ -114,7 +114,7 @@ export default function Home() {
             </AppearOnScroll>
             <AppearOnScroll> 
                 <div className="slideshow_container">
-                    <h1>2022 Picnic</h1>
+                    <h1 className="title">2022 Picnic</h1>
                 <a 
                 href="https://photos.google.com/share/AF1QipNfzn8n5AYAFZGsZEnDr5p1s_nUZGVAFZ3K5VwooD_d69fMTIC6gOXO__LsUKwP3w?key=NTdwMVpjMW1hUEh4SDVWUUJHT3JEWG1hNE8yTGlB"
                 target="_blank" 

@@ -9,7 +9,9 @@ body {
 }
 
 nav {
-    background-image: url(/src/photos/background.jpeg);
+    /* background-image: url(/src/photos/background.jpeg); */
+    background: linear-gradient(to bottom, rgb(255, 149, 0), rgb(255, 255, 255), rgb(0, 142, 0));
+    background-size:contain;
     box-shadow: 0 6px 10px 0 rgba(0,0,0,0.2);
     background-position: 0%; 
     color: rgb(0, 0, 0);
@@ -22,9 +24,10 @@ nav {
 }
 
 .site-title {
-    font-size: 2rem;
-    font-weight: bolder;  
+    font-size: 36px;
+    font-weight: bolder;
 }
+    
 
 .nav .desktop {
     list-style: none;
@@ -40,7 +43,7 @@ nav {
     margin: 0;
     list-style: none;
     display: flex;
-    font-size: 20px;
+    font-size: 24px;
     gap: 1rem;
 }
 
