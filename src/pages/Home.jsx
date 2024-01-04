@@ -4,7 +4,7 @@ import React from "react";
 import { ImageSlider } from "../components/ImageSlider.tsx";
 import '../styling/pages.css';
 import AnimatedPage from "../components/AnimatedPage.jsx";
-import AppearOnScroll from "../components/AppearOnScroll"; // Import the new component
+import AppearOnScroll from "../components/AppearOnScroll";
 import Dropdown from "../components/Dropdown.jsx";
 
 import jakrebets from "../photos/picnic_2023/jakrebets.jpg"
@@ -26,18 +26,18 @@ import table from "../photos/picnic_2022/table.jpg"
 
 const zelleInfo = {
     springPicnic: [
-        { label: 'Zelle Number: 123-456-7890' },
-        { label: 'Memo: Spring Picnic Ticket' }
-    ],
-    starvingChildren: [
-        { label: 'Zelle Number: 123-456-7890' },
-        { label: 'Memo: Starving Children Donation' }
-    ],
-    talentShow: [
-        { label: 'Zelle Number: 123-456-7890' },
-        { label: 'Memo: Talent Show Ticket' }
+        { label: 'Zelle Number: 623-271-5137 OR 602-373-7880' },
+        { label: 'Memo: AZ Konkani Spring Picnic Ticket' },
+        {label: "Ticket Price: $20"}
     ]
-    // Add more events as needed
+    // starvingChildren: [
+    //     { label: 'Zelle Number: 123-456-7890' },
+    //     { label: 'Memo: Starving Children Donation' }
+    // ],
+    // talentShow: [
+    //     { label: 'Zelle Number: 123-456-7890' },
+    //     { label: 'Memo: Talent Show Ticket' }
+    // ]
 };
 
 const PICNIC_2023_IMAGES = [
@@ -67,13 +67,13 @@ export default function Home() {
                     <div className="text_box">
                         <h2>Upcoming Events</h2>
                         <h3>Spring Picnic</h3>
-                        <h4>March 15, 2024 11:00AM</h4>
-                        <h4>Tumbleweed Park: 2250 S. McQueen Road Chandler, AZ 85286</h4> 
+                        <h4>March 2, 2024, 10:30AM-4PM</h4>
+                        <h4>El Dorado Park:  2311 N Miller Rd, Scottsdale, AZ 85257</h4> 
                         <Dropdown
                             label="Ticket Info "
                             info={zelleInfo.springPicnic}
                         />
-                        <h3>Feed My Starving Children</h3>
+                        {/* <h3>Feed My Starving Children</h3>
                         <h4>April 3, 2024 11:00AM</h4>
                         <h4>1345 South Alma School Road, Mesa, AZ</h4>
                         <Dropdown
@@ -86,7 +86,7 @@ export default function Home() {
                         <Dropdown
                             label="Ticket Info"
                             info={zelleInfo.talentShow}
-                        />
+                        /> */}
                     </div>
             </AppearOnScroll>
             <AppearOnScroll> 

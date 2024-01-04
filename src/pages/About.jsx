@@ -7,21 +7,9 @@ import Baliga from "../photos/exec_com/Baliga.jpeg";
 import Nithin from "../photos/exec_com/Nithin.JPG";
 import Kamath from "../photos/exec_com/Kamath.jpeg";
 import Hema from "../photos/exec_com/Hema.jpg";
-// import Gopika from "../photos/exec_com/Gopika.jpg";
-// import Sasikala from "../photos/exec_com/Sasikala.jpg";
-// import Vyshali from "../photos/exec_com/Vyshali.jpg";
-
-
-
-/*
-Presidents: Shreeja & Guru Baliga
-Treasurer: Sasikala Kamath
-Deputy Treasurer: Hema Prabhu
-Director, Food Coordination: Gopika Pai
-Deputy Directors, Food Coordination: Pavithra & Shirish Kamath
-Cultural Activity & Entertainment Associate: Vyshali Mallya
- */
-
+import Gopika from "../photos/exec_com/Gopika.jpeg";
+import Sasikala from "../photos/exec_com/Sasikala.jpeg";
+import Vyshali from "../photos/exec_com/Vyshali.jpeg";
 
 function CommitteeMember({ name, bio, imageUrl }) {
   return (
@@ -56,17 +44,10 @@ export default function About() {
             />
         </AppearOnScroll>
         <AppearOnScroll>
-            <CommitteeMember
-            name="Website Manager: Nithin Jakrebet" 
-            bio="Nithin has lived in Arizona his whole life, and is now a student at Arizona State University studying Computer Science." 
-            imageUrl={Nithin} 
-            />
-        </AppearOnScroll>
-        <AppearOnScroll>
             <CommitteeMember 
             name="Treasurer: Sasikala Kamath " 
             bio="" 
-            // imageUrl={Sasikala} 
+            imageUrl={Sasikala} 
             />
         </AppearOnScroll>
         <AppearOnScroll>
@@ -80,8 +61,9 @@ export default function About() {
         <AppearOnScroll>
             <CommitteeMember 
             name="Director, Food Coordination: Gopika Pai" 
-            bio="" 
-            // imageUrl={Gopika} 
+            bio="Gopika is a fun loving individual , loved to laugh and crack jokes  (though only her husband laughs at her jokes) and always up for an adventure.
+            Proud amchi and dalitoy is her joy!" 
+            imageUrl={Gopika} 
             />
         </AppearOnScroll>
         <AppearOnScroll>
@@ -97,8 +79,23 @@ export default function About() {
         <AppearOnScroll>
             <CommitteeMember 
             name="Cultural Activity & Entertainment Associate: Vyshali Mallya" 
+            bio="Vyshali has been Living in Phoenix since a decade with Ravikiran(spouse) and Rayansh (son).
+             She Loves music and has learned and taught Carnatic Music in the valley for 5 years." 
+            imageUrl={Vyshali} 
+            />
+        </AppearOnScroll>
+        <AppearOnScroll>
+            <CommitteeMember
+            name="Website Manager: Nithin Jakrebet" 
+            bio="Nithin has lived in Arizona his whole life, and is now a student at Arizona State University studying Computer Science." 
+            imageUrl={Nithin} 
+            />
+        </AppearOnScroll>
+        <AppearOnScroll>
+            <CommitteeMember
+            name="Rescue Squad: TBD" 
             bio="" 
-            // imageUrl={Vyshali} 
+            // imageUrl={Nithin} 
             />
         </AppearOnScroll>
       </div>

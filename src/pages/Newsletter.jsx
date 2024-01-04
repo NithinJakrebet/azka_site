@@ -2,6 +2,7 @@ import React from "react";
 import AnimatedPage from "../components/AnimatedPage";
 import AppearOnScroll from "../components/AppearOnScroll";
 import "../styling/magazine.css"
+import "../styling/pages.css"
 
 import pic2022 from "../photos/2022.jpeg";
 import pdf2022 from "../newsletter_pdfs/AZKA2022Example.pdf"
@@ -32,20 +33,21 @@ function Magazine ({ title, imgURL, pdfURL }) {
 export default function Newsletter() {
     return (
         <AnimatedPage>
-            <AppearOnScroll>
+          <div className="text_box">Nothing Here Yet!</div>
+            {/* <AppearOnScroll>
                 <Magazine
                 title="2023 Newsletter"
                 imgURL={pic2022}
                 pdfURL={pdf2023}
                 />
-            </AppearOnScroll>
-            <AppearOnScroll>
+            </AppearOnScroll> */}
+            {/* <AppearOnScroll>
                 <Magazine
                 title="2022 Newsletter"
                 imgURL={pic2023}
                 pdfURL={pdf2022}
                 />
-            </AppearOnScroll>     
+            </AppearOnScroll>      */}
         </AnimatedPage>
     )
 }

@@ -14,14 +14,12 @@ export default function Navbar() {
             <Link to="/" className="site-title">Arizona Konkani Association</Link>
             <div className="hamburger-menu" onClick={toggleMenu}>☰</div>
             <ul className={`dropdown ${isMenuOpen ? "active" : ""}`}>
-                {/* Dropdown links */}
                 <CustomLink to="/" onClick={toggleMenu}>Home</CustomLink>
                 <CustomLink to="/about" onClick={toggleMenu}>About Us</CustomLink>
                 <CustomLink to="/newsletter" onClick={toggleMenu}>Newsletter</CustomLink>
                 <CustomLink to="/contact" onClick={toggleMenu}>Contact</CustomLink>
             </ul>
             <ul className="desktop">
-                {/* Regular links for desktop */}
                 <CustomLink to="/">Home</CustomLink>
                 <CustomLink to="/about">About Us</CustomLink>
                 <CustomLink to="/newsletter">Newsletter</CustomLink>

@@ -4,7 +4,7 @@
 
 body {
     margin: 0;
-    /* place-items: center; */
+    
 }
 
 .text_box {
@@ -77,7 +77,7 @@ body {
     /* align-items: center; */
     width:375px;
     height: 375px;
-    object-fit: cover;
+    object-fit:cover;
     border-radius: 50%;
     border-color: rgb(0, 0, 0);
     border-style:solid;
@@ -129,7 +129,7 @@ body {
 .rounded-image {
   border-radius: 50%;
   object-fit:fill;
-  max-height: 40px; /* adjust the size as needed */
-  max-width: 40px; /* adjust the size as needed */
+  max-height: 40px;
+  max-width: 40px; 
   margin: 0px 20px  0px 20px ;
 }
