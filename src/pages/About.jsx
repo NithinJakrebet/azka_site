@@ -61,7 +61,7 @@ export default function About() {
         <AppearOnScroll>
             <CommitteeMember 
             name="Director, Food Coordination: Gopika Pai" 
-            bio="Gopika is a fun loving individual , loved to laugh and crack jokes  (though only her husband laughs at her jokes) and always up for an adventure.
+            bio="Gopika is a fun loving individual, loves to laugh and crack jokes (though only her husband laughs at her jokes) and always up for an adventure.
             Proud amchi and dalitoy is her joy!" 
             imageUrl={Gopika} 
             />
@@ -91,13 +91,13 @@ export default function About() {
             imageUrl={Nithin} 
             />
         </AppearOnScroll>
-        <AppearOnScroll>
+        {/* <AppearOnScroll>
             <CommitteeMember
             name="Rescue Squad: TBD" 
             bio="" 
             // imageUrl={Nithin} 
             />
-        </AppearOnScroll>
+        </AppearOnScroll> */}
       </div>
     </AnimatedPage>
   );

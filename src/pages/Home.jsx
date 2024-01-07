@@ -19,7 +19,6 @@ import musical_chairs from "../photos/picnic_2023/musical_chairs.JPG"
 import mensvb from "../photos/picnic_2022/mensvb.JPG"
 import group22 from "../photos/picnic_2022/2022_group.jpg"
 import active from "../photos/picnic_2022/active.jpg"
-import cricket from "../photos/picnic_2022/cricket.jpg"
 import serving from "../photos/picnic_2022/serving.jpg"
 import laughing from "../photos/picnic_2022/laughing.jpg"
 import table from "../photos/picnic_2022/table.jpg"
@@ -54,7 +53,6 @@ const PICNIC_2022_IMAGES = [
     group22,
     mensvb,
     active,
-    cricket,
     serving,
     laughing,
     table
@@ -93,7 +91,7 @@ export default function Home() {
                 <div className="slideshow_container">
                     <h1 className="title">2023 Picnic</h1>
                 <a 
-                    href="https://photos.google.com/share/AF1QipNCunLLYO7Zx3P26CtrFbAOBjBZauYKE5rfR9-AcWQp3pJWttmz09FCQb8XSsQaXQ?key=X1RTcFh4aWZ1bXRaQ1U3MTZ5QXpjRW5GdFN4TWpn"
+                    href= "https://photos.google.com/share/AF1QipNfzn8n5AYAFZGsZEnDr5p1s_nUZGVAFZ3K5VwooD_d69fMTIC6gOXO__LsUKwP3w?key=NTdwMVpjMW1hUEh4SDVWUUJHT3JEWG1hNE8yTGlB"
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="full-album-link"
@@ -116,7 +114,7 @@ export default function Home() {
                 <div className="slideshow_container">
                     <h1 className="title">2022 Picnic</h1>
                 <a 
-                href="https://photos.google.com/share/AF1QipNfzn8n5AYAFZGsZEnDr5p1s_nUZGVAFZ3K5VwooD_d69fMTIC6gOXO__LsUKwP3w?key=NTdwMVpjMW1hUEh4SDVWUUJHT3JEWG1hNE8yTGlB"
+                href="https://photos.google.com/share/AF1QipNCunLLYO7Zx3P26CtrFbAOBjBZauYKE5rfR9-AcWQp3pJWttmz09FCQb8XSsQaXQ?key=X1RTcFh4aWZ1bXRaQ1U3MTZ5QXpjRW5GdFN4TWpn"
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="full-album-link"
