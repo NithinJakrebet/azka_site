@@ -4,7 +4,7 @@ import AppearOnScroll from "../components/AppearOnScroll";
 import "../styling/magazine.css"
 import "../styling/pages.css"
 
-import pdf2023 from "../newsletter_pdfs/2023 AZKA Newsletter.pdf";
+import pdf2023 from "../newsletter_pdfs/2023 AZKA Newsletter PDF.pdf";
 // import pic2023 from "../photos/2023.png";
 import pic2023 from "../photos/picnic_2023/group.jpg"
 
@@ -31,6 +31,7 @@ function Magazine ({ title, imgURL, pdfURL }) {
 export default function Newsletter() {
     return (
         <AnimatedPage>
+          {/* <div className="text_box">Nothing here yet!</div> */}
             <AppearOnScroll>
                 <Magazine
                 title="2023 Newsletter"
