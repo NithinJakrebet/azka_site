@@ -5,11 +5,13 @@ import AppearOnScroll from "../components/AppearOnScroll";
 import AnimatedPage from "../components/AnimatedPage";
 import Baliga from "../photos/exec_com/Baliga.jpeg";
 import Nithin from "../photos/exec_com/Nithin.JPG";
+import Nithin2 from "../photos/exec_com/Nithin2.jpg";
 import Kamath from "../photos/exec_com/Kamath.jpeg";
 import Hema from "../photos/exec_com/Hema.jpg";
 import Gopika from "../photos/exec_com/Gopika.jpeg";
 import Sasikala from "../photos/exec_com/Sasikala.jpeg";
 import Vyshali from "../photos/exec_com/Vyshali.jpeg";
+import PreetiAndHarish from "../photos/exec_com/PreetiAndHarish.jpeg";
 
 function CommitteeMember({ name, bio, imageUrl }) {
   return (
@@ -34,10 +36,10 @@ export default function About() {
         <h1 className="title">Executive Committee</h1>
         <AppearOnScroll>
             <CommitteeMember 
-            name="Presidents: Shreeja & Guru Baliga" 
-            bio="Gurudath fondly known as Guru is originally from Bantwal and moved to the US in 2000 landing at the city of dreams, New York.
-            Shreeja has lived in Bengaluru for most of her life and moved to the US in 2004. They live in Chandler AZ, and are proud parents to 
-            Tanisha, who is a U of A Freshman and Tanay, who is almost stepping into highschool this year. They also have a loving cat, Venezuela Baliga.
+            name="Presidents: Guru & Shreeja Baliga" 
+            bio="Gurudath, AKA Guru, is originally from Bantwal and moved to the US in 2000, landing at the city of dreams, NYC.
+            Shreeja has lived in Bengaluru for most of her life and moved to the US in 2004. They both currently live in Chandler, AZ, and are proud parents to 
+            Tanisha, who is a UofA Freshman and Tanay, who is stepping into highschool this year. They also have a loving cat, Venezuela Baliga.
             Shreeja and Guru have lived in New Jersey, Florida and California prior to calling Arizona their home since 2008. 
             They love khavche, khavoche, hasche, Hossoche ani Gammat Korche." 
             imageUrl={Baliga} 
@@ -46,7 +48,10 @@ export default function About() {
         <AppearOnScroll>
             <CommitteeMember 
             name="Treasurer: Sasikala Kamath " 
-            bio="" 
+            bio="Sasikala Kamath and family moved to Arizona in 2004. Sasikala grew up in Vizianagarm, AP. Her parents' native place is 
+            Koteswar, Karnataka. She speaks Telugu very well other than Konkani. Her husband Shankar Kamath is  from Manchkal, near Shirva. 
+            They have 2 kids, Sanketh and Samantha. Sanketh is working at Meta and Samantha is working at IBM. She enjoys eating Amchi food, 
+            and family gatherings." 
             imageUrl={Sasikala} 
             />
         </AppearOnScroll>
@@ -54,23 +59,23 @@ export default function About() {
             <CommitteeMember 
             name="Deputy Treasurer: Hema Prabhu" 
             bio="Hema Prabhu, from Kanhangad, Kerala, moved to Phoenix, AZ in 1999. She is married to Panduranga Prabhu from Mangaluru. They have two
-             loving children Nisha and Nithin, and now reside in South Phoenix." 
+            loving children Nisha and Nithin, and currently reside in South Phoenix." 
             imageUrl={Hema} 
             />
         </AppearOnScroll>
         <AppearOnScroll>
             <CommitteeMember 
             name="Director, Food Coordination: Gopika Pai" 
-            bio="Gopika is a fun loving individual, loves to laugh and crack jokes (though only her husband laughs at her jokes) and always up for an adventure.
-            Proud amchi and dalitoy is her joy!" 
+            bio="Gopika is a fun loving individual who loves to laugh and crack jokes (though only her husband laughs at her jokes) and is always up for an adventure.
+            She is a proud amchi and Dalitoy is her joy!" 
             imageUrl={Gopika} 
             />
         </AppearOnScroll>
         <AppearOnScroll>
             <CommitteeMember 
             name="Deputy Directors, Food Coordination: Pavithra & Shirish Kamath" 
-            bio="Shirish is originally from Kumta and Pavithra from Tumakuru, now reside in Phoenix since 2016 with our two daughters.
-            Together, our family shares a passion for travel, enjoying the thrill of exploring new destinations. The love for adventure extends
+            bio="Shirish is originally from Kumta and Pavithra from Tumakuru. They have been living in Phoenix since 2016 with their two daughters.
+            Their family shares a passion for travel, enjoying the thrill of exploring new destinations. The love for adventure extends
             to trying diverse cuisines, making our journey not only about places but also about savoring unique delicacies. 
             This shared enthusiasm for discovery binds our family together, creating memorable experiences." 
             imageUrl={Kamath} 
@@ -86,18 +91,19 @@ export default function About() {
         </AppearOnScroll>
         <AppearOnScroll>
             <CommitteeMember
-            name="Website Manager: Nithin Jakrebet" 
-            bio="Nithin has lived in Arizona his whole life, and is now a student at Arizona State University studying Computer Science." 
-            imageUrl={Nithin} 
+            name="Cultural Committee Associate: Preeti Kamath" 
+            bio="Preeti (right) is originally from Mumbai and has been living in Arizona with her husband, Harish (left), and their daughter, Nidhi. 
+            Since 2007, Arizona has become a deeply cherished home with Konkani friends who have added warmth and joy to their lives!" 
+            imageUrl={PreetiAndHarish} 
             />
         </AppearOnScroll>
-        {/* <AppearOnScroll>
+        <AppearOnScroll>
             <CommitteeMember
-            name="Rescue Squad: TBD" 
-            bio="" 
-            // imageUrl={Nithin} 
+            name="Website Manager: Nithin Jakrebet" 
+            bio="Nithin has lived in Arizona his whole life, and is now a student at Arizona State University studying Computer Science." 
+            imageUrl={Nithin2} 
             />
-        </AppearOnScroll> */}
+        </AppearOnScroll>
       </div>
     </AnimatedPage>
   );

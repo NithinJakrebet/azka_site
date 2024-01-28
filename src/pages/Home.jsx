@@ -25,8 +25,8 @@ import table from "../photos/picnic_2022/table.jpg"
 
 const zelleInfo = {
     springPicnic: [
-        { label: 'Zelle Number: 623-271-5137 OR 602-373-7880' },
-        { label: 'Memo: AZ Konkani Spring Picnic Ticket' },
+        { label: '' },
+        { label: '' },
         {label: "Ticket Price: $20"}
     ]
     // starvingChildren: [
