@@ -1,5 +1,3 @@
-// Upcoming events, pics Slideshow type 
-
 import React from "react";
 import { ImageSlider } from "../components/ImageSlider.tsx";
 import '../styling/pages.css';
@@ -15,7 +13,6 @@ import kids_lunch from "../photos/picnic_2023/kids_lunch.jpg"
 import ladies_lunch from "../photos/picnic_2023/ladies_lunch.JPG"
 import musical_chairs from "../photos/picnic_2023/musical_chairs.JPG"
 
-
 import mensvb from "../photos/picnic_2022/mensvb.JPG"
 import group22 from "../photos/picnic_2022/2022_group.jpg"
 import active from "../photos/picnic_2022/active.jpg"
@@ -25,18 +22,17 @@ import table from "../photos/picnic_2022/table.jpg"
 
 const zelleInfo = {
     springPicnic: [
-        { label: '' },
-        { label: '' },
-        {label: "Ticket Price: $20"}
+        { label: 'Zelle Number: (602)-373-7335 ' },
+        { label: 'Memo: Spring Picnic' },
+
+        { label: 'BEFORE FEB 15TH' },
+        { label: 'Kids (10yrs and below): $10' },
+        { label: 'Adults and 11yrs+: $20' },
+
+        { label: 'AFTER Feb 15TH' },
+        { label: 'Kids (10yrs and below): $15' },
+        { label: 'Adults and 11yrs+: $25' }
     ]
-    // starvingChildren: [
-    //     { label: 'Zelle Number: 123-456-7890' },
-    //     { label: 'Memo: Starving Children Donation' }
-    // ],
-    // talentShow: [
-    //     { label: 'Zelle Number: 123-456-7890' },
-    //     { label: 'Memo: Talent Show Ticket' }
-    // ]
 };
 
 const PICNIC_2023_IMAGES = [

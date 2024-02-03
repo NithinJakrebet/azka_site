@@ -91,7 +91,7 @@ export default function About() {
         </AppearOnScroll>
         <AppearOnScroll>
             <CommitteeMember
-            name="Cultural Committee Associate: Preeti Kamath" 
+            name="Cultural Activity Associate: Preeti Kamath" 
             bio="Preeti (right) is originally from Mumbai and has been living in Arizona with her husband, Harish (left), and their daughter, Nidhi. 
             Since 2007, Arizona has become a deeply cherished home with Konkani friends who have added warmth and joy to their lives!" 
             imageUrl={PreetiAndHarish} 
