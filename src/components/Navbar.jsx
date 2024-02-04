@@ -11,7 +11,7 @@ export default function Navbar() {
 
     return (
         <nav className="nav">
-            <Link to="/" className="site-title">AZ Konkani Association</Link>
+            <Link to="/" className="site-title">AZ Konkanis</Link>
             <div className="hamburger-menu" onClick={toggleMenu}>☰</div>
             <ul className={`dropdown ${isMenuOpen ? "active" : ""}`}>
                 <CustomLink to="/" onClick={toggleMenu}>Home</CustomLink>
