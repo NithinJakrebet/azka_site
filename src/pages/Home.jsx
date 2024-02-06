@@ -22,7 +22,7 @@ import table from "../photos/picnic_2022/table.jpg"
 
 const zelleInfo = {
     springPicnic: [
-        { label: 'Zelle Number: (602)-373-7335 ' },
+        { label: 'Zelle Number: +1 (623) 271-5137'},
         { label: 'Memo: Spring Picnic' },
 
         { label: 'BEFORE FEB 15TH' },
