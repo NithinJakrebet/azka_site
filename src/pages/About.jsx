@@ -7,7 +7,7 @@ import Baliga from "../photos/exec_com/Baliga.jpeg";
 import Nithin from "../photos/exec_com/Nithin.JPG";
 import Nithin2 from "../photos/exec_com/Nithin2.jpg";
 import Kamath from "../photos/exec_com/Kamath.jpeg";
-import Hema from "../photos/exec_com/Hema.jpg";
+import Hema from "../photos/exec_com/Hema3.jpeg";
 import Gopika from "../photos/exec_com/Gopika.jpeg";
 import Sasikala from "../photos/exec_com/Sasikala.jpeg";
 import Vyshali from "../photos/exec_com/Vyshali.jpeg";
