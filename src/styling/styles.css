@@ -1,7 +1,6 @@
 * {
     box-sizing: border-box;
     font-weight: normal;
-    
 }
 
 body {
@@ -14,10 +13,15 @@ body {
     margin: auto;
     text-align: center;
     max-width: 70rem;
+    flex: 1;
 }
 
+.page-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
 
-/* You can define some global styles for appearing animation */
 @keyframes appear {
     from {
       opacity: 0;
@@ -33,4 +37,3 @@ body {
   .appear-on-scroll {
     animation: appear 0.6s ease-out forwards;
   }
-  

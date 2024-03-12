@@ -1,25 +1,27 @@
-* {
-    box-sizing: border-box;  
-    
+.main-footer{
+    list-style: none;
+    color: black;
+    padding-top: 3em;
+    flex-shrink: 0;
+    width: 100%;
+    text-align: center;
+    padding: 10px 0;
 }
 
-body {
+ul {
+    padding: 0;
     margin: 0;
-    justify-content: center;
+    list-style: none;
+    display: flex;
+    font-size: 12px;
+    gap: 1rem;
+}
+
+row {
+    display: flex;
     align-items: center;
 }
 
-.logo {
-    background-image: url(/src/photos/background.jpeg);
-    margin: auto;
-    margin-top: 20px;
-    width: 100%;
-    padding: 10px;
-    text-align: center;
-    font-size: 3rem;
-    font-weight: bold;
-    font-family: cursive;
-    background-color: blue;
-    background-position: 0%;
-    justify-content: space-between;
+.list-unstyled {
+
 }

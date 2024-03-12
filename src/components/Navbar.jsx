@@ -16,12 +16,14 @@ export default function Navbar() {
             <ul className={`dropdown ${isMenuOpen ? "active" : ""}`}>
                 <CustomLink to="/" onClick={toggleMenu}>Home</CustomLink>
                 <CustomLink to="/about" onClick={toggleMenu}>About Us</CustomLink>
+                <CustomLink to="/gallery" onClick={toggleMenu}>Gallery</CustomLink>
                 <CustomLink to="/newsletter" onClick={toggleMenu}>Newsletter</CustomLink>
                 <CustomLink to="/contact" onClick={toggleMenu}>Contact</CustomLink>
             </ul>
             <ul className="desktop">
                 <CustomLink to="/">Home</CustomLink>
                 <CustomLink to="/about">About Us</CustomLink>
+                <CustomLink to="/gallery">Gallery</CustomLink>
                 <CustomLink to="/newsletter">Newsletter</CustomLink>
                 <CustomLink to="/contact">Contact</CustomLink>
             </ul>
