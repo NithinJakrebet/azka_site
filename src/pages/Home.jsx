@@ -3,7 +3,6 @@ import '../styling/pages.css';
 import AnimatedPage from "../components/AnimatedPage.jsx";
 import AppearOnScroll from "../components/AppearOnScroll";
 import Dropdown from "../components/Dropdown.jsx";
-import App from "../App";
 
 const zelleInfo = {
     springPicnic: [
@@ -22,6 +21,12 @@ const zelleInfo = {
     hike: [
         {label: '8 remaining spots!'},
         {label: 'For further info, contact: shreejapai@yahoo.com'}
+    ],
+
+    /* August 11th
+        At SVK Temple */
+    chudi_puja: [
+        {label: 'August 11th'}
     ]
 };
 
@@ -32,13 +37,13 @@ export default function Home() {
                     <div className="text_box">
                         {/* AZ Konkanis Fundraiser Hike */}
                         <h2>Upcoming Events</h2>
-                        <h3>AZ Konkanis Fundraiser Hike</h3>
-                        <h4>March 16, 2024, 8AM-11AM</h4>
-                        <h4>Papago Park: 625 N Galvin Pkwy, Phoenix, AZ 85008, Ramada 15 </h4> 
-                        <Dropdown
+                        <h3>Chudi Puja</h3>
+                        <h4>August 11th</h4>
+                        <h4>Details TBD</h4> 
+                        {/* <Dropdown
                             label="Ticket Info "
                             info={zelleInfo.hike}
-                        />
+                        /> */}
                     </div>
             </AppearOnScroll>
         </AnimatedPage>

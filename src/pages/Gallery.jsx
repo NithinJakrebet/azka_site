@@ -1,4 +1,3 @@
-import React from "react";
 import { ImageSlider } from "../components/ImageSlider.tsx";
 import '../styling/pages.css';
 import AnimatedPage from "../components/AnimatedPage.jsx";
@@ -24,6 +23,20 @@ import active from "../photos/picnic_2022/active.jpg"
 import serving from "../photos/picnic_2022/serving.jpg"
 import laughing from "../photos/picnic_2022/laughing.jpg"
 import table from "../photos/picnic_2022/table.jpg"
+
+import cover from "../photos/papago_hike/cover.jpg"
+import ducks from "../photos/papago_hike/ducks.jpg"
+import flex from "../photos/papago_hike/flex.jpg"
+import hike_group from "../photos/papago_hike/hike_group.jpg"
+import sign from "../photos/papago_hike/sign.jpg"
+
+const HIKE_IMAGES = [
+    cover,
+    ducks,
+    flex,
+    hike_group,
+    sign
+]
 
 const PICNIC_2024_IMAGES = [
     group,
@@ -52,10 +65,35 @@ const PICNIC_2022_IMAGES = [
     table
 ]
 
+/* */
 
 export  default function Gallery() {
     return(
         <AnimatedPage>
+            <AppearOnScroll> 
+                <div className="slideshow_container">
+                    <h1 className="title">Hike at Papago Park 2024</h1>
+                <a 
+                    href= "https://photos.app.goo.gl/okAyaXBKE43wLjUC6 "
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="full-album-link"
+                >
+                    Full Album 
+                </a>
+                    <div 
+                        style={{
+                            maxWidth: "1100px",
+                            width: "100%",
+                            maxHeight: "600",
+                            aspectRatio: "11/6",
+                            margin: "0 auto"
+                        }}> 
+                        <ImageSlider imageUrls = {HIKE_IMAGES} />
+                    </div>
+                </div>
+            </AppearOnScroll>
+
             <AppearOnScroll> 
                 <div className="slideshow_container">
                     <h1 className="title">2024 Picnic</h1>
