@@ -74,7 +74,7 @@ export default function Gallery() {
                         <h1 className="title">{album.title}</h1>
                         
                         {/* Render the link to the full album if available */}
-                        {album.link ? (
+                        {/* {album.link ? (
                             <a 
                                 href={album.link}
                                 target="_blank" 
@@ -83,7 +83,7 @@ export default function Gallery() {
                             >
                                 Full Album
                             </a>
-                        ) : null}
+                        ) : null} */}
 
                         <div 
                             style={{

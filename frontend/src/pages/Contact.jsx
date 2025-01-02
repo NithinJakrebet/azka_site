@@ -9,7 +9,6 @@ const Contact = () => {
         <AnimatedPage>
             <Box className="text_box2">
                 <h1>Contact Us!</h1>
-                <h3>Shreeja Baliga: <a href="mailto:shreejapai@yahoo.com">shreejapai@yahoo.com</a> </h3>
                 <Button
                     sx={{
                         transition: 'transform 0.3s ease-in-out',

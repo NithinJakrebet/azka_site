@@ -2,12 +2,10 @@ import "../styling/pages.css";
 import AppearOnScroll from "../components/AppearOnScroll"; 
 import AnimatedPage from "../components/AnimatedPage";
 
+
 import Baliga from "../photos/exec_com/Baliga.jpeg";
 import Nithin from "../photos/exec_com/Nithin2.jpg";
-import Kamath from "../photos/exec_com/Kamath.jpeg";
 import Hema from "../photos/exec_com/Hema3.jpeg";
-import Gopika from "../photos/exec_com/Gopika.jpeg";
-import Sasikala from "../photos/exec_com/Sasikala.jpeg";
 import Vyshali from "../photos/exec_com/Vyshali.jpeg";
 import PreetiAndHarish from "../photos/exec_com/PreetiAndHarish.jpeg";
 
@@ -31,9 +29,9 @@ const committeeMembers = [
     imageUrl: Baliga
   },
   {
-    name: "Treasurer: Sasikala Kamath",
-    bio: "Sasikala Kamath and family moved to Arizona in 2004. Sasikala grew up in Vizianagarm, AP. Her parents' native place is Koteswar, Karnataka. She speaks Telugu very well other than Konkani. Her husband Shankar Kamath is from Manchkal, near Shirva. They have 2 kids, Sanketh and Samantha. Sanketh is working at Meta and Samantha is working at IBM. She enjoys eating Amchi food, and family gatherings.",
-    imageUrl: Sasikala
+    name: "Treasurer: Durga Nayak and Samanjay Shenoy",
+    bio: '' ,
+    // imageUrl: 
   },
   {
     name: "Deputy Treasurer: Hema Prabhu",
@@ -41,17 +39,27 @@ const committeeMembers = [
     imageUrl: Hema
   },
   {
-    name: "Director, Food Coordination: Gopika Pai",
-    bio: "Gopika is a fun loving individual who loves to laugh and crack jokes (though only her husband laughs at her jokes) and is always up for an adventure. She is a proud amchi and Dalitoy is her joy!",
-    imageUrl: Gopika
+    name: "Director, Food Coordination: Preeti Kamat",
+    bio: "",
+    // imageUrl: 
   },
   {
-    name: "Deputy Directors, Food Coordination: Pavithra & Shirish Kamath",
-    bio: "Shirish is originally from Kumta and Pavithra from Tumakuru. They have been living in Phoenix since 2016 with their two daughters. Their family shares a passion for travel, enjoying the thrill of exploring new destinations. The love for adventure extends to trying diverse cuisines, making our journey not only about places but also about savoring unique delicacies. This shared enthusiasm for discovery binds our family together, creating memorable experiences.",
-    imageUrl: Kamath
+    name: "Deputy Directors, Food Coordination: Vasudeva Kamat and Dr Ashwini Ammunje",
+    bio: "",
+    // imageUrl: 
   },
   {
-    name: "Cultural Activity & Entertainment Associate: Vyshali Mallya",
+    name: "Cultural Director: Veena Nerurkar",
+    bio: "",
+    // imageUrl: 
+  },
+  {
+    name: "Cultural Activity & Entertainment Associate: Pavithra",
+    bio: "",
+    // imageUrl: 
+  },
+  {
+    name: "Cultural Activity & Entertainment Associate; Chudi Puja: Vyshali Mallya",
     bio: "Vyshali has been living in Phoenix for a decade with Ravikiran (spouse) and Rayansh (son). She loves music and has learned and taught Carnatic Music in the valley for 5 years.",
     imageUrl: Vyshali
   },
@@ -59,6 +67,11 @@ const committeeMembers = [
     name: "Cultural Activity Associate: Preeti Kamath",
     bio: "Preeti (right) is originally from Mumbai and has been living in Arizona with her husband, Harish (left), and their daughter, Nidhi. Since 2007, Arizona has become a deeply cherished home with Konkani friends who have added warmth and joy to their lives!",
     imageUrl: PreetiAndHarish
+  },
+  {
+    name: "PR Specialist: Tanisha Baliga",
+    bio: "",
+    // imageUrl: 
   },
   {
     name: "Website Manager: Nithin Jakrebet",
