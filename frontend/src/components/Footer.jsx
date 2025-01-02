@@ -1,4 +1,3 @@
-import React from "react";
 import "../styling/footer.css";
 import "../styling/pages.css"
 import fb from "../photos/fb_icon.png"
