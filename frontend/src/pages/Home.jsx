@@ -7,73 +7,9 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-// Material UI button
 import Button from '@mui/material/Button';
+import { allEvents } from "../data/events";
 
-/** 
- * 1. Our events with date in `YYYY-MM-DD` format, startTime and endTime as "HH:mm" (24-hour).
- */
-const allEvents = [
-  {
-    title: "Movie Night",
-    date: "2025-01-25",
-    startTime: "14:40", // 2:40pm
-    endTime: "17:30",   // 5:30pm
-    location: "1825 E Elliot Rd, Tempe, AZ 85284",
-    description: "Screening for a Konkani movie"
-  },
-  {
-    title: "FMSC Volunteering event",
-    date: "2025-02-07",
-    // No startTime => "TBD"
-    location: "1100 W Grove Pkwy Ste 101, Tempe, AZ 85283",
-    description: "Pack meals for those in need."
-  },
-  {
-    title: "AZ Konkanis Spring Picnic",
-    date: "2025-02-23",
-    startTime: "10:00",
-    endTime: "16:00",
-    location: "5711 S All America Way, Tempe, AZ 85283",
-    description: "Games, food, fun!"
-  },
-  {
-    title: "Chudi Puja",
-    date: "2025-08-03",
-    startTime: "10:00",
-    endTime: "14:00",
-    location: "615 S Beck Ave, Tempe, AZ 85281",
-    description: "A community puja event."
-  },
-  // Archived
-  {
-    title: "Spring Picnic",
-    date: "2024-03-20",
-    description: "An exciting picnic event for families and friends."
-  },
-  {
-    title: "Hike",
-    date: "2024-07-14",
-    description: "A scenic hike to raise funds."
-  },
-  {
-    title: "Volunteering Event",
-    date: "2024-09-14",
-    description: "Community volunteering program."
-  },
-  {
-    title: "Hike & Breakfast",
-    date: "2024-10-26",
-    description: "Morning hike, then a delicious breakfast."
-  },
-  {
-    title: "Diwali Event",
-    date: "2024-11-16",
-    description: "Celebrate Diwali with us!"
-  },
-];
-
-// ===================== Utility Functions ===================== //
 
 /**
  * Returns a JavaScript Date if `dateStr` is valid, otherwise null.
@@ -187,9 +123,8 @@ function buildDateTime(dateStr, timeStr, defaultTime = "10:00") {
   return newDate;
 }
 
-/**
- * Create ICS text from event’s date/time data.
- */
+// Create ICS text from event’s date/time data.
+
 function createICSFileContent(event) {
   // Build start and end Date objects.
   const startDateTime = buildDateTime(event.date, event.startTime, "10:00");
@@ -227,9 +162,8 @@ END:VEVENT
 END:VCALENDAR`;
 }
 
-/**
- * Trigger a download of the ICS file in the browser.
- */
+// Trigger a download of the ICS file in the browser.
+
 function downloadICSFile(event) {
   const icsContent = createICSFileContent(event);
   const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
@@ -245,7 +179,6 @@ function downloadICSFile(event) {
   URL.revokeObjectURL(url);
 }
 
-// ===================== Main Component ===================== //
 
 export default function Home() {
   // Separate upcoming vs archived
@@ -272,7 +205,7 @@ export default function Home() {
       <AppearOnScroll>
         <div className="text_box">
           {/* Upcoming Events */}
-          <h2>Upcoming Events</h2>
+          <h1>Upcoming Events</h1>
           {upcomingEvents.length === 0 ? (
             <p>No upcoming events at this time.</p>
           ) : (
@@ -281,7 +214,8 @@ export default function Home() {
               const timeRange = formatTimeRange(event.startTime, event.endTime);
               return (
                 <div key={idx} style={{ marginBottom: "1.5rem" }}>
-                  <h3>{event.title}</h3>
+                  <h2>{event.title}</h2>
+                  <h3>{event.description}</h3>
                   <h4>Date: {displayDate}</h4>
                   <h4>Time: {timeRange}</h4>
                   {event.location && <h4>Location: {event.location}</h4>}
