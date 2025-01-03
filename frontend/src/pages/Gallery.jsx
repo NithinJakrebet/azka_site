@@ -36,11 +36,11 @@ import chudi from "../photos/AZ Konkanis Chudi puja held on Aug 25th 2024.png"
 // Data structure to hold album info
 const ALBUMS = [
     {
-        title: "Chudi puja",
+        title: "Chudi Puja",
         images: [chudi],
     },
     {
-        title: "FMSC Volunteering in Mesa- May 3rd",
+        title: "FMSC Volunteering",
         images: [FMSC],
     },
     {
@@ -87,9 +87,9 @@ export default function Gallery() {
 
                         <div 
                             style={{
-                                maxWidth: "1100px",
+                                maxWidth: "1000px",
                                 width: "100%",
-                                maxHeight: "600px",
+                                maxHeight: "500px",
                                 aspectRatio: "11/6",
                                 margin: "0 auto"
                             }}
@@ -97,7 +97,7 @@ export default function Gallery() {
                             <ImageSlider imageUrls={album.images} />
                         </div>
                     </div>
-                </AppearOnScroll>
+                 </AppearOnScroll>
             ))}
         </AnimatedPage>
     );
