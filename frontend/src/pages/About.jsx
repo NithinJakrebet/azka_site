@@ -4,10 +4,12 @@ import AnimatedPage from "../components/AnimatedPage";
 
 
 import Baliga from "../photos/exec_com/Baliga.jpeg";
-import Nithin from "../photos/exec_com/Nithin2.jpg";
+import Nithin from "../photos/exec_com/Nithin3.jpg";
 import Hema from "../photos/exec_com/Hema3.jpeg";
 import Vyshali from "../photos/exec_com/Vyshali.jpeg";
 import PreetiAndHarish from "../photos/exec_com/PreetiAndHarish.jpeg";
+import Vasudeva from "../photos/exec_com/Vasudeva.jpg"
+import Veena from "../photos/exec_com/Veena2.png"
 
 const CommitteeMember = ({ name, bio, imageUrl }) => {
   return (
@@ -45,13 +47,13 @@ const committeeMembers = [
   },
   {
     name: "Deputy Directors, Food Coordination: Vasudeva Kamat and Dr Ashwini Ammunje",
-    bio: "",
-    // imageUrl: 
+    bio: "Originally from Mangalore, proud alumnus of Canara High School and St. Aloysius College | Masters from KMC Mangalore, PhD from Mysore University | Moved to the U.S. in 2008, with post doctoral career stops in Michigan, Indiana, and New York before settling in Arizona in 2023 | Living in Gilbert with my wife Neeta of 20 years, son Vinay(sophomore at Northeastern University, Boston), and 6-year-old daughter at BASIS Chandler | Outdoor enthusiast, foodie, and passionate about cooking and sharing meals | Dedicated to preserving and promoting Konkani culture and traditions.",
+    imageUrl: Vasudeva
   },
   {
     name: "Cultural Director: Veena Nerurkar",
-    bio: "",
-    // imageUrl: 
+    bio: "Hello Bharshi Upkari mandali, I am Veena Nerurkar, originally from Karwar but raised in Mumbai. I moved to Arizona in 2018 with my husband and son after residing 17 years in Illinois.  I enjoy meeting new people, love to travel, avid fan of home improvement shows, and foodie. One of my favorite food is madgane.  I am looking forward to contributing to the 2025 Entertainment Committee.",
+    imageUrl: Veena
   },
   {
     name: "Cultural Activity & Entertainment Associate: Pavithra",

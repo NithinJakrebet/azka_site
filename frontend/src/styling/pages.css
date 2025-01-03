@@ -71,13 +71,13 @@ body {
     margin-top: 1rem;
     /* display: flex; */
     /* align-items: center; */
-    width:375px;
-    height: 375px;
+    width: 400px;
+    height: 400px;
     object-fit:cover;
     border-radius: 50%;
     border-color: rgb(0, 0, 0);
     border-style:solid;
-    border-width:3mm;
+    border-width:2mm;
   }
   
   .member-bio {
