@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Link, useMatch, useResolvedPath } from "react-router-dom";
 import "../styling/navbar.css";
 
