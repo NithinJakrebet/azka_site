@@ -10,6 +10,7 @@ import Vyshali from "../photos/exec_com/Vyshali.jpeg";
 import PreetiAndHarish from "../photos/exec_com/PreetiAndHarish.jpeg";
 import Vasudeva from "../photos/exec_com/Vasudeva.jpg"
 import Veena from "../photos/exec_com/Veena2.png"
+import Aswhini from "../photos/exec_com/Ashwini.png"
 
 const CommitteeMember = ({ name, bio, imageUrl }) => {
   return (
@@ -46,9 +47,22 @@ const committeeMembers = [
     // imageUrl: 
   },
   {
-    name: "Deputy Directors, Food Coordination: Vasudeva Kamat and Dr Ashwini Ammunje",
-    bio: "Originally from Mangalore, proud alumnus of Canara High School and St. Aloysius College | Masters from KMC Mangalore, PhD from Mysore University | Moved to the U.S. in 2008, with post doctoral career stops in Michigan, Indiana, and New York before settling in Arizona in 2023 | Living in Gilbert with my wife Neeta of 20 years, son Vinay(sophomore at Northeastern University, Boston), and 6-year-old daughter at BASIS Chandler | Outdoor enthusiast, foodie, and passionate about cooking and sharing meals | Dedicated to preserving and promoting Konkani culture and traditions.",
+    name: "Deputy Director, Food Coordination: Vasudeva Kamat ",
+    bio: 
+    `Vasudeva is originally from Mangalore, proud alumnus of Canara High School and St. Aloysius College |
+     Masters from KMC Mangalore, PhD from Mysore University | Moved to the U.S. in 2008, with post doctoral career stops in Michigan, Indiana, 
+     and New York before settling in Arizona in 2023 | Living in Gilbert with my wife Neeta of 20 years, son Vinay(sophomore at Northeastern University, Boston), 
+     and 6-year-old daughter at BASIS Chandler | Outdoor enthusiast, foodie, and passionate about cooking and sharing meals | Dedicated to preserving and promoting Konkani 
+     culture and traditions.`,
     imageUrl: Vasudeva
+  },
+  {
+    name: "Deputy Director, Food Coordination: Dr Ashwini Ammunje",
+    bio:`Ashwini Ammunje is a practicing internist in Peoria AZ for the past 15 years.
+    She is passionate about practicing medicine and supporting the Konkani community.
+    Being a Dermatologist from India she is keen on preventing skin cancer in the community. Please learn more at our practice website www.stellarmgaz.com.`
+    ,
+    imageUrl: Aswhini
   },
   {
     name: "Cultural Director: Veena Nerurkar",
