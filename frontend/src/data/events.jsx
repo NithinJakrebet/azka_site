@@ -2,15 +2,14 @@ export const allEvents = [
       {
         title: "Movie Night",
         date: "2025-01-25",
-      //   startTime: "14:40", // 2:40pm
-      //   endTime: "17:30",   // 5:30pm
         location: "1825 E Elliot Rd, Tempe, AZ 85284",
-        description: "Screening for a Konkani movie"
+        description: "Screening the Konkani movie Tarpana"
       },
       {
         title: "FMSC Volunteering event",
         date: "2025-02-07",
-        // No startTime => "TBD"
+        startTime: "16:30", 
+        endTime: "18:30",  
         location: "1100 W Grove Pkwy Ste 101, Tempe, AZ 85283",
         description: "Pack meals for those in need."
       },
@@ -20,7 +19,7 @@ export const allEvents = [
         startTime: "10:00",
         endTime: "16:00",
         location: "5711 S All America Way, Tempe, AZ 85283",
-        description: "Games, food, fun!"
+        description: "SVK Temple Main Hall, Games, food, fun!"
       },
       {
         title: "Chudi Puja",

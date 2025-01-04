@@ -18,7 +18,7 @@ export const committeeMembers = [
         imageUrl: Baliga
       },
       {
-        name: "Treasurer: Durga Shenoy and Samanjay Shenoy",
+        name: "Treasurer: Durga Nayak and Samanjay Shenoy",
         bio: 'Samanjay, originally from Bantwal & Durga from Mangalore, embarked on an adventurous journey that took them from India to Canada, where they spent over 16 years, before moving to Chandler, AZ, in 2023 along with their daughter Samanvi and pet dog Marvel. Previously they were active members of Ontario Konkani Association and have served as Treasurers. Samanjay, is a cricket enthusiast who loves spending his weekends practicing his favorite sport. Durga,  is the creative force of the family, with a passion for crafts and meticulous travel planning. Their daughter, Samanvi, balances her time between school and playing basketball. Together, they enjoy exploring new destinations, celebrating their Konkani roots, and embracing life’s adventures in their home in Chandler.' ,
         imageUrl: Shenoy
       },
@@ -37,8 +37,7 @@ export const committeeMembers = [
         bio: 
         `Vasudeva is originally from Mangalore, proud alumnus of Canara High School and St. Aloysius College |
          Masters from KMC Mangalore, PhD from Mysore University | Moved to the U.S. in 2008, with post doctoral career stops in Michigan, Indiana, 
-         and New York before settling in Arizona in 2023 | Living in Gilbert with my wife Neeta of 20 years, son Vinay(sophomore at Northeastern University, Boston), 
-         and 6-year-old daughter at BASIS Chandler | Outdoor enthusiast, foodie, and passionate about cooking and sharing meals | Dedicated to preserving and promoting Konkani 
+         and New York before settling in Arizona in 2023 | Living in Gilbert with my wife Neeta of 20 years | Outdoor enthusiast, foodie, and passionate about cooking and sharing meals | Dedicated to preserving and promoting Konkani 
          culture and traditions.`,
         imageUrl: Vasudeva
       },
@@ -56,8 +55,8 @@ export const committeeMembers = [
         imageUrl: Veena
       },
       {
-        name: "Cultural Activity & Entertainment Associate: Shirish and Pavithra Kamat",
-        bio: "Shirish is originally from Kumta and Pavithra from Tumakuru. They have been living in Phoenix since 2016 with their two daughters. Their family shares a passion for travel, enjoying the thrill of exploring new destinations. The love for adventure extends to trying diverse cuisines, making our journey not only about places but also about savoring unique delicacies. This shared enthusiasm for discovery binds our family together, creating memorable experiences.",
+        name: "Cultural Activity & Entertainment Associate: Pavithra Kamat",
+        bio: "Pavithra is from Tumakuru. She has been living in Phoenix since 2016 with her husband and two daughters. Her family shares a passion for travel, enjoying the thrill of exploring new destinations. The love for adventure extends to trying diverse cuisines, making our journey not only about places but also about savoring unique delicacies. This shared enthusiasm for discovery binds our family together, creating memorable experiences.",
         imageUrl: Kamath
       },
       {

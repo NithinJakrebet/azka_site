@@ -17,9 +17,15 @@ import { allEvents } from "../data/events";
  */
 function parseDate(dateStr) {
   if (!dateStr) return null;
-  const dt = new Date(dateStr);
+
+  // Split the date string into year, month, and day
+  const [year, month, day] = dateStr.split("-").map(Number);
+
+  // Construct a date in the local time zone without any time zone conversion
+  const dt = new Date(year, month - 1, day); // Month is zero-based in JS Date
   return isNaN(dt.getTime()) ? null : dt;
 }
+
 
 /**
  * Convert a date string (YYYY-MM-DD) to "Month DaySuffix, Year" 
@@ -27,6 +33,7 @@ function parseDate(dateStr) {
  */
 function formatDate(dateStr) {
   const dt = parseDate(dateStr);
+  
   if (!dt) return ""; 
 
   const months = [
