@@ -1,8 +1,8 @@
 import "../styling/footer.css";
 import "../styling/pages.css"
-import fb from "../photos/fb_icon.png"
-import ig from "../photos/Instagram_logo.png"
-import tk from "../photos/tiktok.png"
+// import fb from "../photos/fb_icon.png"
+// import ig from "../photos/Instagram_logo.png"
+// import tk from "../photos/tiktok.png"
 
 export default function Footer() {
 	return (
