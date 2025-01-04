@@ -4,9 +4,11 @@ import Hema from "../photos/exec_com/Hema3.jpeg";
 import Vyshali from "../photos/exec_com/Vyshali.jpeg";
 import PreetiAndHarish from "../photos/exec_com/PreetiAndHarish.jpeg";
 import Vasudeva from "../photos/exec_com/Vasudeva.jpg"
+import Shenoy from "../photos/exec_com/Shenoy.jpg"
 import Veena from "../photos/exec_com/Veena2.png"
 import Aswhini from "../photos/exec_com/Ashwini.png"
-
+import Kamath from "../photos/exec_com/Kamath.jpeg"
+import Tanisha from "../photos/exec_com/Tanisha.png"
 
 // Data for committee members
 export const committeeMembers = [
@@ -16,9 +18,9 @@ export const committeeMembers = [
         imageUrl: Baliga
       },
       {
-        name: "Treasurer: Durga Nayak and Samanjay Shenoy",
-        bio: '' ,
-        // imageUrl: 
+        name: "Treasurer: Durga Shenoy and Samanjay Shenoy",
+        bio: 'Samanjay, originally from Bantwal & Durga from Mangalore, embarked on an adventurous journey that took them from India to Canada, where they spent over 16 years, before moving to Chandler, AZ, in 2023 along with their daughter Samanvi and pet dog Marvel. Previously they were active members of Ontario Konkani Association and have served as Treasurers. Samanjay, is a cricket enthusiast who loves spending his weekends practicing his favorite sport. Durga,  is the creative force of the family, with a passion for crafts and meticulous travel planning. Their daughter, Samanvi, balances her time between school and playing basketball. Together, they enjoy exploring new destinations, celebrating their Konkani roots, and embracing life’s adventures in their home in Chandler.' ,
+        imageUrl: Shenoy
       },
       {
         name: "Deputy Treasurer: Hema Prabhu",
@@ -27,8 +29,8 @@ export const committeeMembers = [
       },
       {
         name: "Director, Food Coordination: Preeti Kamat",
-        bio: "",
-        // imageUrl: 
+        bio: "Preeti (right) is originally from Mumbai and has been living in Arizona with her husband, Harish (left), and their daughter, Nidhi. Since 2007, Arizona has become a deeply cherished home with Konkani friends who have added warmth and joy to their lives!",
+        imageUrl: PreetiAndHarish
       },
       {
         name: "Deputy Director, Food Coordination: Vasudeva Kamat ",
@@ -54,9 +56,9 @@ export const committeeMembers = [
         imageUrl: Veena
       },
       {
-        name: "Cultural Activity & Entertainment Associate: Pavithra",
-        bio: "",
-        // imageUrl: 
+        name: "Cultural Activity & Entertainment Associate: Shirish and Pavithra Kamat",
+        bio: "Shirish is originally from Kumta and Pavithra from Tumakuru. They have been living in Phoenix since 2016 with their two daughters. Their family shares a passion for travel, enjoying the thrill of exploring new destinations. The love for adventure extends to trying diverse cuisines, making our journey not only about places but also about savoring unique delicacies. This shared enthusiasm for discovery binds our family together, creating memorable experiences.",
+        imageUrl: Kamath
       },
       {
         name: "Cultural Activity & Entertainment Associate; Chudi Puja: Vyshali Mallya",
@@ -64,14 +66,9 @@ export const committeeMembers = [
         imageUrl: Vyshali
       },
       {
-        name: "Cultural Activity Associate: Preeti Kamath",
-        bio: "Preeti (right) is originally from Mumbai and has been living in Arizona with her husband, Harish (left), and their daughter, Nidhi. Since 2007, Arizona has become a deeply cherished home with Konkani friends who have added warmth and joy to their lives!",
-        imageUrl: PreetiAndHarish
-      },
-      {
         name: "PR Specialist: Tanisha Baliga",
-        bio: "",
-        // imageUrl: 
+        bio: "She is a sophomore at U of A , Tucson pursuing MIS. Loves music and dance.",
+        imageUrl: Tanisha
       },
       {
         name: "Website Manager: Nithin Jakrebet",
