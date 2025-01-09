@@ -19,7 +19,7 @@ export const allEvents = [
         startTime: "10:00",
         endTime: "16:00",
         location: "5711 S All America Way, Tempe, AZ 85283",
-        description: "SVK Temple Main Hall, Games, food, fun!"
+        description: "Games, food, fun!"
       },
       {
         title: "Chudi Puja",
@@ -27,7 +27,7 @@ export const allEvents = [
         startTime: "10:00",
         endTime: "14:00",
         location: "615 S Beck Ave, Tempe, AZ 85281",
-        description: "A community puja event."
+        description: "SVK Temple Main Hall, A community puja event."
       },
       // Archived
       {

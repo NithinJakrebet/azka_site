@@ -209,7 +209,6 @@ export default function Home() {
 
   return (
     <AnimatedPage>
-      <AppearOnScroll>
         <div className="text_box">
           {/* Upcoming Events */}
           <h1>Upcoming Events</h1>
@@ -267,7 +266,6 @@ export default function Home() {
             </AccordionDetails>
           </Accordion>
         </div>
-      </AppearOnScroll>
     </AnimatedPage>
   );
 }
