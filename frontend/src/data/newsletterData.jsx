@@ -1,7 +1,5 @@
 import pdf2023 from "../newsletter_pdfs/2023AZKANEWS.pdf";
-
 import pdf2024 from "../newsletter_pdfs/2024AZKANEWS.pdf";
-import pic2024 from "../photos/picnic_2024/group.JPG";
 
 export const newsletters = [
       {

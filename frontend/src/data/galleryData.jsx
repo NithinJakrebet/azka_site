@@ -1,6 +1,3 @@
-import FMSC from "../photos/FMSC Mesa- May 3rd.png"
-import chudi from "../photos/AZ Konkanis Chudi puja held on Aug 25th 2024.png"
-
 // Data structure to hold album info
 export const ALBUMS = [
     {
@@ -15,15 +12,6 @@ export const ALBUMS = [
             "https://lh3.googleusercontent.com/pw/AP1GczNlGUU77FPXHf3NEXpP1TtDFKpCq_nQD7heSYJxM4YOhnNPzZeiAodc2NIxSc-QmJHzvUNvzvTnNUKC8SmQFk6KbkzWoEzsiixc3U9FrrByAtGGJe76KmnElnNcbdam2C5ElCiTfOB6vzcUVElTbjLYbg=w1437-h958-s-no-gm?authuser=0",
             "https://lh3.googleusercontent.com/pw/AP1GczPv6uYlr500YZCLWOwUzmiKO4BHUv9fiMq06RJpNGvzVfgIXUwsOwPKaO0ANEvBL2lujmhL7-YNFtxH0gefT1oe3TCekjgdUwFAlPEwZx_meKzDhEngXPMRI7WNgD2lfRQkpXvpmGAUYptQcemoKnvDgg=w1437-h958-s-no-gm?authuser=0",
         ],
-    },
-
-    {
-        title: "Chudi Puja",
-        images: [chudi],
-    },
-    {
-        title: "FMSC Volunteering",
-        images: [FMSC],
     },
     {
         title: "Hike at Papago Park 2024",
