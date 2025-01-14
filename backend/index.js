@@ -4,7 +4,8 @@ import express from "express";
 import mongoose from 'mongoose';
 import eventsRouter from './routes/events.js';
 import committeeMembersRouter from './routes/committeeMembers.js';
-
+import albumsRouter from './routes/albums.js';
+import cors from 'cors';
 
 dotenv.config();
 
@@ -13,6 +14,7 @@ const PORT = process.env.PORT || 5555;
 const MONGODBURL = process.env.MONGODBURL
 
 app.use(express.json());
+app.use(cors())
 
 app.get('/', (request, response) => {
   console.log(request);
@@ -22,6 +24,7 @@ app.get('/', (request, response) => {
 // Use the events router with base path /events
 app.use('/events', eventsRouter);
 app.use('/committeeMembers', committeeMembersRouter);
+app.use('/albums', albumsRouter);
 
 mongoose
   .connect(MONGODBURL)

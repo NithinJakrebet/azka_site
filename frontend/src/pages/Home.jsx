@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState, useEffect } from "react";
 import '../styling/pages.css';
 import AnimatedPage from "../components/AnimatedPage.jsx";
 import AppearOnScroll from "../components/AppearOnScroll";
@@ -8,22 +8,34 @@ import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
-import { allEvents } from "../data/events";
+import axios from "axios";
 
 
 /**
- * Returns a JavaScript Date if `dateStr` is valid, otherwise null.
- * Expects dateStr like "2025-01-25" or "January 25, 2025".
+ * Returns a JavaScript Date if the input is valid, otherwise null.
+ * Handles both:
+ *   - { "$date": "2025-01-25T00:00:00.000Z" }
+ *   - "YYYY-MM-DD" (string)
  */
-function parseDate(dateStr) {
-  if (!dateStr) return null;
+function parseDate(input) {
+  if (!input) return null;
 
-  // Split the date string into year, month, and day
-  const [year, month, day] = dateStr.split("-").map(Number);
+  // Case 1: If it's an object from Mongo (with '$date')
+  if (typeof input === "object" && input.$date) {
+    // Convert that ISO8601 string into a JS Date
+    const dt = new Date(input.$date);
+    return isNaN(dt.getTime()) ? null : dt;
+  }
 
-  // Construct a date in the local time zone without any time zone conversion
-  const dt = new Date(year, month - 1, day); // Month is zero-based in JS Date
-  return isNaN(dt.getTime()) ? null : dt;
+  // Case 2: If it's already a string like "2025-01-25"
+  if (typeof input === "string") {
+    // e.g. "2025-01-25"
+    const [year, month, day] = input.split("-").map(Number);
+    const dt = new Date(year, (month || 1) - 1, day);
+    return isNaN(dt.getTime()) ? null : dt;
+  }
+
+  return null;
 }
 
 
@@ -31,20 +43,18 @@ function parseDate(dateStr) {
  * Convert a date string (YYYY-MM-DD) to "Month DaySuffix, Year" 
  * e.g. "2025-01-25" => "January 25th, 2025".
  */
-function formatDate(dateStr) {
-  const dt = parseDate(dateStr);
-  
-  if (!dt) return ""; 
+function formatDate(dateInput) {
+  const dt = parseDate(dateInput);
+  if (!dt) return "";
 
   const months = [
-    "January", "February", "March",
-    "April", "May", "June", 
+    "January", "February", "March", 
+    "April", "May", "June",
     "July", "August", "September",
     "October", "November", "December"
   ];
 
-  // daySuffix helper
-  const daySuffix = (day) => {
+  function daySuffix(day) {
     if (day >= 11 && day <= 13) return "th";
     switch (day % 10) {
       case 1: return "st";
@@ -52,7 +62,7 @@ function formatDate(dateStr) {
       case 3: return "rd";
       default: return "th";
     }
-  };
+  }
 
   const year = dt.getFullYear();
   const monthName = months[dt.getMonth()];
@@ -61,6 +71,7 @@ function formatDate(dateStr) {
 
   return `${monthName} ${day}${suffix}, ${year}`;
 }
+
 
 /**
  * Convert "HH:mm" (24-hour) to "h:mma" in uppercase, e.g. "10:47AM".
@@ -131,7 +142,6 @@ function buildDateTime(dateStr, timeStr, defaultTime = "10:00") {
 }
 
 // Create ICS text from event’s date/time data.
-
 function createICSFileContent(event) {
   // Build start and end Date objects.
   const startDateTime = buildDateTime(event.date, event.startTime, "10:00");
@@ -170,7 +180,6 @@ END:VCALENDAR`;
 }
 
 // Trigger a download of the ICS file in the browser.
-
 function downloadICSFile(event) {
   const icsContent = createICSFileContent(event);
   const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
@@ -188,7 +197,32 @@ function downloadICSFile(event) {
 
 
 export default function Home() {
-  // Separate upcoming vs archived
+  const [allEvents, setAllEvents] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    setLoading(true);
+    axios
+      .get("http://localhost:5555/events")
+      .then((response) => {
+        // If the server returns { data: [...] }
+        // you might need to do:
+        const returnedData = response.data?.data;
+
+        // If `returnedData` is indeed an array, great.
+        // Otherwise, default to an empty array.
+        setAllEvents(Array.isArray(returnedData) ? returnedData : []);
+        console.log(allEvents);
+        setLoading(false);
+      })
+      .catch((err) => {
+        console.error("Error fetching events:", err);
+        setLoading(false);
+      });
+
+  }, []);
+
+  // Separate upcoming vs archived using useMemo
   const { upcomingEvents, archivedEvents } = useMemo(() => {
     const now = new Date();
     const upcoming = [];
@@ -196,7 +230,7 @@ export default function Home() {
 
     allEvents.forEach((event) => {
       const eventDate = parseDate(event.date);
-      // If invalid or in the past -> archived
+      // If invalid date or event date < now, consider archived
       if (!eventDate || eventDate < now) {
         archived.push(event);
       } else {
@@ -205,48 +239,59 @@ export default function Home() {
     });
 
     return { upcomingEvents: upcoming, archivedEvents: archived };
-  }, []);
+  }, [allEvents]);
+
+  if (loading) {
+    return (
+      <AnimatedPage>
+        <h2>Loading events...</h2>
+      </AnimatedPage>
+    );
+  }
 
   return (
     <AnimatedPage>
-        <div className="text_box">
-          {/* Upcoming Events */}
-          <h1>Upcoming Events</h1>
-          {upcomingEvents.length === 0 ? (
-            <p>No upcoming events at this time.</p>
-          ) : (
-            upcomingEvents.map((event, idx) => {
-              const displayDate = formatDate(event.date);
-              const timeRange = formatTimeRange(event.startTime, event.endTime);
-              return (
-                <div key={idx} style={{ marginBottom: "1.5rem" }}>
-                  <h2>{event.title}</h2>
-                  <h3>{event.description}</h3>
-                  <h4>Date: {displayDate}</h4>
-                  <h4>Time: {timeRange}</h4>
-                  {event.location && <h4>Location: {event.location}</h4>}
+      <div className="text_box">
+        {/* Upcoming Events */}
+        <h1>Upcoming Events</h1>
+        {upcomingEvents.length === 0 ? (
+          <p>No upcoming events at this time.</p>
+        ) : (
+          upcomingEvents.map((event, idx) => {
+            const displayDate = formatDate(event.date);
+            const timeRange = formatTimeRange(event.startTime, event.endTime);
+            return (
+              <div key={idx} style={{ marginBottom: "1.5rem" }}>
+                <h2>{event.title}</h2>
+                <h3>{event.description}</h3>
+                <h4>Date: {displayDate}</h4>
+                <h4>Time: {timeRange}</h4>
+                {event.location && <h4>Location: {event.location}</h4>}
 
-                  <Button
-                    variant="contained"
-                    color="primary"
-                    onClick={() => downloadICSFile(event)}
-                    style={{ marginTop: "0.5rem" }}
-                  >
-                    Add to Calendar
-                  </Button>
-                </div>
-              );
-            })
-          )}
+                <Button
+                  variant="contained"
+                  color="primary"
+                  onClick={() => downloadICSFile(event)}
+                  style={{ marginTop: "0.5rem" }}
+                >
+                  Add to Calendar
+                </Button>
+              </div>
+            );
+          })
+        )}
 
-          {/* Archived Events */}
-          <h2>Archived Events</h2>
-          <Accordion>
-            <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-              <Typography>Archived Events</Typography>
-            </AccordionSummary>
-            <AccordionDetails>
-              {archivedEvents.map((event, index) => {
+        {/* Archived Events */}
+        <h2>Archived Events</h2>
+        <Accordion>
+          <AccordionSummary expandIcon={<ExpandMoreIcon />}>
+            <Typography>Archived Events</Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            {archivedEvents.length === 0 ? (
+              <p>No archived events.</p>
+            ) : (
+              archivedEvents.map((event, index) => {
                 const displayDate = formatDate(event.date);
                 const timeRange = formatTimeRange(event.startTime, event.endTime);
                 return (
@@ -255,17 +300,18 @@ export default function Home() {
                     <p>
                       {displayDate}
                       {timeRange === "TBD" 
-                        ? ""         // omit time if entirely "TBD"
+                        ? "" // omit time if entirely "TBD"
                         : `, ${timeRange}`
                       }
                     </p>
                     {event.description && <p>{event.description}</p>}
                   </div>
                 );
-              })}
-            </AccordionDetails>
-          </Accordion>
-        </div>
+              })
+            )}
+          </AccordionDetails>
+        </Accordion>
+      </div>
     </AnimatedPage>
   );
 }
