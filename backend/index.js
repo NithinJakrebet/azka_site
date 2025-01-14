@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import express from "express";
 import mongoose from 'mongoose';
 import eventsRouter from './routes/events.js';
+import committeeMembersRouter from './routes/committeeMembers.js';
 
 
 dotenv.config();
@@ -20,6 +21,7 @@ app.get('/', (request, response) => {
 
 // Use the events router with base path /events
 app.use('/events', eventsRouter);
+app.use('/committeeMembers', committeeMembersRouter);
 
 mongoose
   .connect(MONGODBURL)

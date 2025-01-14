@@ -56,3 +56,6 @@ export const allEvents = [
         description: "Celebrate Diwali with us!"
       },
     ];
+
+
+    
