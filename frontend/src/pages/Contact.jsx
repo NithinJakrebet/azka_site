@@ -1,8 +1,5 @@
 import AnimatedPage from "../components/AnimatedPage";
 import "../styling/pages.css";
-
-import fb from "../photos/fb_icon.png";
-
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 
@@ -47,7 +44,7 @@ export default function Contact() {
         >
           <img
             className="rounded-image"
-            src={fb}
+            src="https://lh3.googleusercontent.com/pw/AP1GczNQYm2JXAaouwivvfxfR-6ZgKWmlng1ed3rgsL9Zu_McouxeOqv_A5PTbEsVkcErOs3akGUYbop0SphapAccuOJfN37A23p4axnnTOTyp_HYhyRRnJU9QbFJCCOgwzy4_kz8Ag3XzWMGHh47rM1Jjz06w=w325-h325-s-no?authuser=0"
             alt="Facebook icon"
           />
         </a>
