@@ -1,26 +1,14 @@
 import AnimatedPage from "../components/AnimatedPage";
 import AppearOnScroll from "../components/AppearOnScroll";
-import "../styling/magazine.css";
-import "../styling/pages.css";
-import { newsletters } from "../data/newsletterData";
+import Magazine from "../components/newsletter/Magazine";
+import useNewsletters from "../hooks/useNewsletters";
 
-const Magazine = ({ title, imgURL, pdfURL }) => {
-  return (
-    <div className="magazine-container">
-      <img className="magazine-image" src={imgURL} alt="year_pic" />
-      <a 
-        href={pdfURL}
-        target="_blank" 
-        rel="noopener noreferrer" 
-        className="magazine-url"
-      >
-        {title}
-      </a>
-    </div>
-  );
-}
+const Newsletter = () => {
 
-export default function Newsletter() {
+  const { newsletters, loading } = useNewsletters();
+
+  if (loading) return <h1>Loading...</h1>
+
   return (
     <AnimatedPage>
       {newsletters.map((newsletter, idx) => (
@@ -35,3 +23,5 @@ export default function Newsletter() {
     </AnimatedPage>
   );
 }
+
+export default Newsletter;

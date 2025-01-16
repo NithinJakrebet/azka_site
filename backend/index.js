@@ -5,6 +5,7 @@ import mongoose from 'mongoose';
 import eventsRouter from './routes/events.js';
 import committeeMembersRouter from './routes/committeeMembers.js';
 import albumsRouter from './routes/albums.js';
+import newslettersRouter from './routes/newsletters.js'
 import cors from 'cors';
 
 dotenv.config();
@@ -25,6 +26,7 @@ app.get('/', (request, response) => {
 app.use('/events', eventsRouter);
 app.use('/committeeMembers', committeeMembersRouter);
 app.use('/albums', albumsRouter);
+app.use('/newsletters', newslettersRouter);
 
 mongoose
   .connect(MONGODBURL)

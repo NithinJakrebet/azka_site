@@ -29,24 +29,13 @@ const ArchivedEvents = () => {
                   boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Lighter shadow
                   background: "linear-gradient(to right, #f8f9fa, #e9ecef)", // Muted gradient
                   transition: "transform 0.3s, box-shadow 0.3s",
-                  cursor: "pointer",
-                }}
-                onMouseEnter={(e) => {
-                  e.currentTarget.style.transform = "scale(1.02)";
-                  e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 0, 0.2)";
-                }}
-                onMouseLeave={(e) => {
-                  e.currentTarget.style.transform = "scale(1)";
-                  e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.1)";
                 }}
               >
-                <h2 style={{ margin: "0 0 10px 0", color: "#495057" }}>{event.title}</h2>
-                <h3 style={{ margin: "0 0 10px 0", color: "#6c757d" }}>{event.description}</h3>
-                <h4 style={{ margin: "0 0 10px 0", color: "#adb5bd" }}>{formatDate(event.date)}</h4>
-                <h4 style={{ margin: "0 0 10px 0", color: "#adb5bd" }}>
-                  {formatTime(event.startTime, event.endTime)}
-                </h4>
-                <h4 style={{ margin: "0 0 20px 0", color: "#ced4da" }}>{event.location}</h4>
+                <h2>{event.title}</h2>
+                <h3>{event.description}</h3>
+                <h4>{formatDate(event.date)}</h4>
+                <h4>{formatTime(event.startTime, event.endTime)}</h4>
+                <h4>{event.location}</h4>
               </div>
             ))
           )}

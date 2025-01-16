@@ -15,18 +15,10 @@ const UpcomingEvents = () => {
             marginBottom: "40px",
             padding: "20px",
             borderRadius: "8px",
-            // backgroundColor: ""
-            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)", // Modern shadow
+            border: "2px solid #000", // This line sets the border to 2px, solid, black
+            backgroundColor: "#FFFFFF",
+            boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
             transition: "transform 0.3s, box-shadow 0.3s",
-            cursor: "pointer",
-          }}
-          onMouseEnter={(e) => {
-            e.currentTarget.style.transform = "scale(1.02)";
-            e.currentTarget.style.boxShadow = "0 8px 16px rgba(0, 0, 1, 0.3)";
-          }}
-          onMouseLeave={(e) => {
-            e.currentTarget.style.transform = "scale(1)";
-            e.currentTarget.style.boxShadow = "0 4px 8px rgba(0, 0, 0, 0.2)";
           }}
         >
           <h2>{event.title}</h2>

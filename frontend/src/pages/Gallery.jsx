@@ -1,26 +1,13 @@
-import { useState, useEffect } from "react";
-import axios from "axios";
+
 import { ImageSlider } from "../components/ImageSlider.tsx";
+import useAlbums from "../hooks/useAlbums.jsx";
 import AnimatedPage from "../components/AnimatedPage.jsx";
-// import { ALBUMS } from "../data/galleryData.jsx";
 
 const Gallery = () => {
+    const { albums, loading } = useAlbums();
 
-    const [albums, setAlbums] = useState([]);
-    const [loading, setLoading] = useState(false);
-  
-    useEffect(() => {
-      setLoading(true);
-  
-      axios
-        .get('http://localhost:5555/albums')
-        .then((response => {
-            setAlbums(response.data);
-            console.log(`Albums: ${albums}`)
-            setLoading(false);
-        }))
-    }, [])
-    
+    if (loading) return <h1>Loading...</h1>
+
     
     return (
         <AnimatedPage>
