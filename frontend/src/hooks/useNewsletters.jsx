@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const useNewsletters = () => {
 
       const [newsletters, setNewsletters] = useState([]);
@@ -10,7 +12,7 @@ const useNewsletters = () => {
         setLoading(true);
     
         axios
-          .get('http://localhost:5555/newsletters')
+          .get(`${API_URL}/newsletters`)
           .then((response => {
             setNewsletters(response.data);
             console.log(`Newsletters: ${newsletters}`)

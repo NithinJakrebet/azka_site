@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const useCommitteeMembers = () => {
 
       const [committeeMembers, setCommitteeMembers] = useState([]);
@@ -10,7 +12,7 @@ const useCommitteeMembers = () => {
         setLoading(true);
     
         axios
-          .get('http://localhost:5555/committeeMembers')
+          .get(`${API_URL}/committeeMembers`)
           .then((response => {
             setCommitteeMembers(response.data);
             console.log(`Committee Members: ${committeeMembers}`)

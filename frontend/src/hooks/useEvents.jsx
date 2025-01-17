@@ -1,6 +1,8 @@
 import { useState, useEffect, useMemo } from "react";
 import axios from "axios";
 
+const API_URL = process.env.REACT_APP_API_URL;
+
 const useEvents = () => {
   const [events, setEvents] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -8,7 +10,7 @@ const useEvents = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5555/events")
+      .get(`${API_URL}/events`)
       .then((response) => {
         const returnedData = response.data?.data;
         setEvents(Array.isArray(returnedData) ? returnedData : []);
