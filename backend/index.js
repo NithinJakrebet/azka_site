@@ -1,6 +1,6 @@
 // backend/index.js
 import dotenv from 'dotenv';
-import express from "express";
+import express from 'express';
 import mongoose from 'mongoose';
 import eventsRouter from './routes/events.js';
 import committeeMembersRouter from './routes/committeeMembers.js';
@@ -14,18 +14,32 @@ const app = express();
 const PORT = process.env.PORT || 3000; // Default to 3000 if PORT is not set
 const MONGODBURL = process.env.MONGODBURL;
 
-// Allow requests from your Vercel frontend
+// Allow requests from specific origins (your frontend domains)
 const corsOptions = {
-  origin: [
-    'azkonkanis.com',
-    'www.azkonkanis.com',
-    'azkonkanis-psi.vercel.app',
-    'azka-psi.vercel.app'
-  ], // Replace with your Vercel frontend domain
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  origin: (origin, callback) => {
+    const allowedOrigins = [
+      'http://localhost:3000', // Local development
+      'https://azkonkanis.com', // Your custom domain
+      'https://www.azkonkanis.com', // Your www subdomain
+      'https://azkonkanis-psi.vercel.app', // Vercel Preview URL
+      'https://azka-psi.vercel.app', // Another Vercel Preview URL
+    ];
+
+    // Allow requests with no 'origin' (like Postman) or from allowed origins
+    if (!origin || allowedOrigins.includes(origin)) {
+      callback(null, true);
+    } else {
+      callback(new Error('Not allowed by CORS'));
+    }
+  },
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  credentials: true, // Allow cookies if needed
 };
 
+// Apply CORS middleware
 app.use(cors(corsOptions));
+
+// Parse JSON request bodies
 app.use(express.json());
 
 // Root route for health check
