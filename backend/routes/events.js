@@ -1,5 +1,5 @@
 // routes/events.js
-import express from 'express';
+import express, { response } from 'express';
 import { Event } from '../models/eventModel.js';
 
 const router = express.Router();
@@ -116,6 +116,22 @@ router.put('/:id', async (request, response) => {
     return response.status(200).send({ message: 'Event updated successfully', updatedEvent: result });
   } catch (error) {
     console.error(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
+// DELETE
+router.delete('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+    const result = await Event.findByIdAndDelete(id);
+
+    if (!result) return response.status(404).send({ message: 'Event not found' });
+
+    return response.status(200).send({ message: 'Event successfully deleted' });
+
+  } catch (error) {
+    console.log(error.message);
     response.status(500).send({ message: error.message });
   }
 });

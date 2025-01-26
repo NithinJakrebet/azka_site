@@ -8,7 +8,7 @@ const useEvents = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  useEffect(() => {
+  function getEvents() {
     axios
       .get(`${API_URL}/events`)
       .then((response) => {
@@ -24,7 +24,20 @@ const useEvents = () => {
 
       console.log("API URL:", process.env.REACT_APP_API_URL);
 
+  }
+
+  function addEvent(newEvent) {
+    axios
+      .post(`${API_URL}/events`, newEvent)
+      .then(function (response) { console.log(response) })
+      .catch(function (error) { console.log(error) });
+  }
+
+
+  useEffect(() => {
+    getEvents()
   }, []);
+
 
   const { upcomingEvents, archivedEvents } = useMemo(() => {
     const now = new Date();
@@ -48,7 +61,17 @@ const useEvents = () => {
     return { upcomingEvents: upcoming, archivedEvents: archived };
   }, [events]);
 
-  return { events, loading, error, upcomingEvents, archivedEvents };
+
+
+  return { 
+    events, 
+    loading, 
+    error, 
+    upcomingEvents, 
+    archivedEvents,
+    addEvent 
+  };
+
 };
 
 export default useEvents;

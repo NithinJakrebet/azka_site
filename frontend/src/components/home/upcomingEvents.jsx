@@ -1,6 +1,7 @@
 import { formatTime, formatDate } from "../../util/formatting";
 import useEvents from "../../hooks/useEvents";
 import AddToCalendarButton from "./AddtoCalendarButton";
+import AddEvent from "./AddEvent";
 
 const UpcomingEvents = () => {
   const { upcomingEvents } = useEvents();
@@ -8,6 +9,7 @@ const UpcomingEvents = () => {
   return (
     <>
       <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Upcoming Events</h1>
+      <AddEvent />
       {upcomingEvents.map((event) => (
         <div
           key={event._id}
