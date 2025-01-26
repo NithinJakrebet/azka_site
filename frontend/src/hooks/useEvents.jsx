@@ -21,6 +21,9 @@ const useEvents = () => {
         setError("Failed to load events. Please try again later.");
         setLoading(false);
       });
+
+      console.log("API URL:", process.env.REACT_APP_API_URL);
+
   }, []);
 
   const { upcomingEvents, archivedEvents } = useMemo(() => {
