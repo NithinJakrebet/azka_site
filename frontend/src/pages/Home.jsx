@@ -1,5 +1,5 @@
 import useEvents from "../hooks/useEvents";
-import "../styling/pages.css";
+import "../styling/home.css";
 import ArchivedEvents from "../components/home/ArchivedEvents";
 import UpcomingEvents from "../components/home/upcomingEvents";
 

@@ -1,5 +1,5 @@
 import "../styling/footer.css";
-import "../styling/pages.css"
+import "../styling/home.css"
 // import fb from "../photos/fb_icon.png"
 // import ig from "../photos/Instagram_logo.png"
 // import tk from "../photos/tiktok.png"

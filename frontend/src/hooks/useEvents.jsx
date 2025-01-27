@@ -31,8 +31,23 @@ const useEvents = () => {
       .post(`${API_URL}/events`, newEvent)
       .then(function (response) { console.log(response) })
       .catch(function (error) { console.log(error) });
+    getEvents()
   }
 
+
+  function deleteEvent(eventID) {
+    axios
+      .delete(`${API_URL}/events/${eventID}`)
+      .then((response) => {
+        console.log(response);
+        // Safely remove the event from local state
+        setEvents((prevEvents) => prevEvents.filter((e) => e._id !== eventID));
+      })
+      .catch((error) => console.log(error));
+  }
+  
+  
+  
 
   useEffect(() => {
     getEvents()
@@ -69,7 +84,8 @@ const useEvents = () => {
     error, 
     upcomingEvents, 
     archivedEvents,
-    addEvent 
+    addEvent,
+    deleteEvent 
   };
 
 };

@@ -1,5 +1,5 @@
 import "../../styling/magazine.css";
-import "../../styling/pages.css";
+import "../../styling/home.css";
 
 const Magazine = ({ title, imgURL, pdfURL }) => {
       return (

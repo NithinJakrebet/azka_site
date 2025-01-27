@@ -4,6 +4,7 @@ import Accordion from "@mui/material/Accordion";
 import AccordionSummary from "@mui/material/AccordionSummary";
 import AccordionDetails from "@mui/material/AccordionDetails";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
+import "../../styling/home.css"
 
 const ArchivedEvents = () => {
   const { archivedEvents } = useEvents();
@@ -20,17 +21,7 @@ const ArchivedEvents = () => {
             <p>No archived events.</p>
           ) : (
             archivedEvents.map((event) => (
-              <div
-                key={event._id}
-                style={{
-                  marginBottom: "20px",
-                  padding: "20px",
-                  borderRadius: "8px",
-                  boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)", // Lighter shadow
-                  background: "linear-gradient(to right, #f8f9fa, #e9ecef)", // Muted gradient
-                  transition: "transform 0.3s, box-shadow 0.3s",
-                }}
-              >
+              <div key={event._id} className="card">
                 <h2>{event.title}</h2>
                 <h3>{event.description}</h3>
                 <h4>{formatDate(event.date)}</h4>

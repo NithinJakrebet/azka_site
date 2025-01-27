@@ -1,4 +1,3 @@
-import "../../styling/pages.css";
 
 // Reusable component for Name, Position, Bio, and Picture,
 const CommitteeMember = ({ name, bio, imageUrl }) => {

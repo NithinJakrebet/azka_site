@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from "react";
 import { ArrowBigLeft, ArrowBigRight, CircleDot, Circle } from "lucide-react"; 
-import "../styling/image-slider.css"
+import "../styling/gallery.css"
 
 type ImageSliderProps = {
     imageUrls: string[]

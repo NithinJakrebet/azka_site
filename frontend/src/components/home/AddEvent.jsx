@@ -24,7 +24,7 @@ const AddEvent = () => {
 
   return (
     <>
-      <Button style={{ margin: "5px" }} variant="contained" color="success" onClick={() => setFormOpen(true)}>
+      <Button style={{ marginBottom: "10px" }} variant="contained" color="success" onClick={() => setFormOpen(true)}>
         Add Event
       </Button>
       {formOpen && (

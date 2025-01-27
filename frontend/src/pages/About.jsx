@@ -1,4 +1,4 @@
-import "../styling/pages.css";
+import "../styling/about.css";
 import AppearOnScroll from "../components/AppearOnScroll"; 
 import AnimatedPage from "../components/AnimatedPage";
 import useCommitteeMembers from "../hooks/useCommitteeMembers"
