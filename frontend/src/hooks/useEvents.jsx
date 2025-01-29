@@ -8,43 +8,66 @@ const useEvents = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
-  function getEvents() {
-    axios
-      .get(`${API_URL}/events`)
-      .then((response) => {
-        const returnedData = response.data?.data;
-        setEvents(Array.isArray(returnedData) ? returnedData : []);
-        setLoading(false);
-      })
-      .catch((error) => {
-        console.error("Error fetching events:", error);
-        setError("Failed to load events. Please try again later.");
-        setLoading(false);
-      });
-
+  async function getEvents() {
+    try {
       console.log("API URL:", process.env.REACT_APP_API_URL);
-
+      setLoading(true);
+  
+      const response = await axios.get(`${API_URL}/events`);
+      const returnedData = response.data?.data;
+  
+      setEvents(Array.isArray(returnedData) ? returnedData : []);
+    } catch (error) {
+      console.error("Error fetching events:", error);
+      setError("Failed to load events. Please try again later.");
+    } finally {
+      setLoading(false);
+    }
   }
-
-  function addEvent(newEvent) {
-    axios
-      .post(`${API_URL}/events`, newEvent)
-      .then(function (response) { console.log(response) })
-      .catch(function (error) { console.log(error) });
-    getEvents()
+  
+  async function addEvent(newEvent) {
+    try {
+      const response = await axios.post(`${API_URL}/events`, newEvent);
+      console.log("Event added:", response.data);
+  
+      // Refresh the event list after adding
+      await getEvents();
+    } catch (error) {
+      console.error("Error adding event:", error);
+    }
   }
-
-
-  function deleteEvent(eventID) {
-    axios
-      .delete(`${API_URL}/events/${eventID}`)
-      .then((response) => {
-        console.log(response);
-        // Safely remove the event from local state
-        setEvents((prevEvents) => prevEvents.filter((e) => e._id !== eventID));
-      })
-      .catch((error) => console.log(error));
+  
+  async function updateEvent(updatedEvent) {
+    const { _id, ...restOfEvent } = updatedEvent;
+  
+    if (!_id) {
+      console.error("No _id provided in updatedEvent. Cannot update.");
+      return;
+    }
+  
+    try {
+      const response = await axios.put(`${API_URL}/events/${_id}`, restOfEvent);
+      console.log("Update successful:", response.data);
+  
+      // Refresh the event list after updating
+      await getEvents();
+    } catch (error) {
+      console.error("Error updating event:", error);
+    }
   }
+  
+  async function deleteEvent(eventID) {
+    try {
+      const response = await axios.delete(`${API_URL}/events/${eventID}`);
+      console.log("Delete successful:", response.data);
+  
+      // Optimistically remove the event from the local state
+      setEvents((prevEvents) => prevEvents.filter((e) => e._id !== eventID));
+    } catch (error) {
+      console.error("Error deleting event:", error);
+    }
+  }
+  
   
   
   
@@ -85,7 +108,8 @@ const useEvents = () => {
     upcomingEvents, 
     archivedEvents,
     addEvent,
-    deleteEvent 
+    deleteEvent,
+    updateEvent 
   };
 
 };

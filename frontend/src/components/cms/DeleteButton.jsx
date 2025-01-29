@@ -20,7 +20,7 @@ const DeleteButton = ({
   const mergedSx = {
     backgroundColor: "#edb9b9",        // Light red
     "&:hover": {
-      backgroundColor: "#9e3a3a"      // Darker red on hover
+      backgroundColor: "#f5a6a6"      // Darker red on hover
     },
     ...sxProp,                        // spread user overrides last (if desired)
   };

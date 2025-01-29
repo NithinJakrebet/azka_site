@@ -4,10 +4,10 @@ import Form from "./Form"
 import AddIcon from '@mui/icons-material/Add';
 
 const AddButton = ({
-      item,
-      addItem,
-      emptyForm,
-      formFields
+  item,
+  addItem,
+  emptyForm,
+  formFields
 }) => {
 
   const [formOpen, setFormOpen] = useState(false);
