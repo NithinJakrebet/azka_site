@@ -16,18 +16,19 @@ const CommitteeMember = ({ member, formFields }) => {
       </div>
 
       <div className="cms-container">
-        <DeleteButton
-          onDelete={deleteCommitteeMember}
-          confirmMessage={`Are you sure you want to delete this Committee Member: ${member.name}`}
-          itemId={member._id}
-          sx={{ backgroundColor: "#f092b6" }}
-        />
         <EditButton
           formFields={formFields}
           item="Event"
           existingData={member}
           editItem={updateCommitteeMember}
         />
+        <DeleteButton
+          onDelete={deleteCommitteeMember}
+          confirmMessage={`Are you sure you want to delete this Committee Member: ${member.name}`}
+          itemId={member._id}
+          sx={{ backgroundColor: "#f092b6" }}
+        />
+        
       </div>
 
       <hr style={{
