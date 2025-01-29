@@ -2,12 +2,10 @@
 .member-container {
       /* display: flex; */
       align-items: center;
-      margin-bottom: 80px;
-      /* background: radial-gradient( #f5f5dc, #ffe3cc); */
+      margin-bottom: 100px;
       border-radius: 5px;
       display: inline-block; 
       max-width: 100%;
-      /* box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);     */
     }
     
     .member-image {

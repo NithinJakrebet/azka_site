@@ -15,13 +15,12 @@ const About = () => {
       <div>
         <h1 className="title">Executive Committee</h1>
         {committeeMembers.map((member, index) => (
+          <>
           <AppearOnScroll key={index}>
-            <CommitteeMember
-              name={member.name}
-              bio={member.bio}
-              imageUrl={member.imageUrl}
-            />
+            <CommitteeMember member={member}/>
           </AppearOnScroll>
+          </>
+          
         ))}
       </div>
     </AnimatedPage>

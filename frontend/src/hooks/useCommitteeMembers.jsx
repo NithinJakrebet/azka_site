@@ -7,8 +7,21 @@ const useCommitteeMembers = () => {
 
       const [committeeMembers, setCommitteeMembers] = useState([]);
       const [loading, setLoading] = useState(false);
-    
-      useEffect(() => {
+
+
+      function deleteCommitteeMember(committeeMemberID) {
+        axios
+          .delete(`${API_URL}/committeeMembers/${committeeMemberID}`)
+          .then((response) => {
+            console.log(response);
+            // Safely remove the event from local state
+            setCommitteeMembers((prevEvents) => prevEvents.filter((e) => e._id !== committeeMemberID));
+          })
+          .catch((error) => console.log(error));
+      }
+      
+
+      function getCommitteeMember() {
         setLoading(true);
     
         axios
@@ -18,9 +31,14 @@ const useCommitteeMembers = () => {
             console.log(`Committee Members: ${committeeMembers}`)
             setLoading(false);
           }))
+
+      }
+    
+      useEffect(() => {
+        getCommitteeMember();
       }, [])
 
-      return { committeeMembers, loading }
+      return { committeeMembers, loading, deleteCommitteeMember }
 
 };
 
