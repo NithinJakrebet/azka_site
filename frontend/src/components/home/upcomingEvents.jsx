@@ -1,17 +1,38 @@
 import { formatTime, formatDate } from "../../util/formatting";
 import useEvents from "../../hooks/useEvents";
-import AddEvent from "./AddEvent"
 import AddToCalendarButton from "./AddtoCalendarButton"
 import DeleteButton from "../cms/DeleteButton";
 import "../../styling/home.css"
+import AddButton from "../cms/AddButton";
 
 const UpcomingEvents = () => {
-  const { upcomingEvents, deleteEvent } = useEvents();
+
+  const { upcomingEvents, deleteEvent, addEvent } = useEvents();
+
+  // empty form for adding event
+  const emptyForm = {
+    title: "",
+    description: "",
+    date: "",
+    startTime: "",
+    endTime: "",
+    location: "",
+  };
+
+  // form fields for adding event
+  const formFields = [
+    { label: "Event Title", name: "title", type: "text" },
+    { label: "Description", name: "description", type: "text", multiline: true, rows: 4 },
+    { label: "Date", name: "date", type: "date" },
+    { label: "Start Time", name: "startTime", type: "time" },
+    { label: "End Time", name: "endTime", type: "time" },
+    { label: "Location", name: "location", type: "text" },
+  ];
 
   return (
     <>
       <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Upcoming Events</h1>
-      <AddEvent />
+      <AddButton formFields={formFields} item="Event" addItem={addEvent} emptyForm={emptyForm}/>
       {upcomingEvents.map((event) => (
         <div className="card" key={event._id}>
           <DeleteButton

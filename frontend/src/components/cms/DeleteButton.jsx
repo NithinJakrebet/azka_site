@@ -18,11 +18,9 @@ const DeleteButton = ({
   sx,
 }) => {
 
-  const handleClick = () => {
+  function handleClick() {
     const confirmed = window.confirm(confirmMessage);
-    if (confirmed) {
-      onDelete(itemId);
-    }
+    if (confirmed) onDelete(itemId);
   };
 
   return (
