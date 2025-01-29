@@ -7,23 +7,41 @@ import {
   Button,
   Box,
 } from "@mui/material";
+import { useState, useCallback } from "react";
+import { debounce } from "lodash";
 
 const Form = ({
-  title = "Add New Event",        // Fallback if no title passed
+  title = "Add New Event",
   formFields,
   formData,
   setFormData,
   handleFormSubmit,
   handleCancel,
 }) => {
+  const [localFormData, setLocalFormData] = useState(formData);
 
-  
+  // Debounced function to update the main form state
+  const debouncedUpdate = useCallback(
+    debounce((newData) => {
+      setFormData(newData);
+    }, 200), // Debounce delay
+    [setFormData]
+  );
+
   const handleInputChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
+
+    // Update the local state immediately for smooth UI updates
+    setLocalFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+
+    // Call the debounced function to update the main state
+    debouncedUpdate({
+      ...localFormData,
+      [name]: value,
+    });
   };
 
   return (
@@ -45,10 +63,13 @@ const Form = ({
               label={field.label}
               name={field.name}
               type={field.type}
-              value={formData[field.name] || ""}
+              value={localFormData[field.name] || ""}
               onChange={handleInputChange}
-              multiline={!!field.multiline}
-              rows={field.rows || undefined}
+              multiline={field.multiline || false}
+              rows={3}       // Start with 3 rows
+              maxRows={6}    // Prevent indefinite auto-expansion
+              fullWidth
+              inputProps={{ style: { resize: "vertical" } }}
               InputLabelProps={
                 field.type === "date" || field.type === "time"
                   ? { shrink: true }

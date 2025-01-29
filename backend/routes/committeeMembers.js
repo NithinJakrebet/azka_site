@@ -94,12 +94,12 @@ router.put('/:id', async (request, response) => {
       });
     }
 
-    const { CommitteeMember } = request.params;
+    const { id } = request.params;
 
     const result = await CommitteeMember.findByIdAndUpdate(
-      name,
-      bio,
-      imageUrl
+      id,
+      request.body,
+      { new: true, runValidators: true }
     );
 
     if (!result) {

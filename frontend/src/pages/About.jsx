@@ -23,7 +23,6 @@ const About = () => {
     { label: "Name", name: "name", type: "text" },
     { label: "Bio", name: "bio", type: "text", multiline: true, rows: 4 },
     { label: "Image URL", name: "imageUrl", type: "text" },
-
   ];
 
 
@@ -36,7 +35,7 @@ const About = () => {
       <h1 className="title">Executive Committee</h1>
       {committeeMembers.map((member, index) => (
         <AppearOnScroll key={index}>
-          <CommitteeMember member={member}/>
+          <CommitteeMember member={member} formFields={formFields}/>
         </AppearOnScroll>          
       ))}
     </AnimatedPage>

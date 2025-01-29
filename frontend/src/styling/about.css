@@ -43,3 +43,11 @@
       }
     }
   
+  .cms-container {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    align-items: center;
+    margin-top: 15px;
+    padding: 10px;
+  }
