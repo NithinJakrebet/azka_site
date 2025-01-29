@@ -18,11 +18,13 @@ const CommitteeMember = ({ member }) => {
             onDelete={deleteCommitteeMember}
             confirmMessage = {`Are you sure you want to delete this Committee Member: ${member.name}`}
             itemId={member._id}
+            sx={{ backgroundColor: "#f092b6" }}
           />
           <hr 
             style={{
               margin: "5px",
-              height: "5"
+              height: "5",
+              
             }} 
           />
         </div>

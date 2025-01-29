@@ -39,7 +39,12 @@ const UpcomingEvents = () => {
             onDelete={deleteEvent}
             confirmMessage = "Are you sure you want to delete this event?"
             itemId={event._id}
-            sx={{ position: "absolute", top: 8, right: 8 }}
+            sx={{ 
+              position: "absolute", 
+              top: 8, 
+              right: 8,
+              backgroundColor: "#f092b6" 
+            }}
           />
           <h2>{event.title}</h2>
           <h3>{event.description}</h3>

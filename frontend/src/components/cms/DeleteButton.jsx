@@ -4,30 +4,37 @@ import DeleteIcon from "@mui/icons-material/Delete";
 /**
  * Reusable Delete Button
  *
- * @param {Function} onDelete - a function to be called when delete is confirmed (e.g., deleteEvent or deleteCommitteeMember)
- * @param {string} confirmMessage - the message to display in the confirmation dialog
+ * @param {Function} onDelete - a function called when deletion is confirmed
+ * @param {string} confirmMessage - the message in the window.confirm dialog
  * @param {string|number} itemId - the unique ID to be passed to onDelete
- * @param {Object} ...props - any additional props to pass to the IconButton
+ * @param {Object} sx - custom MUI sx prop to override default styling
  */
-
 
 const DeleteButton = ({
   onDelete,
   confirmMessage = "Are you sure you want to delete this item?",
   itemId,
-  sx,
+  sx: sxProp = {}
 }) => {
+  // Merge any sx from props with our default hover styles
+  const mergedSx = {
+    backgroundColor: "#edb9b9",        // Light red
+    "&:hover": {
+      backgroundColor: "#9e3a3a"      // Darker red on hover
+    },
+    ...sxProp,                        // spread user overrides last (if desired)
+  };
 
   function handleClick() {
     const confirmed = window.confirm(confirmMessage);
     if (confirmed) onDelete(itemId);
-  };
+  }
 
   return (
     <IconButton
       onClick={handleClick}
       color="error"
-      sx={sx}
+      sx={mergedSx}
     >
       <DeleteIcon />
     </IconButton>
