@@ -1,26 +1,56 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-
-const API_URL = process.env.REACT_APP_API_URL;
+import { GET, POST, PUT, DELETE } from "../util/CRUD";
 
 const useNewsletters = () => {
 
-      const [newsletters, setNewsletters] = useState([]);
-      const [loading, setLoading] = useState(false);
-    
-      useEffect(() => {
-        setLoading(true);
-    
-        axios
-          .get(`${API_URL}/newsletters`)
-          .then((response => {
-            setNewsletters(response.data);
-            console.log(`Newsletters: ${newsletters}`)
-            setLoading(false);
-          }))
-      }, [])
+  const [newsletters, setNewsletters] = useState([]);
+  const [loading, setLoading] = useState(false);
 
-      return { newsletters, loading }
+  async function getNewsletters() {
+
+    await GET({ 
+      setItems: setNewsletters,
+      setLoading: setLoading,
+      route: 'newsletters'
+    })
+    
+  }
+
+  async function addNewsletter(newNewsletter) {
+
+    await POST({
+      newItem: newNewsletter,
+      route: 'newsletters'
+    })
+
+    await getNewsletters()
+  }
+
+  async function updateNewsletter(updatedNewsletter) {
+    await PUT({
+      updatedItem: updatedNewsletter,
+      route: "newsletters",
+      setItems: setNewsletters
+    })
+  }
+
+  async function deleteNewsletter(newsletterID) {
+    await DELETE({
+      itemID: newsletterID,
+      route: 'newsletters',
+      setItems: setNewsletters
+    })
+  }
+
+  useEffect(() => { getNewsletters() }, [])
+
+  return { 
+    newsletters,
+    addNewsletter,
+    deleteNewsletter,
+    updateNewsletter,
+    loading
+  }
 
 };
 

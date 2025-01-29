@@ -1,27 +1,57 @@
 import { useState, useEffect } from "react";
-import axios from "axios";
-
-const API_URL = process.env.REACT_APP_API_URL;
+import { GET, POST, PUT, DELETE } from "../util/CRUD";
 
 const useAlbums = () => {
-      const [albums, setAlbums] = useState([]);
-      const [loading, setLoading] = useState(false);
-  
-      useEffect(() => {
-            setLoading(true);
-      
-            axios
-                  .get(`${API_URL}/albums`)
-                  .then((response => {
-                        setAlbums(response.data);
-                        console.log(`Albums: ${albums}`)
-                        setLoading(false);
-                  }))
-    }, [])  
 
-    return { albums, loading }
-}
+  const [albums, setAlbums] = useState([]);
+  const [loading, setLoading] = useState(false);
+
+  async function getAlbums() {
+
+    await GET({ 
+      setItems: setAlbums,
+      setLoading: setLoading,
+      route: 'albums'
+    })
+    
+  }
+
+  async function addAlbum(newAlbum) {
+
+    await POST({
+      newItem: newAlbum,
+      route: 'albums'
+    })
+
+    await getAlbums()
+  }
+
+  async function updateAlbum(updatedAlbum) {
+    await PUT({
+      updatedItem: updatedAlbum,
+      route: "newslealbumstters",
+      setItems: setAlbums
+    })
+  }
+
+  async function deleteAlbum(albumID) {
+    await DELETE({
+      itemID: albumID,
+      route: 'albums',
+      setItems: setAlbums
+    })
+  }
+
+  useEffect(() => { getAlbums() }, [])
+
+  return { 
+    albums,
+    addAlbum,
+    deleteAlbum,
+    updateAlbum,
+    loading
+  }
+
+};
 
 export default useAlbums;
-
-    
