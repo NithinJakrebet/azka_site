@@ -2,7 +2,7 @@ import { formatTime, formatDate } from "../../util/formatting";
 import useEvents from "../../hooks/useEvents";
 import AddEvent from "./AddEvent"
 import AddToCalendarButton from "./AddtoCalendarButton"
-import DeleteButton from "../DeleteButton";
+import DeleteButton from "../cms/DeleteButton";
 import "../../styling/home.css"
 
 const UpcomingEvents = () => {

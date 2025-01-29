@@ -1,5 +1,5 @@
 
-import { ImageSlider } from "../components/ImageSlider.tsx";
+import { ImageSlider } from "../components/gallery/ImageSlider.tsx"
 import useAlbums from "../hooks/useAlbums.jsx";
 import AnimatedPage from "../components/AnimatedPage.jsx";
 

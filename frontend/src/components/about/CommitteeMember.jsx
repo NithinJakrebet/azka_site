@@ -1,5 +1,5 @@
-import DeleteButton from "../DeleteButton";
-import useCommitteeMembers from "../../hooks/useCommitteeMembers";
+import DeleteButton from "../cms/DeleteButton";
+import useCommitteeMembers from "../../hooks/useCommitteeMembers"
 
 // Reusable component for Name, Position, Bio, and Picture,
 
