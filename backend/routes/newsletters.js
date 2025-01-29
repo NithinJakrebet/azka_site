@@ -109,5 +109,21 @@ router.put('/:id', async (request, response) => {
   }
 });
 
+// DELETE
+router.delete('/:id', async (request, response) => {
+  try {
+    const { id } = request.params;
+    const result = await Newsletter.findByIdAndDelete(id);
+
+    if (!result) return response.status(404).send({ message: 'Newsletter not found' });
+
+    return response.status(200).send({ message: 'Newsletter successfully deleted' });
+
+  } catch (error) {
+    console.log(error.message);
+    response.status(500).send({ message: error.message });
+  }
+});
+
 // Export the router
 export default router;

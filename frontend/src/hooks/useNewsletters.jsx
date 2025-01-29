@@ -40,6 +40,8 @@ const useNewsletters = () => {
       route: 'newsletters',
       setItems: setNewsletters
     })
+
+    await getNewsletters()
   }
 
   useEffect(() => { getNewsletters() }, [])

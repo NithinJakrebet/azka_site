@@ -29,9 +29,11 @@ const useAlbums = () => {
   async function updateAlbum(updatedAlbum) {
     await PUT({
       updatedItem: updatedAlbum,
-      route: "newslealbumstters",
+      route: "albums",
       setItems: setAlbums
     })
+
+    await getAlbums()
   }
 
   async function deleteAlbum(albumID) {

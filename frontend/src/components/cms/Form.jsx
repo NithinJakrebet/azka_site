@@ -6,13 +6,15 @@ import {
   TextField,
   Button,
   Box,
+  IconButton,
 } from "@mui/material";
 import { useState, useCallback } from "react";
 import { debounce } from "lodash";
+import DeleteIcon from "@mui/icons-material/Delete";
 
 const Form = ({
   title = "Add New Event",
-  formFields,
+  formFields = [],
   formData,
   setFormData,
   handleFormSubmit,
@@ -24,60 +26,110 @@ const Form = ({
   const debouncedUpdate = useCallback(
     debounce((newData) => {
       setFormData(newData);
-    }, 200), // Debounce delay
+    }, 200),
     [setFormData]
   );
 
+  // Generic field update for text inputs
   const handleInputChange = (e) => {
     const { name, value } = e.target;
+    updateField(name, value);
+  };
 
-    // Update the local state immediately for smooth UI updates
-    setLocalFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-
-    // Call the debounced function to update the main state
-    debouncedUpdate({
-      ...localFormData,
-      [name]: value,
+  // Update field in localFormData and trigger debounced parent update
+  const updateField = (fieldName, value) => {
+    setLocalFormData((prev) => {
+      const updated = { ...prev, [fieldName]: value };
+      debouncedUpdate(updated);
+      return updated;
     });
+  };
+
+  // Array-specific logic
+  const handleArrayChange = (fieldName, index, newValue) => {
+    const currentArray = localFormData[fieldName] || [];
+    const updatedArray = [...currentArray];
+    updatedArray[index] = newValue;
+    updateField(fieldName, updatedArray);
+  };
+
+  const addArrayItem = (fieldName) => {
+    const currentArray = localFormData[fieldName] || [];
+    updateField(fieldName, [...currentArray, ""]);
+  };
+
+  const removeArrayItem = (fieldName, index) => {
+    const currentArray = localFormData[fieldName] || [];
+    const updatedArray = [...currentArray];
+    updatedArray.splice(index, 1);
+    updateField(fieldName, updatedArray);
+  };
+
+  // Render a single field based on its type
+  const renderField = (field) => {
+    // If this field is an array, render multiple text inputs with Add/Remove
+    if (field.type === "array") {
+      const arrayValues = localFormData[field.name] || [];
+      return (
+        <Box key={field.name} sx={{ mt: 2 }}>
+          <label style={{ marginBottom: "8px", display: "block" }}>
+            {field.label}
+          </label>
+          {arrayValues.map((val, idx) => (
+            <Box
+              key={idx}
+              sx={{ display: "flex", alignItems: "center", mb: 1 }}
+            >
+              <TextField
+                variant="outlined"
+                size="small"
+                label={`${field.label} #${idx + 1}`}
+                value={val}
+                onChange={(e) => handleArrayChange(field.name, idx, e.target.value)}
+                sx={{ flex: 1, marginRight: 1 }}
+              />
+              <IconButton color="error" onClick={() => removeArrayItem(field.name, idx)}>
+                <DeleteIcon />
+              </IconButton>
+            </Box>
+          ))}
+          <Button variant="outlined" onClick={() => addArrayItem(field.name)}>
+            + Add {field.label}
+          </Button>
+        </Box>
+      );
+    }
+
+    // Default to a single TextField for normal text/date/time/etc.
+    return (
+      <TextField
+        key={field.name}
+        label={field.label}
+        name={field.name}
+        type={field.type}
+        value={localFormData[field.name] || ""}
+        onChange={handleInputChange}
+        multiline={field.multiline || false}
+        rows={3}
+        maxRows={6}
+        fullWidth
+        sx={{ mt: 2 }}
+        InputLabelProps={
+          field.type === "date" || field.type === "time"
+            ? { shrink: true }
+            : undefined
+        }
+        required
+      />
+    );
   };
 
   return (
     <Dialog open onClose={handleCancel}>
       <DialogTitle>{title}</DialogTitle>
-      <DialogContent>
-        <Box
-          component="form"
-          sx={{
-            display: "flex",
-            flexDirection: "column",
-            gap: 2,
-            marginTop: 2,
-          }}
-        >
-          {formFields.map((field) => (
-            <TextField
-              key={field.name}
-              label={field.label}
-              name={field.name}
-              type={field.type}
-              value={localFormData[field.name] || ""}
-              onChange={handleInputChange}
-              multiline={field.multiline || false}
-              rows={3}       // Start with 3 rows
-              maxRows={6}    // Prevent indefinite auto-expansion
-              fullWidth
-              inputProps={{ style: { resize: "vertical" } }}
-              InputLabelProps={
-                field.type === "date" || field.type === "time"
-                  ? { shrink: true }
-                  : undefined
-              }
-              required
-            />
-          ))}
+      <DialogContent dividers>
+        <Box component="form">
+          {formFields.map((field) => renderField(field))}
         </Box>
       </DialogContent>
       <DialogActions>
