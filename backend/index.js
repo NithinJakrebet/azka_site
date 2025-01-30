@@ -1,50 +1,50 @@
-// backend/index.js
+// index.js
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
+import cors from 'cors';
+
+// Import your routes
 import eventsRouter from './routes/events.js';
 import committeeMembersRouter from './routes/committeeMembers.js';
 import albumsRouter from './routes/albums.js';
 import newslettersRouter from './routes/newsletters.js';
-import cors from 'cors';
+import usersRouter from './routes/users.js';
+
 
 dotenv.config();
 
 const app = express();
-const PORT = process.env.PORT || 3000; // Default to 3000 if PORT is not set
+const PORT = process.env.PORT || 3000;
 const MONGODBURL = process.env.MONGODBURL;
 
-// Allow requests from specific origins (your frontend domains)
+// Setup CORS
 const corsOptions = {
   origin: (origin, callback) => {
     const allowedOrigins = [
-      'http://localhost:3000', // Local development
-      'https://azkonkanis.com', // Your custom domain
-      'https://www.azkonkanis.com', // Your www subdomain
-      'https://azkonkanis-psi.vercel.app', // Vercel Preview URL
-      'https://azka-psi.vercel.app', // Another Vercel Preview URL
+      'http://localhost:3000',
+      'https://azkonkanis.com',
+      'https://www.azkonkanis.com',
+      'https://azkonkanis-psi.vercel.app',
+      'https://azka-psi.vercel.app',
     ];
-
-    // Allow requests with no 'origin' (like Postman) or from allowed origins
     if (!origin || allowedOrigins.includes(origin)) {
       callback(null, true);
     } else {
       callback(new Error('Not allowed by CORS'));
     }
   },
-  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
-  credentials: true, // Allow cookies if needed
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  credentials: true,
 };
-
-// Apply CORS middleware
 app.use(cors(corsOptions));
 
-// Parse JSON request bodies
+// Parse JSON bodies
 app.use(express.json());
 
-// Root route for health check
-app.get('/', (request, response) => {
-  return response.status(200).send('Backend is up and running');
+// Health check
+app.get('/', (req, res) => {
+  res.status(200).send('Backend is up and running');
 });
 
 // Register routes
@@ -52,10 +52,11 @@ app.use('/events', eventsRouter);
 app.use('/committeeMembers', committeeMembersRouter);
 app.use('/albums', albumsRouter);
 app.use('/newsletters', newslettersRouter);
+app.use('/users', usersRouter);
 
-// Connect to MongoDB and start the server
+// Connect to Mongo and start server
 mongoose
-  .connect(MONGODBURL, { useNewUrlParser: true, useUnifiedTopology: true })
+  .connect(MONGODBURL)
   .then(() => {
     console.log('Connected to DB');
     app.listen(PORT, () => {
