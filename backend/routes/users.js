@@ -5,6 +5,21 @@ import jsonwebtoken from 'jsonwebtoken';
 const router = express.Router();
 const jwt = jsonwebtoken;
 
+
+// Get all users (for admin or debugging)
+router.get('/', async (req, res) => {
+  try {
+    const users = await User.find({}, '-password'); // Exclude passwords for security
+    res.json(users);
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: 'Server error' });
+  }
+});
+
+
+
+
 // Registration
 router.post('/register', async (req, res) => {
   try {

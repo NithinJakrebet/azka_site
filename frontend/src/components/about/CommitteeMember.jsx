@@ -6,6 +6,9 @@ import useCommitteeMembers from "../../hooks/useCommitteeMembers";
 const CommitteeMember = ({ member, formFields }) => {
   const { deleteCommitteeMember, updateCommitteeMember } = useCommitteeMembers();
 
+  const isInEditorMode = localStorage.getItem("isInEditorMode") === "true";
+
+
   return (
     <div className="member-container">
       <img src={member.imageUrl} alt={member.name} className="member-image" />
@@ -15,21 +18,22 @@ const CommitteeMember = ({ member, formFields }) => {
         <p>{member.bio}</p>
       </div>
 
-      <div className="cms-container">
-        <EditButton
-          formFields={formFields}
-          item="Event"
-          existingData={member}
-          editItem={updateCommitteeMember}
-        />
-        <DeleteButton
-          onDelete={deleteCommitteeMember}
-          confirmMessage={`Are you sure you want to delete this Committee Member: ${member.name}`}
-          itemId={member._id}
-          sx={{ backgroundColor: "#f092b6" }}
-        />
-        
-      </div>
+      {isInEditorMode &&
+        <div className="cms-container">
+          <EditButton
+            formFields={formFields}
+            item="Event"
+            existingData={member}
+            editItem={updateCommitteeMember}
+          />
+          <DeleteButton
+            onDelete={deleteCommitteeMember}
+            confirmMessage={`Are you sure you want to delete this Committee Member: ${member.name}`}
+            itemId={member._id}
+            sx={{ backgroundColor: "#f092b6" }}
+          />
+        </div>
+      }
 
       <hr style={{
         margin: "5px",

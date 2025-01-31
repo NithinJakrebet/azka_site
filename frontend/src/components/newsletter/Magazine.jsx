@@ -8,6 +8,9 @@ const Magazine = ({ newsletter, formFields }) => {
 
   const { deleteNewsletter, updateNewsletter } = useNewsletters();
 
+  const isInEditorMode = localStorage.getItem("isInEditorMode") === "true";
+
+
   return (
     <div className="magazine-container">
       <img className="magazine-image" src={newsletter.imgURL} alt="year_pic" />
@@ -19,20 +22,22 @@ const Magazine = ({ newsletter, formFields }) => {
       >
         {newsletter.title}
       </a>
-      <div className="cms-container">
-        <EditButton
-          formFields={formFields}
-          item="Newsletter"
-          existingData={newsletter}
-          editItem={updateNewsletter}
-        />
-        <DeleteButton
-          onDelete={deleteNewsletter}
-          confirmMessage={`Are you sure you want to delete this Newsletter: ${newsletter.name}`}
-          itemId={newsletter._id}
-          sx={{ backgroundColor: "#f092b6" }}
-        />
-      </div>
+      {isInEditorMode &&
+        <div className="cms-container">
+          <EditButton
+            formFields={formFields}
+            item="Newsletter"
+            existingData={newsletter}
+            editItem={updateNewsletter}
+          />
+          <DeleteButton
+            onDelete={deleteNewsletter}
+            confirmMessage={`Are you sure you want to delete this Newsletter: ${newsletter.name}`}
+            itemId={newsletter._id}
+            sx={{ backgroundColor: "#f092b6" }}
+          />
+        </div>
+      }
     </div>
   );
 }

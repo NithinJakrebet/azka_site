@@ -9,6 +9,7 @@ import Newsletter from "./pages/Newsletter";
 import Gallery from "./pages/Gallery";
 import Navbar from './components/Navbar';
 import Footer from "./components/Footer";
+import Settings from "./pages/Settings"; 
 
 function App() {
 	
@@ -26,6 +27,7 @@ function App() {
 							<Route exact path="/contact" element={<Contact />} />
 							<Route exact path="/newsletter" element={<Newsletter />} />
 							<Route exact path="/gallery" element={<Gallery />} />
+							<Route path="/settings" element={<Settings />} />
 						</Routes>
 					</AnimatePresence>
 				</div>

@@ -1,4 +1,4 @@
-import AnimatedPage from "../components/AnimatedPage";
+import AnimatedPage from "../components/aesthetics/AnimatedPage";
 import "../styling/contact.css";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";

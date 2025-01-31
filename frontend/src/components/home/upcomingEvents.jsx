@@ -9,6 +9,8 @@ import EditButton from "../cms/EditButton";
 const UpcomingEvents = () => {
 
   const { upcomingEvents, deleteEvent, addEvent, updateEvent } = useEvents();
+  const isInEditorMode = localStorage.getItem("isInEditorMode") === "true";
+
 
   // empty form for adding event
   const emptyForm = {
@@ -33,27 +35,27 @@ const UpcomingEvents = () => {
   return (
     <>
       <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Upcoming Events</h1>
-
-      <AddButton 
-        formFields={formFields} 
-        item="Event" 
-        addItem={addEvent} 
-        emptyForm={emptyForm}
-      />
-
+      {isInEditorMode &&
+        <AddButton 
+          formFields={formFields} 
+          item="Event" 
+          addItem={addEvent} 
+          emptyForm={emptyForm}
+        />
+      }
       {upcomingEvents.map((event) => (
         <div className="card" key={event._id}>
-
-          <DeleteButton
-            onDelete={deleteEvent}
-            confirmMessage = "Are you sure you want to delete this event?"
-            itemId={event._id}
-            sx={{ 
-              position: "absolute", 
-              top: 8, 
-              right: 8,
-            }}
-          />
+          {isInEditorMode &&
+            <DeleteButton
+              onDelete={deleteEvent}
+              confirmMessage = "Are you sure you want to delete this event?"
+              itemId={event._id}
+              sx={{ 
+                position: "absolute", 
+                top: 8, 
+                right: 8,
+              }}
+            />}
 
           <h2>{event.title}</h2>
           <h3>{event.description}</h3>
@@ -61,6 +63,7 @@ const UpcomingEvents = () => {
           <h4>{formatTime(event.startTime, event.endTime)}</h4>
           <h4>{event.location}</h4>
 
+          {isInEditorMode &&
           <EditButton
             formFields={formFields}
             item="Event"
@@ -71,7 +74,7 @@ const UpcomingEvents = () => {
               top: 8, 
               left: 8,
             }}
-          />
+          />}
 
           <AddToCalendarButton event={event} />
         </div>

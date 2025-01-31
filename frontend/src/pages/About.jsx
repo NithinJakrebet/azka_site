@@ -1,6 +1,6 @@
 import "../styling/about.css";
-import AppearOnScroll from "../components/AppearOnScroll"; 
-import AnimatedPage from "../components/AnimatedPage";
+import AppearOnScroll from "../components/aesthetics/AppearOnScroll" 
+import AnimatedPage from "../components/aesthetics/AnimatedPage";
 import useCommitteeMembers from "../hooks/useCommitteeMembers"
 import CommitteeMember from "../components/about/CommitteeMember";
 import AddButton from "../components/cms/AddButton";
@@ -8,6 +8,9 @@ import AddButton from "../components/cms/AddButton";
 const About = () => {
 
   const { committeeMembers, loading, addCommitteeMember } = useCommitteeMembers();
+
+  const isInEditorMode = localStorage.getItem("isInEditorMode") === "true";
+
 
   if (loading) return <h1>Loading...</h1>
 
@@ -28,9 +31,11 @@ const About = () => {
 
   return (
     <AnimatedPage>
-      <div style={{margin: "30px"}}>
-        <AddButton formFields={formFields} item="Committee Member" addItem={addCommitteeMember} emptyForm={emptyForm}/>
-      </div> 
+      {isInEditorMode &&
+        <div style={{margin: "30px"}}>
+          <AddButton formFields={formFields} item="Committee Member" addItem={addCommitteeMember} emptyForm={emptyForm}/>
+        </div> 
+      }   
       
       <h1 className="title">Executive Committee</h1>
       {committeeMembers.map((member, index) => (

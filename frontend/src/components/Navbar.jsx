@@ -19,6 +19,7 @@ export default function Navbar() {
                 <CustomLink to="/gallery" onClick={toggleMenu}>Gallery</CustomLink>
                 <CustomLink to="/newsletter" onClick={toggleMenu}>Newsletter</CustomLink>
                 <CustomLink to="/contact" onClick={toggleMenu}>Contact</CustomLink>
+                <CustomLink to="/settings" onClick={toggleMenu}>Settings</CustomLink>
             </ul>
             <ul className="desktop">
                 <CustomLink to="/">Home</CustomLink>
@@ -26,6 +27,7 @@ export default function Navbar() {
                 <CustomLink to="/gallery">Gallery</CustomLink>
                 <CustomLink to="/newsletter">Newsletter</CustomLink>
                 <CustomLink to="/contact">Contact</CustomLink>
+                <CustomLink to="/settings">Settings</CustomLink>
             </ul>
         </nav>
     );
