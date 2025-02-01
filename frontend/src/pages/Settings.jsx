@@ -71,7 +71,7 @@ const Settings = () => {
 
       {!isLoggedIn && (
         <div className="cms-container">
-          <Button variant="contained" onClick={handleSignUpOpen}>Sign Up</Button>
+          {/* <Button variant="contained" onClick={handleSignUpOpen}>Sign Up</Button> */}
           <Button variant="outlined" onClick={handleLoginOpen}>Log In</Button>
         </div>
       )}
