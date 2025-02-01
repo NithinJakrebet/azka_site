@@ -41,7 +41,20 @@ router.post('/register', async (req, res) => {
     });
     await newUser.save();
 
-    res.status(201).json({ message: 'Registration successful' });
+    res.status(200).json({ message: 'Registration successful' });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+
+
+router.post('/request-editor', async (req, res) => {
+  try {
+    const { email, firstName, lastName } = req.body;
+
+   
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: 'Server error' });

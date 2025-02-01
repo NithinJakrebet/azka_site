@@ -11,48 +11,51 @@ import {
   InputLabel,
   Select,
   MenuItem,
+  Alert,
+  Snackbar
 } from "@mui/material";
 import axios from "axios";
 
 const API_URL = process.env.REACT_APP_API_URL;
 
 
-export default function SignUp({ open, onClose }) {
+const SignUp = ({ open, onClose }) => {
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [userType, setUserType] = useState("viewer"); // default
+  const [alert, setAlert] = useState({ show: false, type: "", message: "" });
 
-  const handleSignUp = async () => {
+  async function handleSignUp() {
     try {
-      const response = await axios.post(`${API_URL}/users/login`,
+      const response = await axios.post(`${API_URL}/users/register`,
         { firstName, lastName, email, password, userType }
       );
 
       if (response.status !== 200) {
-        // handle error
         console.error("Sign Up failed");
+        setAlert({ show: true, type: "error", message: "Sign up failed" });
+        setTimeout(() => setAlert({ show: false, type: "", message: "" }), 3000);
         return;
       }
 
-      // 2) If userType is 'editor', we also want to create a "request" or notify Shreeja
-      if (userType === "editor") {
-        // You can do something like:
-        await fetch(`${API_URL}/users/request-editor`, {
-          method: "POST",
-          headers: { "Content-Type": "application/json" },
-          body: JSON.stringify({ email, firstName, lastName }),
-        });        
-      }
+      // if (userType === "editor") {
+      //   const response = await axios.post(`${API_URL}/users/request-editor`,
+      //    { email, firstName, lastName  }
+      //   );
+      // }
 
-      // 3) Clear form and close dialog
-      setFirstName(""); setLastName(""); setEmail(""); setPassword("");
-      setUserType("viewer");
+      setAlert({ show: true, type: "success", message: "Sign up successful" });
+      setTimeout(() => setAlert({ show: false, type: "", message: "" }), 3000);
+
+      setFirstName(""); setLastName(""); setEmail(""); setPassword(""); setUserType("viewer");
       onClose();
     } catch (error) {
       console.error("Error in sign up:", error);
+      setAlert({ show: true, type: "error", message: "Sign up failed" });
+      setTimeout(() => setAlert({ show: false, type: "", message: "" }), 3000);
     }
   };
 
@@ -60,6 +63,13 @@ export default function SignUp({ open, onClose }) {
     <Dialog open={open} onClose={onClose}>
       <DialogTitle>Create an Account</DialogTitle>
       <DialogContent>
+        {alert.show && (
+          <Snackbar open={alert.show} autoHideDuration={3000}>
+            <Alert severity={alert.type} sx={{ width: "100%" }}>
+              {alert.message}
+            </Alert>
+          </Snackbar>
+        )}
         <TextField
           margin="dense"
           label="First Name"
@@ -90,7 +100,7 @@ export default function SignUp({ open, onClose }) {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-        <FormControl margin="dense" fullWidth>
+        {/* <FormControl margin="dense" fullWidth>
           <InputLabel>User Type</InputLabel>
           <Select
             value={userType}
@@ -100,7 +110,7 @@ export default function SignUp({ open, onClose }) {
             <MenuItem value="viewer">Viewer</MenuItem>
             <MenuItem value="editor">Editor</MenuItem>
           </Select>
-        </FormControl>
+        </FormControl> */}
       </DialogContent>
       <DialogActions>
         <Button onClick={onClose}>Cancel</Button>
@@ -111,3 +121,6 @@ export default function SignUp({ open, onClose }) {
     </Dialog>
   );
 }
+
+
+export default SignUp;
