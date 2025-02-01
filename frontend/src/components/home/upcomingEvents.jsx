@@ -34,7 +34,7 @@ const UpcomingEvents = () => {
 
   return (
     <>
-      <h1 style={{ textAlign: "center", marginBottom: "20px" }}>Upcoming Events</h1>
+      <h1 style={{ textAlign: "center", marginBottom: "20px", fontWeight: "bold" }}>Upcoming Events</h1>
       {isInEditorMode &&
         <AddButton 
           formFields={formFields} 
@@ -58,7 +58,7 @@ const UpcomingEvents = () => {
             />}
 
           <h2>{event.title}</h2>
-          <h3>{event.description}</h3>
+          <h4>{event.description}</h4>
           <h4>{formatDate(event.date)}</h4>
           <h4>{formatTime(event.startTime, event.endTime)}</h4>
           <h4>{event.location}</h4>
