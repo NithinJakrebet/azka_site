@@ -6,7 +6,7 @@ const router = express.Router();
 // READ
 router.get('/', async (request, response) => {
   try {
-    const newsletters = await Newsletter.find({});
+    const newsletters = await Newsletter.find({}).sort({ date: -1 });
 
     return response.status(200).json(newsletters); 
      
@@ -36,6 +36,7 @@ router.post('/', async (request, response) => {
   try {
     const {
             title,
+            date,
             imgURL,
             pdfURL
       } = request.body;
@@ -43,6 +44,7 @@ router.post('/', async (request, response) => {
     // Validate required fields
     const missingFields = [];
     if (!title) missingFields.push('title');
+    if (!date) missingFields.push('date');
     if (!imgURL) missingFields.push('imgURL');
     if (!pdfURL) missingFields.push('pdfURL');
 
@@ -55,6 +57,7 @@ router.post('/', async (request, response) => {
 
     const newNewsletter = {
       title,
+      date,
       imgURL,
       pdfURL
     };
@@ -74,6 +77,7 @@ router.put('/:id', async (request, response) => {
   try {
       const {
             title,
+            date,
             imgURL,
             pdfURL
       } = request.body;
@@ -81,6 +85,7 @@ router.put('/:id', async (request, response) => {
     // Validate required fields
     const missingFields = [];
     if (!title) missingFields.push('title');
+    if (!date) missingFields.push('date');
     if (!imgURL) missingFields.push('imgURL');
     if (!pdfURL) missingFields.push('pdfURL');
 

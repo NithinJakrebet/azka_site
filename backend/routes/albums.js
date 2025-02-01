@@ -6,7 +6,8 @@ const router = express.Router();
 // READ
 router.get('/', async (request, response) => {
   try {
-    const albums = await Album.find({});
+    const albums = await Album.find({}).sort({ date: -1 }) // -1 orders by descending date
+
 
     return response.status(200).json(albums); 
      
@@ -37,6 +38,7 @@ router.post('/', async (request, response) => {
   try {
     const {
             title,
+            date,
             images,
             link
       } = request.body;
@@ -44,6 +46,7 @@ router.post('/', async (request, response) => {
     // Validate required fields
     const missingFields = [];
     if (!title) missingFields.push('title');
+    if (!date) missingFields.push('date');
     if (!images) missingFields.push('images');
 
     // If there are missing fields, return an error message
@@ -55,6 +58,7 @@ router.post('/', async (request, response) => {
 
     const newAlbum = {
       title,
+      date,
       images: images || null,
       link
     };
@@ -74,6 +78,7 @@ router.put('/:id', async (request, response) => {
   try {
       const {
             title,
+            date,
             images,
             link
       } = request.body;
@@ -81,6 +86,7 @@ router.put('/:id', async (request, response) => {
     // Validate required fields
     const missingFields = [];
     if (!title) missingFields.push('title');
+    if (!date) missingFields.push('date');
     if (!images) missingFields.push('images');
 
     // If there are missing fields, return an error message

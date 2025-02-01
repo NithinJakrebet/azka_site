@@ -16,6 +16,7 @@ const Gallery = () => {
     // empty form for adding an album
     const emptyForm = {
         title: "",
+        date:"",
         images: [],
         link: ""
     };
@@ -23,6 +24,7 @@ const Gallery = () => {
     // Form fields describing each input
     const formFields = [
         { label: "Title", name: "title", type: "text" },
+        { label: "Date", name: "date", type: "date" },,
         { label: "Image URLs", name: "images", type: "array" },
         { label: "Link", name: "link", type: "text" }
     ];
