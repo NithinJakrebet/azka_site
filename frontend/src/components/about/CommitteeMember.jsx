@@ -34,13 +34,6 @@ const CommitteeMember = ({ member, formFields }) => {
           />
         </div>
       }
-
-      <hr style={{
-        margin: "5px",
-        height: "5px",
-        minWidth: "800px",
-        justifySelf: "center"
-      }} />
     </div>
   );
 };
