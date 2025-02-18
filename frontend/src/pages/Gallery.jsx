@@ -5,6 +5,7 @@ import AnimatedPage from "../components/aesthetics/AnimatedPage";
 import AddButton from "../components/cms/AddButton.jsx";
 import EditButton from "../components/cms/EditButton.jsx";
 import DeleteButton from "../components/cms/DeleteButton.jsx";
+import DragAndDrop from "../components/gallery/DragAndDrop.jsx"
 
 const Gallery = () => {
     const { albums, loading, addAlbum, deleteAlbum, updateAlbum } = useAlbums();
@@ -24,10 +25,11 @@ const Gallery = () => {
     // Form fields describing each input
     const formFields = [
         { label: "Title", name: "title", type: "text" },
-        { label: "Date", name: "date", type: "date" },,
-        { label: "Image URLs", name: "images", type: "array" },
-        { label: "Link", name: "link", type: "text" }
-    ];
+        { label: "Date", name: "date", type: "date" },
+        { label: "Images", name: "images", type: "dropzone" },
+        { label: "Link", name: "link", type: "text" },
+      ];
+      
   
 
     
@@ -46,7 +48,7 @@ const Gallery = () => {
             {albums.map((album, index) => (
                     <div className="slideshow_container">
                         <h1 className="title">{album.title}</h1>                        
-                        {/* {album.link ? (
+                        {isInEditorMode && album.link ? (
                             <a 
                                 href={album.link}
                                 target="_blank" 
@@ -55,7 +57,7 @@ const Gallery = () => {
                             >
                                 Full Album
                             </a>
-                        ) : null} */}
+                        ) : null}
                         {isInEditorMode &&
                             <div className="cms-container">
                                 <EditButton

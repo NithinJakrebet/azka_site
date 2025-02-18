@@ -11,6 +11,8 @@ import {
 import { useState, useCallback } from "react";
 import { debounce } from "lodash";
 import DeleteIcon from "@mui/icons-material/Delete";
+import DropzoneField from "../gallery/DropzoneField";
+
 
 const Form = ({
   title = "Add New Event",
@@ -67,39 +69,54 @@ const Form = ({
 
   // Render a single field based on its type
   const renderField = (field) => {
-    // If this field is an array, render multiple text inputs with Add/Remove
-    if (field.type === "array") {
-      const arrayValues = localFormData[field.name] || [];
-      return (
-        <Box key={field.name} sx={{ mt: 2 }}>
-          <label style={{ marginBottom: "8px", display: "block" }}>
-            {field.label}
-          </label>
-          {arrayValues.map((val, idx) => (
-            <Box
-              key={idx}
-              sx={{ display: "flex", alignItems: "center", mb: 1 }}
-            >
-              <TextField
-                variant="outlined"
-                size="small"
-                label={`${field.label} #${idx + 1}`}
-                value={val}
-                onChange={(e) => handleArrayChange(field.name, idx, e.target.value)}
-                sx={{ flex: 1, marginRight: 1 }}
-              />
-              <IconButton color="error" onClick={() => removeArrayItem(field.name, idx)}>
-                <DeleteIcon />
-              </IconButton>
-            </Box>
-          ))}
-          <Button variant="outlined" onClick={() => addArrayItem(field.name)}>
-            + Add {field.label}
-          </Button>
-        </Box>
-      );
-    }
 
+   // Render dropzone if field type is "dropzone"
+  if (field.type === "dropzone") {
+    const dropzoneValue = localFormData[field.name] || [];
+    return (
+      <DropzoneField
+        key={field.name}
+        fieldName={field.name}
+        value={dropzoneValue}
+        onChange={updateField}  // This function updates the field in localFormData
+      />
+    );
+  }
+
+  // Existing handling for array type
+  if (field.type === "array") {
+    const arrayValues = localFormData[field.name] || [];
+    return (
+      <Box key={field.name} sx={{ mt: 2 }}>
+        <label style={{ marginBottom: "8px", display: "block" }}>
+          {field.label}
+        </label>
+        {arrayValues.map((val, idx) => (
+          <Box key={idx} sx={{ display: "flex", alignItems: "center", mb: 1 }}>
+            <TextField
+              variant="outlined"
+              size="small"
+              label={`${field.label} #${idx + 1}`}
+              value={val}
+              onChange={(e) =>
+                handleArrayChange(field.name, idx, e.target.value)
+              }
+              sx={{ flex: 1, marginRight: 1 }}
+            />
+            <IconButton
+              color="error"
+              onClick={() => removeArrayItem(field.name, idx)}
+            >
+              <DeleteIcon />
+            </IconButton>
+          </Box>
+        ))}
+        <Button variant="outlined" onClick={() => addArrayItem(field.name)}>
+          + Add {field.label}
+        </Button>
+      </Box>
+    );
+  }
     // Default to a single TextField for normal text/date/time/etc.
     return (
       <TextField
