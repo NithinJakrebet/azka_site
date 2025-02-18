@@ -7,7 +7,8 @@ const AddButton = ({
   item,
   addItem,
   emptyForm,
-  formFields
+  formFields,
+  title
 }) => {
 
   const [formOpen, setFormOpen] = useState(false);
@@ -33,6 +34,7 @@ const AddButton = ({
             setFormData={setFormData}
             handleFormSubmit={handleFormSubmit}
             handleCancel={() => setFormOpen(false)}
+            title={title}
         />
       )}
     </>

@@ -5,7 +5,6 @@ import AnimatedPage from "../components/aesthetics/AnimatedPage";
 import AddButton from "../components/cms/AddButton.jsx";
 import EditButton from "../components/cms/EditButton.jsx";
 import DeleteButton from "../components/cms/DeleteButton.jsx";
-import DragAndDrop from "../components/gallery/DragAndDrop.jsx"
 
 const Gallery = () => {
     const { albums, loading, addAlbum, deleteAlbum, updateAlbum } = useAlbums();
@@ -26,7 +25,7 @@ const Gallery = () => {
     const formFields = [
         { label: "Title", name: "title", type: "text" },
         { label: "Date", name: "date", type: "date" },
-        { label: "Images", name: "images", type: "dropzone" },
+        { label: "Images", name: "images", type: "dropzone", uploadType: "album", multiple: true },
         { label: "Link", name: "link", type: "text" },
       ];
       
@@ -42,6 +41,7 @@ const Gallery = () => {
                         item="Album" 
                         addItem={addAlbum} 
                         emptyForm={emptyForm}
+                        title="Add New Album"
                     />
                 </div>
             }
@@ -76,7 +76,7 @@ const Gallery = () => {
                         }
                         <div 
                             style={{
-                                width: "100%",
+                                width: "95%",
                                 aspectRatio: "11/6", 
                                 margin: "0 auto",
                                 overflow: "hidden",

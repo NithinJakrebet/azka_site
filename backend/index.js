@@ -1,16 +1,15 @@
-// index.js
 import dotenv from 'dotenv';
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 
-// Import your routes
+// Import routes
 import eventsRouter from './routes/events.js';
 import committeeMembersRouter from './routes/committeeMembers.js';
 import albumsRouter from './routes/albums.js';
 import newslettersRouter from './routes/newsletters.js';
 import usersRouter from './routes/users.js';
-
+import uploadRouter from './routes/upload.js';
 
 dotenv.config();
 
@@ -53,6 +52,7 @@ app.use('/committeeMembers', committeeMembersRouter);
 app.use('/albums', albumsRouter);
 app.use('/newsletters', newslettersRouter);
 app.use('/users', usersRouter);
+app.use('/upload', uploadRouter);
 
 // Connect to Mongo and start server
 mongoose

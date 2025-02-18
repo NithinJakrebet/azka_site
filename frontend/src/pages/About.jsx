@@ -25,7 +25,7 @@ const About = () => {
   const formFields = [
     { label: "Name", name: "name", type: "text" },
     { label: "Bio", name: "bio", type: "text", multiline: true, rows: 4 },
-    { label: "Image URL", name: "imageUrl", type: "text" },
+    { label: "Image URL", name: "imageUrl", type: "dropzone", uploadType: "committeeMember", multiple: false }
   ];
 
 
