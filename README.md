@@ -1,73 +1,73 @@
-# This website can be accessed with this link: https://azka-psi.vercel.app/
+# AZKA Project
 
+[View Live Website](https://azkonkanis.com)
 
-# Getting Started with Create React App
+---
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Table of Contents
 
-## Available Scripts
+- [Overview](#overview)
+- [Front-End Features](#front-end-features)
+- [Back-End Features](#back-end-features)
+- [Technologies Used](#technologies-used)
+- [Contact](#contact)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## Overview
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+The repository for the website for the AZ Konkanis community
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+---
 
-### `npm test`
+## Front-End Features
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- **Responsive UI:**  
+  Built using [React](https://reactjs.org/) and bootstrapped with Create React App, the interface is responsive to desktops, tablets, and mobile devices.
 
-### `npm run build`
+- **Component-Based Architecture:**  
+  Modular design ensures reusable components and maintainable code, promoting scalability and easier feature enhancements.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## Back-End Features
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **RESTful API:**  
+  A robust API layer (built with Node.js/Express) powers dynamic content and supports seamless communication with the front end.
 
-### `npm run eject`
+- **Secure Authentication & Authorization:**  
+  Incorporates modern security practices to manage user sessions and protect sensitive data.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Data Management:**  
+  Integrates with a scalable Mongo database to handle persistent data storage, ensuring data integrity and efficient queries.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- **Error Handling & Logging:**  
+  Implements comprehensive error handling strategies and logging to support debugging and maintain system reliability.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+---
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+## Technologies Used
 
-## Learn More
+- **Front End:**  
+  - React
+  - Create React App
+  - Material UI Library to streamline component development
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Back End:**  
+  - Node.js with Express 
+  - RESTful API design principles
+  - Database integration with MongoDB
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- **Tooling & Deployment:**  
+  - NPM for package management
+  - Modern build and deployment pipelines for production‑ready code
+  - Git for version control and collaborative development
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## Contact
 
-### Analyzing the Bundle Size
+For further details, collaboration, or inquiries, feel free to reach out:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+- **Email:** nithinjbet@gmail.com, azkonkanispresident@gmail.com
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
