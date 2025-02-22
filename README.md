@@ -1,4 +1,4 @@
-# AZKA Project
+# AZKA Website
 
 [View Live Website](https://azkonkanis.com)
 
@@ -56,11 +56,11 @@ The repository for the website for the AZ Konkanis community
 - **Back End:**  
   - Node.js with Express 
   - RESTful API design principles
-  - Database integration with MongoDB
+  - Database integration with MongoDB and Cloudinary
 
 - **Tooling & Deployment:**  
   - NPM for package management
-  - Modern build and deployment pipelines for production‑ready code
+  - Front end hosted on Vercel with backend hosted on Railway
   - Git for version control and collaborative development
 
 ---
