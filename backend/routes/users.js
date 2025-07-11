@@ -18,8 +18,6 @@ router.get('/', async (req, res) => {
 });
 
 
-
-
 // Registration
 router.post('/register', async (req, res) => {
   try {

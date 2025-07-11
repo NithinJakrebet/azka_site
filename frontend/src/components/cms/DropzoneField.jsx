@@ -67,11 +67,10 @@ const DropzoneField = ({ fieldName, value, onChange, uploadType, multiple }) => 
       >
         <input {...getInputProps()} />
         {isDragActive ? (
-          <Typography>Drop the file here ...</Typography>
+          <Typography>Drop  file here ...</Typography>
         ) : (
-          <Typography>
-            Drag & drop {multiple ? "files" : "a file"} here, or click to select{" "}
-            {multiple ? "files" : "a file"}
+          <Typography variant="body2">
+            Drag & drop {multiple ? "files" : "a file"}/click to select{" "} {multiple ? "files" : "a file"}
           </Typography>
         )}
       </Box>
@@ -82,7 +81,7 @@ const DropzoneField = ({ fieldName, value, onChange, uploadType, multiple }) => 
               <Box key={index} sx={{ mb: 1 }}>
                 <img
                   src={img}
-                  alt={`uploaded ${index}`}
+                  alt={`Uploaded images will appear here ${index}`}
                   style={{ maxWidth: "100%", maxHeight: "150px" }}
                 />
               </Box>
@@ -94,7 +93,7 @@ const DropzoneField = ({ fieldName, value, onChange, uploadType, multiple }) => 
           <Box sx={{ mt: 2 }}>
             <img
               src={value}
-              alt="uploaded"
+              alt="Uploaded image will appear here"
               style={{ maxWidth: "100%", maxHeight: "150px" }}
             />
           </Box>

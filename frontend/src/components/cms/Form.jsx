@@ -150,7 +150,7 @@ const Form = ({
 
   // main component return value
   return (
-    <Dialog open onClose={handleCancel}>
+    <Dialog open onClose={handleCancel} fullWidth="md">
       <DialogTitle style={{fontSize: "32px", fontWeight:"bold"}}>{title}</DialogTitle>
       <DialogContent dividers>
         <Box component="form">
