@@ -18,18 +18,18 @@ const AddToCalendarButton = ({ event }) => {
     };
 
     const icsContent = `
-BEGIN:VCALENDAR
-VERSION:2.0
-CALSCALE:GREGORIAN
-BEGIN:VEVENT
-SUMMARY:${title}
-DESCRIPTION:${description}
-DTSTART:${formatICSDate(startDateTime)}
-DTEND:${formatICSDate(endDateTime)}
-LOCATION:${location || ""}
-END:VEVENT
-END:VCALENDAR
-`.trim();
+      BEGIN:VCALENDAR
+      VERSION:2.0
+      CALSCALE:GREGORIAN
+      BEGIN:VEVENT
+      SUMMARY:${title}
+      DESCRIPTION:${description}
+      DTSTART:${formatICSDate(startDateTime)}
+      DTEND:${formatICSDate(endDateTime)}
+      LOCATION:${location || ""}
+      END:VEVENT
+      END:VCALENDAR
+      `.trim();
 
     // Create Blob and trigger download
     const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });

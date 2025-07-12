@@ -1,9 +1,8 @@
-import useCommitteeMembers from "../../../hooks/useCommitteeMembers";
+import useCommitteeMembers from "../../../../hooks/useCommitteeMembers";
 import MemberInfo from "../molecules/MemberInfo";
-import EditButton from "../../cms/EditButton";
-import DeleteButton from "../../cms/DeleteButton";
-import { Box, Avatar } from "@mui/material";
-import Grid from '@mui/material/Grid';
+import EditButton from "../../../cms/EditButton";
+import DeleteButton from "../../../cms/DeleteButton";
+import { Box, Avatar, Grid2 as Grid } from "@mui/material";
 
 const CommitteeMemberCard = ({ member, formFields }) => {
   const { deleteCommitteeMember, updateCommitteeMember } = useCommitteeMembers();
@@ -16,8 +15,8 @@ const CommitteeMemberCard = ({ member, formFields }) => {
           src={member.imageUrl}
           alt={member.name}
           sx={{
-            width: 250,
-            height: 250,
+            width: 400,
+            height: 400,
             border: '4px solid',
             borderColor: 'primary.dark',
           }}

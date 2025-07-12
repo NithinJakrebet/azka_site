@@ -1,12 +1,12 @@
-import { Box, Container, Typography, Stack, Divider, IconButton } from "@mui/material";
+import { Box, Container, Typography, Stack, Divider, IconButton, Link } from "@mui/material";
 import FacebookIcon from '@mui/icons-material/Facebook';
 import InstagramIcon from '@mui/icons-material/Instagram';
 import MusicNoteIcon from '@mui/icons-material/MusicNote'; // Using as a placeholder for TikTok
 
 const socialLinks = [
   { icon: <FacebookIcon />, href: "https://www.facebook.com/groups/2620372688125086", name: "Facebook" },
-//   { icon: <InstagramIcon />, href: "#", name: "Instagram" }, // Replace with your Instagram link
-//   { icon: <MusicNoteIcon />, href: "#", name: "TikTok" },    // Replace with your TikTok link
+  { icon: <InstagramIcon />, href: "#", name: "Instagram" }, // Replace with your Instagram link
+  { icon: <MusicNoteIcon />, href: "#", name: "TikTok" },    // Replace with your TikTok link
 ];
 
 export default function Footer() {
@@ -16,7 +16,7 @@ export default function Footer() {
       sx={{
         py: 3,
         px: 2,
-        mt: 'auto', // This is key for the sticky footer layout
+        mt: 'auto',
         backgroundColor: (theme) =>
           theme.palette.mode === 'light'
             ? theme.palette.grey[200]
@@ -28,7 +28,7 @@ export default function Footer() {
           direction="row"
           justifyContent="center"
           spacing={1}
-          sx={{ mb: 2 }}
+          // sx={{ mb: 2 }}
         >
           {socialLinks.map((social) => (
             <IconButton
@@ -49,6 +49,16 @@ export default function Footer() {
               {social.icon}
             </IconButton>
           ))}
+           <Box>
+            <Link 
+              href="mailto:azkonkanispresident@gmail.com" 
+              variant="body2" 
+              underline="hover"
+              sx={{ color: 'text.secondary', transition: 'color 0.2s ease-in-out', '&:hover': { color: 'primary.main' } }}
+            >
+              azkonkanispresident@gmail.com
+            </Link>
+          </Box>
         </Stack>
         <Divider />
         <Typography variant="body2" color="text.secondary" align="center" sx={{ pt: 2 }}>

@@ -1,5 +1,5 @@
-import useEvents from "../../hooks/useEvents";
-import EventCard from "./atoms/EventCard"; // Import the new component
+import useEvents from "../../../../hooks/useEvents";
+import EventCard from "../atoms/EventCard";
 import {
   Accordion,
   AccordionSummary,

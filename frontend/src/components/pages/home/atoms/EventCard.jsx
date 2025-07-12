@@ -1,12 +1,12 @@
 import { Card, CardContent, CardActions, Typography, Box } from "@mui/material";
-import EditButton from "../../cms/EditButton";
-import DeleteButton from "../../cms/DeleteButton";
-import { formatTime, formatDate } from "../../../util/formatting";
+import EditButton from "../../../cms/EditButton";
+import DeleteButton from "../../../cms/DeleteButton";
+import { formatTime, formatDate } from "../../../../util/formatting";
 
 const EventCard = ({ event, isInEditorMode, formFields, onEdit, onDelete, actions }) => {
   return (
-    <Card sx={{ position: "relative" }}>
-      <CardContent>
+    <Card >
+      <CardContent sx={{ textAlign: 'center' }}>
         {isInEditorMode && (
           <Box sx={{ position: 'absolute', top: 16, right: 16, display: 'flex', gap: 1 }}>
             <EditButton
@@ -38,7 +38,7 @@ const EventCard = ({ event, isInEditorMode, formFields, onEdit, onDelete, action
           <strong>Location:</strong> {event.location}
         </Typography>
       </CardContent>
-      {actions && <CardActions>{actions}</CardActions>}
+      {actions && <CardActions sx={{ justifyContent: 'center', pb: 2 }}>{actions}</CardActions>}
     </Card>
   );
 };

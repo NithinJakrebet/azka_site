@@ -1,4 +1,4 @@
-import { ImageSlider } from "../components/gallery/organisms/ImageSlider";
+import { ImageSlider } from "../components/pages/gallery/organisms/ImageSlider";
 import useAlbums from "../hooks/useAlbums";
 import AnimatedPage from "../components/aesthetics/AnimatedPage";
 import AddButton from "../components/cms/AddButton";
@@ -78,7 +78,7 @@ const Gallery = () => {
                                 <CardActions sx={{ justifyContent: 'center', p: 2 }}>
                                     <Button 
                                         variant="contained"
-                                        color="secondary"
+                                        color="primary"
                                         href={album.link}
                                         target="_blank" 
                                         rel="noopener noreferrer"

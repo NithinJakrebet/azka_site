@@ -1,12 +1,11 @@
-import useEvents from "../../hooks/useEvents";
-import AddToCalendarButton from "./AddtoCalendarButton";
-import AddButton from "../cms/AddButton";
-import EventCard from "./atoms/EventCard"; // Import the new component
+import useEvents from "../../../../hooks/useEvents";
+import AddToCalendarButton from "../AddtoCalendarButton";
+import AddButton from "../../../cms/AddButton";
+import EventCard from "../atoms/EventCard"; // Import the new component
 import { Typography, Box, Stack } from "@mui/material";
 
-const UpcomingEvents = () => {
+const UpcomingEvents = ({ isInEditorMode }) => {
   const { upcomingEvents, deleteEvent, addEvent, updateEvent } = useEvents();
-  const isInEditorMode = localStorage.getItem("isInEditorMode") === "true";
 
   const emptyForm = {
     title: "",

@@ -1,6 +1,5 @@
 
 .member-container {
-      /* display: flex; */
       align-items: center;
       margin-bottom: 100px;
       border-radius: 5px;
@@ -10,8 +9,6 @@
     
     .member-image {
       margin-top: 1rem;
-      /* display: flex; */
-      /* align-items: center; */
       width: 400px;
       height: 400px;
       object-fit:cover;

@@ -1,10 +1,9 @@
-import AppearOnScroll from "../components/aesthetics/AppearOnScroll";
 import AnimatedPage from "../components/aesthetics/AnimatedPage";
-import NewsletterCard from "../components/newsletter/organisms/NewsletterCard";
+import NewsletterCard from "../components/pages/newsletter/organisms/NewsletterCard";
 import useNewsletters from "../hooks/useNewsletters";
 import AddButton from "../components/cms/AddButton";
 import { Box, CircularProgress, Grid2 as Grid } from "@mui/material";
-import PageContainer from "../components/layout/PageContainter";
+import PageContainer from "../components/layout/PageContainer";
 import PageTitle from "../components/layout/PageTitle";
 
 const Newsletter = () => {
@@ -67,7 +66,6 @@ const Newsletter = () => {
         <Grid container spacing={4} justifyContent="center">
           {newsletters.map((newsletter) => (
             <Grid item key={newsletter._id} xs={12} sm={6} md={4}>
-              <AppearOnScroll>
                 <NewsletterCard
                   newsletter={{
                     ...newsletter,
@@ -75,7 +73,6 @@ const Newsletter = () => {
                   }}
                   formFields={formFields}
                 />
-              </AppearOnScroll>
             </Grid>
           ))}
         </Grid>

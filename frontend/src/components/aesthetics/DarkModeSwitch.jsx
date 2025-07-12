@@ -7,7 +7,7 @@ const DarkModeSwitch = ({ toggleColorMode }) => {
 
   return (
     <Fab
-      color="secondary"
+      color="primary"
       aria-label="toggle dark mode"
       onClick={toggleColorMode}
       sx={{

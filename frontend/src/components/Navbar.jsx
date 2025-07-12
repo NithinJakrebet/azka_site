@@ -9,16 +9,21 @@ import {
   Menu,
   MenuItem,
   Button,
-  Link,
 } from "@mui/material";
 import MenuIcon from "@mui/icons-material/Menu";
+import NewspaperRoundedIcon from '@mui/icons-material/NewspaperRounded';
+import EmojiPeopleRoundedIcon from '@mui/icons-material/EmojiPeopleRounded';
+import HomeRoundedIcon from '@mui/icons-material/HomeRounded';
+import PhotoLibraryRoundedIcon from '@mui/icons-material/PhotoLibraryRounded';
+import MailOutlineRoundedIcon from '@mui/icons-material/MailOutlineRounded';
+import TempleHinduRoundedIcon from '@mui/icons-material/TempleHinduRounded';
 
 const pages = [
-  { name: "Home", path: "/" },
-  { name: "About Us", path: "/about" },
-  { name: "Gallery", path: "/gallery" },
-  { name: "Newsletter", path: "/newsletter" },
-  { name: "Contact", path: "/contact" },
+  { name: "Home", path: "/", icon: <HomeRoundedIcon /> },
+  { name: "About Us", path: "/about", icon: <EmojiPeopleRoundedIcon /> },
+  { name: "Gallery", path: "/gallery", icon: <PhotoLibraryRoundedIcon /> },
+  { name: "Newsletter", path: "/newsletter", icon: <NewspaperRoundedIcon /> },
+  { name: "Contact", path: "/contact" , icon: <MailOutlineRoundedIcon /> },
   // { name: "Settings", path: "/settings" },
 ];
 
@@ -33,7 +38,7 @@ const NavLink = ({ to, children }) => {
       to={to}
       sx={{
         my: 2,
-        color: "white",
+        color: "inherit",
         display: "block",
         textDecoration: isActive ? "underline" : "none",
         textUnderlineOffset: "4px",
@@ -58,17 +63,15 @@ export default function Navbar() {
   return (
     <AppBar position="static">
       <Toolbar>
+        <TempleHinduRoundedIcon sx={{ mr: 2, display: { xs: "none", md: "flex" }, color: 'primary.contrastText' }} />
         <Typography
-          variant="h4"
+          variant="h3"
           noWrap
           component={RouterLink}
           to="/"
           sx={{
-            mr: 2,
-            flexGrow: { xs: 1, md: 0 },
-            fontFamily: "monospace",
+            fontFamily: "inherit",
             fontWeight: 700,
-            letterSpacing: ".3rem",
             color: "inherit",
             textDecoration: "none",
           }}
@@ -118,7 +121,9 @@ export default function Navbar() {
         <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: 'flex-end' }}>
           {pages.map((page) => (
             <NavLink key={page.name} to={page.path}>
-              {page.name}
+              <Box sx={{ display: 'flex', alignItems: 'center', gap: 1 }}>
+                {page.icon}{page.name}
+              </Box>
             </NavLink>
           ))}
         </Box>

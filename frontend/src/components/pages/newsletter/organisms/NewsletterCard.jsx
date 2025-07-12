@@ -1,6 +1,6 @@
-import useNewsletters from "../../../hooks/useNewsletters";
-import EditButton from "../../cms/EditButton";
-import DeleteButton from "../../cms/DeleteButton";
+import useNewsletters from "../../../../hooks/useNewsletters";
+import EditButton from "../../../cms/EditButton";
+import DeleteButton from "../../../cms/DeleteButton";
 import { Card, CardActionArea, CardMedia, CardContent, CardActions, Typography } from "@mui/material";
 
 const NewsletterCard = ({ newsletter, formFields }) => {

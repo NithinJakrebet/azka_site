@@ -1,21 +1,25 @@
-import UpcomingEvents from "../components/home/UpcomingEvents";
-import ArchivedEvents from "../components/home/ArchivedEvents";
+import UpcomingEvents from "../components/pages/home/molecules/UpcomingEvents";
+import ArchivedEvents from "../components/pages/home/molecules/ArchivedEvents";
 import AnimatedPage from "../components/aesthetics/AnimatedPage";
-import { Container, Box, Typography, Divider } from "@mui/material";
+import {  Box, Divider } from "@mui/material";
+import PageContainer from "../components/layout/PageContainer";
+import PageTitle from "../components/layout/PageTitle";
 
 const Home = () => {
+  const isInEditorMode = localStorage.getItem("isInEditorMode") === "true";
+
   return (
     <AnimatedPage>
-      <Container maxWidth="lg" sx={{ py: 4 }}>
+      <PageContainer>
         <Box sx={{ textAlign: 'center', my: 4 }}>
-          <Typography variant="h2" component="h1" gutterBottom>
+          <PageTitle>
             Welcome to AZ Konkanis
-          </Typography>
+          </PageTitle>
         </Box>
-        <UpcomingEvents />
+        <UpcomingEvents isInEditorMode={isInEditorMode}/>
         <Divider sx={{ my: 5 }} />
         <ArchivedEvents />
-      </Container>
+      </PageContainer>
     </AnimatedPage>
   );
 };

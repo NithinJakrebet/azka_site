@@ -1,8 +1,9 @@
 import AppearOnScroll from "../components/aesthetics/AppearOnScroll";
 import useCommitteeMembers from "../hooks/useCommitteeMembers";
-import CommitteeMemberCard from "../components/about/organisms/CommitteeMemberCard"; // Updated import
+import CommitteeMemberCard from "../components/pages/about/organisms/CommitteeMemberCard.jsx"; // Updated import
 import AddButton from "../components/cms/AddButton";
 import { Box, Typography, CircularProgress, Container, Divider, Stack } from "@mui/material";
+import PageContainer from "../components/layout/PageContainer.jsx"
 
 const About = () => {
   const { committeeMembers, loading, addCommitteeMember } = useCommitteeMembers();
@@ -31,7 +32,7 @@ const About = () => {
   }
 
   return (
-      <Container maxWidth="lg" sx={{ py: 4 }}>
+      <PageContainer>
         <Typography variant="h2" component="h1" align="center" gutterBottom>
           Executive Committee
         </Typography>
@@ -57,7 +58,7 @@ const About = () => {
             </AppearOnScroll>
           ))}
         </Stack>
-      </Container>
+      </PageContainer>
   );
 };
 
