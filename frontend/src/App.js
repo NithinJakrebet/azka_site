@@ -1,7 +1,8 @@
-import React from "react";
 import { Route, Routes, useLocation } from "react-router-dom";
 import { AnimatePresence } from "framer-motion";
-
+import { ThemeProvider } from '@mui/material/styles';
+import CssBaseline from '@mui/material/CssBaseline';
+import theme from './theme';
 import Home from './pages/Home';
 import About from './pages/About';
 import Contact from './pages/Contact';
@@ -16,7 +17,8 @@ function App() {
 	const location = useLocation();
 
 	return (
-		<>
+		<ThemeProvider theme={theme}>
+			<CssBaseline />
 			<Navbar />
 			<page-container>
 				<div className="container">
@@ -33,7 +35,7 @@ function App() {
 				</div>
 				<Footer /> 
 			</page-container>
-		</>
+		</ThemeProvider>
 	);
 }
 

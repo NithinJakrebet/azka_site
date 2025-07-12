@@ -1,8 +1,7 @@
 import useEvents from "../hooks/useEvents";
 import "../styling/home.css";
 import ArchivedEvents from "../components/home/ArchivedEvents";
-import UpcomingEvents from "../components/home/upcomingEvents";
-
+import UpcomingEvents from "../components/home/UpcomingEvents";
 const Home = () => {
   const { loading, error } = useEvents();
 

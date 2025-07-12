@@ -1,47 +1,128 @@
 import { useState } from "react";
-import { Link, useMatch, useResolvedPath } from "react-router-dom";
-import "../styling/navbar.css";
+import { Link as RouterLink, useMatch, useResolvedPath } from "react-router-dom";
+import {
+  AppBar,
+  Box,
+  Toolbar,
+  IconButton,
+  Typography,
+  Menu,
+  MenuItem,
+  Button,
+  Link,
+} from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
+
+const pages = [
+  { name: "Home", path: "/" },
+  { name: "About Us", path: "/about" },
+  { name: "Gallery", path: "/gallery" },
+  { name: "Newsletter", path: "/newsletter" },
+  { name: "Contact", path: "/contact" },
+  { name: "Settings", path: "/settings" },
+];
+
+// A new component to correctly handle the hook calls
+const NavLink = ({ to, children }) => {
+  const resolvedPath = useResolvedPath(to);
+  const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+
+  return (
+    <Button
+      component={RouterLink}
+      to={to}
+      sx={{
+        my: 2,
+        color: "white",
+        display: "block",
+        textDecoration: isActive ? "underline" : "none",
+        textUnderlineOffset: "4px",
+      }}
+    >
+      {children}
+    </Button>
+  );
+};
 
 export default function Navbar() {
-    const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [anchorElNav, setAnchorElNav] = useState(null);
 
-    const toggleMenu = () => {
-        setIsMenuOpen(!isMenuOpen);
-    };
+  const handleOpenNavMenu = (event) => {
+    setAnchorElNav(event.currentTarget);
+  };
 
-    return (
-        <nav className="nav">
-            <Link to="/" className="site-title">AZ Konkanis</Link>
-            <div className="hamburger-menu" onClick={toggleMenu}>☰</div>
-            <ul className={`dropdown ${isMenuOpen ? "active" : ""}`}>
-                <CustomLink to="/" onClick={toggleMenu}>Home</CustomLink>
-                <CustomLink to="/about" onClick={toggleMenu}>About Us</CustomLink>
-                <CustomLink to="/gallery" onClick={toggleMenu}>Gallery</CustomLink>
-                <CustomLink to="/newsletter" onClick={toggleMenu}>Newsletter</CustomLink>
-                <CustomLink to="/contact" onClick={toggleMenu}>Contact</CustomLink>
-                <CustomLink to="/settings" onClick={toggleMenu}>Settings</CustomLink>
-            </ul>
-            <ul className="desktop">
-                <CustomLink to="/">Home</CustomLink>
-                <CustomLink to="/about">About Us</CustomLink>
-                <CustomLink to="/gallery">Gallery</CustomLink>
-                <CustomLink to="/newsletter">Newsletter</CustomLink>
-                <CustomLink to="/contact">Contact</CustomLink>
-                <CustomLink to="/settings">Settings</CustomLink>
-            </ul>
-        </nav>
-    );
-}
+  const handleCloseNavMenu = () => {
+    setAnchorElNav(null);
+  };
 
-function CustomLink({ to, children, ...props}) {
-    const resolvedPath = useResolvedPath(to);
-    const isActive = useMatch({ path: resolvedPath.pathname, end: true });
+  return (
+    <AppBar position="static">
+      <Toolbar>
+        <Typography
+          variant="h6"
+          noWrap
+          component={RouterLink}
+          to="/"
+          sx={{
+            mr: 2,
+            flexGrow: { xs: 1, md: 0 },
+            fontFamily: "monospace",
+            fontWeight: 700,
+            letterSpacing: ".3rem",
+            color: "inherit",
+            textDecoration: "none",
+          }}
+        >
+          AZ Konkanis
+        </Typography>
 
-    return (
-        <li className={isActive ? "active" : ""}>
-            <Link to={to} {...props}>
-                {children}
-            </Link>
-        </li>
-    );
+        {/* Mobile Menu */}
+        <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" }, justifyContent: 'flex-end' }}>
+          <IconButton
+            size="large"
+            aria-label="navigation menu"
+            aria-controls="menu-appbar"
+            aria-haspopup="true"
+            onClick={handleOpenNavMenu}
+            color="inherit"
+          >
+            <MenuIcon />
+          </IconButton>
+          <Menu
+            id="menu-appbar"
+            anchorEl={anchorElNav}
+            anchorOrigin={{
+              vertical: "bottom",
+              horizontal: "left",
+            }}
+            keepMounted
+            transformOrigin={{
+              vertical: "top",
+              horizontal: "left",
+            }}
+            open={Boolean(anchorElNav)}
+            onClose={handleCloseNavMenu}
+            sx={{
+              display: { xs: "block", md: "none" },
+            }}
+          >
+            {pages.map((page) => (
+              <MenuItem key={page.name} onClick={handleCloseNavMenu} component={RouterLink} to={page.path}>
+                  <Typography textAlign="center">{page.name}</Typography>
+              </MenuItem>
+            ))}
+          </Menu>
+        </Box>
+
+        {/* Desktop Menu */}
+        <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" }, justifyContent: 'flex-end' }}>
+          {pages.map((page) => (
+            <NavLink key={page.name} to={page.path}>
+              {page.name}
+            </NavLink>
+          ))}
+        </Box>
+      </Toolbar>
+    </AppBar>
+  );
 }

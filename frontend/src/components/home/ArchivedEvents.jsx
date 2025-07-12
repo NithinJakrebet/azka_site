@@ -1,38 +1,44 @@
-import { formatTime, formatDate } from "../../util/formatting";
 import useEvents from "../../hooks/useEvents";
-import Accordion from "@mui/material/Accordion";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
+import EventCard from "./atoms/EventCard"; // Import the new component
+import {
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
+  Typography,
+  Box,
+  Stack,
+} from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import "../../styling/home.css"
 
 const ArchivedEvents = () => {
   const { archivedEvents } = useEvents();
 
   return (
-    <>
-      <h2 style={{ textAlign: "center", marginBottom: "20px" }}>Archived Events</h2>
+    <Box sx={{ mt: 5 }}>
+      <Typography variant="h3" component="h2" align="center" gutterBottom>
+        Archived Events
+      </Typography>
       <Accordion>
-        <AccordionSummary expandIcon={<ExpandMoreIcon />}>
-          <h3 style={{ textAlign: "center" }}>View Archived Events</h3>
+        <AccordionSummary
+          expandIcon={<ExpandMoreIcon />}
+          aria-controls="archived-events-content"
+          id="archived-events-header"
+        >
+          <Typography variant="h5">View Archived Events</Typography>
         </AccordionSummary>
         <AccordionDetails>
           {archivedEvents.length === 0 ? (
-            <p>No archived events.</p>
+            <Typography>No archived events.</Typography>
           ) : (
-            archivedEvents.map((event) => (
-              <div key={event._id} className="card">
-                <h2>{event.title}</h2>
-                <h3>{event.description}</h3>
-                <h4>{formatDate(event.date)}</h4>
-                <h4>{formatTime(event.startTime, event.endTime)}</h4>
-                <h4>{event.location}</h4>
-              </div>
-            ))
+            <Stack spacing={2}>
+              {archivedEvents.map((event) => (
+                <EventCard key={event._id} event={event} />
+              ))}
+            </Stack>
           )}
         </AccordionDetails>
       </Accordion>
-    </>
+    </Box>
   );
 };
 
