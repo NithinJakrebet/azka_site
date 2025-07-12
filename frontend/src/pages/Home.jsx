@@ -1,18 +1,22 @@
-import useEvents from "../hooks/useEvents";
-import "../styling/home.css";
-import ArchivedEvents from "../components/home/ArchivedEvents";
 import UpcomingEvents from "../components/home/UpcomingEvents";
+import ArchivedEvents from "../components/home/ArchivedEvents";
+import AnimatedPage from "../components/aesthetics/AnimatedPage";
+import { Container, Box, Typography, Divider } from "@mui/material";
+
 const Home = () => {
-  const { loading, error } = useEvents();
-
-  if (loading) return <p>Loading events...</p>;
-  if (error) return <p>{error}</p>;
-
   return (
-    <div style={{ padding: "1rem" }} className="text_box">
-      <UpcomingEvents />
-      <ArchivedEvents />
-    </div>
+    <AnimatedPage>
+      <Container maxWidth="lg" sx={{ py: 4 }}>
+        <Box sx={{ textAlign: 'center', my: 4 }}>
+          <Typography variant="h2" component="h1" gutterBottom>
+            Welcome to AZ Konkanis
+          </Typography>
+        </Box>
+        <UpcomingEvents />
+        <Divider sx={{ my: 5 }} />
+        <ArchivedEvents />
+      </Container>
+    </AnimatedPage>
   );
 };
 

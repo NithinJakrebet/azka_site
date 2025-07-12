@@ -1,5 +1,4 @@
 import AppearOnScroll from "../components/aesthetics/AppearOnScroll";
-import AnimatedPage from "../components/aesthetics/AnimatedPage";
 import useCommitteeMembers from "../hooks/useCommitteeMembers";
 import CommitteeMemberCard from "../components/about/organisms/CommitteeMemberCard"; // Updated import
 import AddButton from "../components/cms/AddButton";
@@ -32,7 +31,6 @@ const About = () => {
   }
 
   return (
-    <AnimatedPage>
       <Container maxWidth="lg" sx={{ py: 4 }}>
         <Typography variant="h2" component="h1" align="center" gutterBottom>
           Executive Committee
@@ -60,7 +58,6 @@ const About = () => {
           ))}
         </Stack>
       </Container>
-    </AnimatedPage>
   );
 };
 

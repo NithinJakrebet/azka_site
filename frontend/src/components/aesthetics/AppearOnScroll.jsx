@@ -1,30 +1,19 @@
-import React, { useState, useRef, useEffect } from 'react';
+import { motion } from 'framer-motion';
 
-const AppearOnScroll = ({ children }) => {
-  const [isVisible, setIsVisible] = useState(false);
-  const domRef = useRef();
-
-  useEffect(() => {
-    const observer = new IntersectionObserver(entries => {
-      entries.forEach(entry => setIsVisible(entry.isIntersecting));
-    });
-
-    observer.observe(domRef.current);
-    
-    return () => observer.disconnect();
-  }, []);
-
+const AppearOnScroll = ({ children, delay = 0 }) => {
   return (
-    <div
-      ref={domRef}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? 'none' : 'translateY(10vh)',
-        transition: 'opacity 0.2s ease-out, transform 0.2s ease-out',
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }} // Animates once when 30% of it is in view
+      transition={{
+        duration: 0.6,
+        ease: 'easeOut',
+        delay: delay,
       }}
     >
       {children}
-    </div>
+    </motion.div>
   );
 };
 

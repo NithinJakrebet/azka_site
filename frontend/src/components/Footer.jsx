@@ -1,24 +1,62 @@
-import "../styling/footer.css";
-import "../styling/home.css"
-// import fb from "../photos/fb_icon.png"
-// import ig from "../photos/Instagram_logo.png"
-// import tk from "../photos/tiktok.png"
+import { Box, Container, Typography, Stack, Divider, IconButton } from "@mui/material";
+import FacebookIcon from '@mui/icons-material/Facebook';
+import InstagramIcon from '@mui/icons-material/Instagram';
+import MusicNoteIcon from '@mui/icons-material/MusicNote'; // Using as a placeholder for TikTok
+
+const socialLinks = [
+  { icon: <FacebookIcon />, href: "https://www.facebook.com/groups/2620372688125086", name: "Facebook" },
+//   { icon: <InstagramIcon />, href: "#", name: "Instagram" }, // Replace with your Instagram link
+//   { icon: <MusicNoteIcon />, href: "#", name: "TikTok" },    // Replace with your TikTok link
+];
 
 export default function Footer() {
-	return (
-        <div className="main-footer">
-            <div className="container">
-                <div className="row">
-
-                </div>
-                <hr></hr>
-                <div className="row">
-                    <p className="col-sm">
-                        &copy;{new Date().getFullYear()} AZ Konkanis 
-                    </p>
-                </div>
-            </div>
-        </div>
-    )
+  return (
+    <Box
+      component="footer"
+      sx={{
+        py: 3,
+        px: 2,
+        mt: 'auto', // This is key for the sticky footer layout
+        backgroundColor: (theme) =>
+          theme.palette.mode === 'light'
+            ? theme.palette.grey[200]
+            : theme.palette.grey[900],
+      }}
+    >
+      <Container maxWidth="lg">
+        <Stack
+          direction="row"
+          justifyContent="center"
+          spacing={1}
+          sx={{ mb: 2 }}
+        >
+          {socialLinks.map((social) => (
+            <IconButton
+              key={social.name}
+              component="a"
+              href={social.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                color: 'text.secondary',
+                transition: 'transform 0.2s ease-in-out, color 0.2s ease-in-out',
+                '&:hover': {
+                  transform: 'scale(1.2)',
+                  color: 'primary.main'
+                }
+              }}
+            >
+              {social.icon}
+            </IconButton>
+          ))}
+        </Stack>
+        <Divider />
+        <Typography variant="body2" color="text.secondary" align="center" sx={{ pt: 2 }}>
+          {'© '}
+          {new Date().getFullYear()}
+          {' AZ Konkanis'}
+        </Typography>
+      </Container>
+    </Box>
+  );
 }
-

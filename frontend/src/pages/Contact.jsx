@@ -1,54 +1,68 @@
 import AnimatedPage from "../components/aesthetics/AnimatedPage";
-import "../styling/contact.css";
-import Button from "@mui/material/Button";
-import Box from "@mui/material/Box";
+import { Container, Box, Typography, Button, Link, Stack, Avatar } from "@mui/material";
+import FacebookIcon from '@mui/icons-material/Facebook';
 
 export default function Contact() {
   return (
     <AnimatedPage>
-      <Box 
-        className="text_box2"
-        sx={{ 
-          display: "flex",
-          flexDirection: "column",
-          gap: "1rem" /* spacing between elements */,
-        }}
-      >
-        <h1>Contact Us!</h1>
+      <Container maxWidth="sm" sx={{ py: 5, textAlign: 'center' }}>
+        <Stack spacing={4} alignItems="center">
+          <Typography variant="h2" component="h1">
+            Contact Us
+          </Typography>
 
-        <a href="mailto:azkonkanispresident@gmail.com">Email Us</a>
+          <Box>
+            <Typography variant="h6" component="h2" gutterBottom>
+              General Inquiries
+            </Typography>
+            <Link 
+              href="mailto:azkonkanispresident@gmail.com" 
+              variant="body1" 
+              underline="hover"
+              sx={{ fontSize: '1.2rem' }}
+            >
+              azkonkanispresident@gmail.com
+            </Link>
+          </Box>
 
-        <Button
-          sx={{
-            transition: "transform 0.3s ease-in-out",
-            "&:hover": {
-              transform: "scale(1.1)",
-            },
-            backgroundColor: "#1976d2",
-            color: "#fff",
-            padding: "10px 20px",
-            borderRadius: "8px",
-          }}
-          href="https://form.jotform.com/242000714755145"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Donate to SVK Temple
-        </Button>
+          <Button
+            variant="contained"
+            color="primary"
+            size="large"
+            href="https://form.jotform.com/242000714755145"
+            target="_blank"
+            rel="noopener noreferrer"
+            sx={{ 
+              transition: 'transform 0.2s',
+              '&:hover': { transform: 'scale(1.05)' }
+            }}
+          >
+            Donate to SVK Temple
+          </Button>
 
-        <h2>Follow our Socials Below</h2>
-        <a
-          href="https://www.facebook.com/groups/2620372688125086"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <img
-            className="rounded-image"
-            src="https://lh3.googleusercontent.com/pw/AP1GczNQYm2JXAaouwivvfxfR-6ZgKWmlng1ed3rgsL9Zu_McouxeOqv_A5PTbEsVkcErOs3akGUYbop0SphapAccuOJfN37A23p4axnnTOTyp_HYhyRRnJU9QbFJCCOgwzy4_kz8Ag3XzWMGHh47rM1Jjz06w=w325-h325-s-no?authuser=0"
-            alt="Facebook icon"
-          />
-        </a>
-      </Box>
+          <Box>
+            <Typography variant="h6" component="h2" gutterBottom>
+              Follow our Socials
+            </Typography>
+            <Link
+              href="https://www.facebook.com/groups/2620372688125086"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <Avatar sx={{ 
+                bgcolor: '#1877F2', // Facebook blue
+                width: 56, 
+                height: 56,
+                transition: 'transform 0.2s',
+                '&:hover': { transform: 'scale(1.1)' }
+              }}>
+                <FacebookIcon sx={{ fontSize: 40 }} />
+              </Avatar>
+            </Link>
+          </Box>
+
+        </Stack>
+      </Container>
     </AnimatedPage>
   );
 }

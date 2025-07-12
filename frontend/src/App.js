@@ -1,42 +1,51 @@
-import { Route, Routes, useLocation } from "react-router-dom";
-import { AnimatePresence } from "framer-motion";
-import { ThemeProvider } from '@mui/material/styles';
-import CssBaseline from '@mui/material/CssBaseline';
-import theme from './theme';
-import Home from './pages/Home';
-import About from './pages/About';
-import Contact from './pages/Contact';
-import Newsletter from "./pages/Newsletter";
+import React, { useState, useMemo } from "react";
+import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
+import { getDesignTokens } from "./theme";
+import Navbar from "./components/Navbar";
+import Home from "./pages/Home";
+import About from "./pages/About";
 import Gallery from "./pages/Gallery";
-import Navbar from './components/Navbar';
+import Newsletter from "./pages/Newsletter";
+import Contact from "./pages/Contact";
+import DarkModeSwitch from "./components/aesthetics/DarkModeSwitch";
 import Footer from "./components/Footer";
-import Settings from "./pages/Settings"; 
 
 function App() {
-	
-	const location = useLocation();
+  const [mode, setMode] = useState('light');
 
-	return (
-		<ThemeProvider theme={theme}>
-			<CssBaseline />
-			<Navbar />
-			<page-container>
-				<div className="container">
-					<AnimatePresence mode="wait">
-						<Routes key={location.pathname} location={location}>
-							<Route exact path="/" element={<Home />} />
-							<Route exact path="/about" element={<About />} />
-							<Route exact path="/contact" element={<Contact />} />
-							<Route exact path="/newsletter" element={<Newsletter />} />
-							<Route exact path="/gallery" element={<Gallery />} />
-							<Route path="/settings" element={<Settings />} />
-						</Routes>
-					</AnimatePresence>
-				</div>
-				<Footer /> 
-			</page-container>
-		</ThemeProvider>
-	);
+  const colorMode = useMemo(
+    () => ({
+      toggleColorMode: () => {
+        setMode((prevMode) => (prevMode === 'light' ? 'dark' : 'light'));
+      },
+    }),
+    [],
+  );
+
+  const theme = useMemo(() => createTheme(getDesignTokens(mode)), [mode]);
+
+  return (
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
+      <Router>
+        <Box sx={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
+          <Navbar />
+          <Box component="main" sx={{ flexGrow: 1 }}>
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/gallery" element={<Gallery />} />
+              <Route path="/newsletter" element={<Newsletter />} />
+              <Route path="/contact" element={<Contact />} />
+            </Routes>
+          </Box>
+          <Footer />
+        </Box>
+        <DarkModeSwitch toggleColorMode={colorMode.toggleColorMode} />
+      </Router>
+    </ThemeProvider>
+  );
 }
 
 export default App;

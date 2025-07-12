@@ -1,20 +1,5 @@
 import { Button } from "@mui/material";
-import { styled } from "@mui/system";
-
-const StyledButton = styled(Button)(({ theme }) => ({
-      marginTop: "1rem",
-      backgroundColor: theme?.palette?.primary?.main || "#1976d2", // Fallback to blue
-      color: theme?.palette?.common?.white || "#fff",
-      fontWeight: "bold",
-      fontSize: "1rem",
-      textTransform: "none",
-      transition: "all 0.3s ease",
-      "&:hover": {
-        backgroundColor: theme?.palette?.primary?.dark || "#115293", // Fallback to darker blue
-        transform: "scale(1.1)",
-      },
-    }));
-    
+import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 
 const AddToCalendarButton = ({ event }) => {
   const createICSFile = () => {
@@ -57,9 +42,21 @@ END:VCALENDAR
   };
 
   return (
-    <StyledButton variant="contained" onClick={createICSFile}>
+    <Button
+      variant="contained"
+      color="primary"
+      onClick={createICSFile}
+      startIcon={<EventAvailableIcon />}
+      sx={{
+        // The theme handles colors, font weight, and text transform automatically
+        transition: 'transform 0.2s ease-in-out',
+        '&:hover': {
+          transform: 'scale(1.05)', // A more subtle scaling effect
+        },
+      }}
+    >
       Add to Calendar
-    </StyledButton>
+    </Button>
   );
 };
 

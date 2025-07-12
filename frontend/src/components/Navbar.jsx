@@ -19,7 +19,7 @@ const pages = [
   { name: "Gallery", path: "/gallery" },
   { name: "Newsletter", path: "/newsletter" },
   { name: "Contact", path: "/contact" },
-  { name: "Settings", path: "/settings" },
+  // { name: "Settings", path: "/settings" },
 ];
 
 // A new component to correctly handle the hook calls
@@ -59,7 +59,7 @@ export default function Navbar() {
     <AppBar position="static">
       <Toolbar>
         <Typography
-          variant="h6"
+          variant="h4"
           noWrap
           component={RouterLink}
           to="/"
