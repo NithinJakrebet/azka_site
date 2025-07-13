@@ -18,7 +18,7 @@ const app = express();
 app.use(express.json({ limit: '50mb' }));
 app.use(cors());
 
-// Your API routes
+// Your API routes MUST still have the /api prefix
 app.use('/api/events', eventsRoute);
 app.use('/api/albums', albumsRoute);
 app.use('/api/newsletters', newslettersRoute);
@@ -34,5 +34,12 @@ mongoose
   .catch((error) => {
     console.log(error);
   });
+
+if (process.env.NODE_ENV !== 'production') {
+  const PORT = process.env.PORT || 5555;
+  app.listen(PORT, () => {
+    console.log(`Server is running for local development on port: ${PORT}`);
+  });
+}
 
 export default serverless(app);
