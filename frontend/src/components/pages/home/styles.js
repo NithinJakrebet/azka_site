@@ -21,13 +21,8 @@ export const AddButtonContainer = styled(Box)(({ theme }) => ({
 // FIX: Added the theme callback to properly access theme values if needed in the future.
 // This also ensures consistency.
 export const StyledEventCard = styled(Card)(({ theme }) => ({
-  position: 'relative',
   textAlign: 'center',
 }));
-
-export const StyledCardContent = styled(CardContent)({
-  // No theme access needed here, so the simple object is fine.
-});
 
 export const CardEditorActions = styled(Box)({
   position: 'absolute',
@@ -39,10 +34,6 @@ export const EventDescription = styled(Typography)(({ theme }) => ({
   marginBottom: theme.spacing(2),
 }));
 
-export const EventDetail = styled(Typography)({
-  // No extra styles needed, but good for semantic consistency
-});
-
 export const StyledCardActions = styled(CardActions)(({ theme }) => ({
   justifyContent: 'center',
   paddingBottom: theme.spacing(2),
@@ -51,16 +42,4 @@ export const StyledCardActions = styled(CardActions)(({ theme }) => ({
 // --- ArchivedEvents Styles ---
 export const ArchivedEventsContainer = styled(Box)(({ theme }) => ({
   marginTop: theme.spacing(5),
-}));
-
-export const StyledAccordion = styled(Accordion)({
-  // Add any custom accordion styles here if needed
-});
-
-// --- AddToCalendarButton Styles ---
-export const StyledCalendarButton = styled(Button)(({ theme }) => ({
-  transition: 'transform 0.2s ease-in-out',
-  '&:hover': {
-    transform: 'scale(1.05)',
-  },
 }));

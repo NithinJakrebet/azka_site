@@ -4,10 +4,9 @@ import {
   StyledCard,
   StyledCardActionArea,
   StyledCardMedia,
-  StyledCardContent,
-  TitleTypography,
   EditorActionsContainer,
 } from "./styles";
+import { CardContent, Typography } from "@mui/material";
 
 const NewsletterCard = ({ newsletter, formFields }) => {
   const { deleteNewsletter, updateNewsletter } = useNewsletters();
@@ -24,11 +23,11 @@ const NewsletterCard = ({ newsletter, formFields }) => {
           image={newsletter.imgURL}
           alt={newsletter.title}
         />
-        <StyledCardContent>
-          <TitleTypography gutterBottom variant="h5" component="div">
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
             {newsletter.title}
-          </TitleTypography>
-        </StyledCardContent>
+          </Typography>
+        </CardContent>
       </StyledCardActionArea>
       <EditorActionsContainer>
         <EditorActions

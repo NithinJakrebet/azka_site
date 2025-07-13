@@ -13,18 +13,16 @@ export const AvatarContainer = styled(Grid)({
 });
 
 export const StyledAvatar = styled(Avatar)(({ theme }) => ({
-  width: 300,
-  height: 300,
+  width: 400,
+  height: 400,
   border: `4px solid ${theme.palette.primary.dark}`,
   [theme.breakpoints.down('md')]: {
-    width: 200,
-    height: 200,
+    width: 300,
+    height: 300,
   },
 }));
 
 export const InfoContainer = styled(Grid)({
-  // Add these styles to make the container a flex column
-  // and center its content vertically.
   display: 'flex',
   flexDirection: 'column',
   justifyContent: 'center',

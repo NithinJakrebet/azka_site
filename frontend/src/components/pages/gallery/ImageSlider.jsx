@@ -1,11 +1,13 @@
 import { useState } from 'react';
-import { Box } from '@mui/material';
-import { KeyboardArrowLeft, KeyboardArrowRight } from '@mui/icons-material';
+import { Box, Typography } from '@mui/material';
+import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
+import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import {
   SliderContainer,
   ImageTrack,
   SliderImage,
-  ArrowButton,
+  LeftArrowButton,
+  RightArrowButton,
   StyledStepper,
 } from './styles';
 
@@ -14,42 +16,43 @@ export function ImageSlider({ imageUrls }) {
   const maxSteps = imageUrls.length;
 
   const handleNext = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep + 1) % maxSteps);
+    setActiveStep((prevActiveStep) => prevActiveStep + 1);
   };
 
   const handleBack = () => {
-    setActiveStep((prevActiveStep) => (prevActiveStep - 1 + maxSteps) % maxSteps);
+    setActiveStep((prevActiveStep) => prevActiveStep - 1);
   };
 
   if (maxSteps === 0) {
-    return <Box sx={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', backgroundColor: 'grey.200' }}>No Images</Box>;
+    return (
+      <Box sx={{ display: 'flex', alignItems: 'center', justifyContent: 'center', height: '100%' }}>
+        <Typography>No images in this album.</Typography>
+      </Box>
+    );
   }
 
   return (
     <SliderContainer>
-      <ImageTrack sx={{ transform: `translateX(-${activeStep * 100}%)` }}>
+      <ImageTrack style={{ transform: `translateX(-${activeStep * 100}%)` }}>
         {imageUrls.map((url, index) => (
-          <SliderImage
-            key={index}
-            src={url}
-            alt={`Gallery image ${index + 1}`}
-          />
+          <SliderImage key={index} src={url} alt={`Album image ${index + 1}`} />
         ))}
       </ImageTrack>
 
-      <ArrowButton onClick={handleBack} sx={{ left: 16 }}>
+      <LeftArrowButton onClick={handleBack} disabled={activeStep === 0}>
         <KeyboardArrowLeft />
-      </ArrowButton>
+      </LeftArrowButton>
 
-      <ArrowButton onClick={handleNext} sx={{ right: 16 }}>
+      <RightArrowButton onClick={handleNext} disabled={activeStep === maxSteps - 1}>
         <KeyboardArrowRight />
-      </ArrowButton>
+      </RightArrowButton>
 
       <StyledStepper
         steps={maxSteps}
         position="static"
-        variant="dots"
         activeStep={activeStep}
+        backButton={<></>}
+        nextButton={<></>}
       />
     </SliderContainer>
   );

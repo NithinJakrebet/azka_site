@@ -26,8 +26,7 @@ export default function Footer() {
             <EmailLink href="mailto:azkonkanispresident@gmail.com" variant="body2" underline="hover">
               azkonkanispresident@gmail.com
             </EmailLink>
-            {/* Use the new styled button and remove the sx prop */}
-            <StyledDonateButton
+            {/* <StyledDonateButton
               variant="outlined"
               size="large"
               href="https://form.jotform.com/242000714755145"
@@ -35,7 +34,7 @@ export default function Footer() {
               rel="noopener noreferrer"
             >
               Donate to SVK Temple
-            </StyledDonateButton>
+            </StyledDonateButton> */}
           </Box>
         </SocialStack>
         <Divider />

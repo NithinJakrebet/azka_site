@@ -2,6 +2,7 @@
 const sharedSettings = {
   typography: {
     fontFamily: "'Poppins', 'Helvetica', 'Arial', sans-serif",
+    textAlign: 'center',
     h1: {
       fontFamily: "'Merriweather', 'Georgia', 'Times New Roman', serif",
       fontWeight: 700,
@@ -24,6 +25,7 @@ const sharedSettings = {
     h5: {
       fontWeight: 700,
       fontSize: '1.25rem',
+      textAlign: 'center',
     },
     h6: {
       fontWeight: 500,
@@ -40,6 +42,7 @@ const sharedSettings = {
       textTransform: 'none',
       fontWeight: 700,
     },
+    
   },
   shape: {
     borderRadius: 8,
@@ -53,7 +56,7 @@ export const getDesignTokens = (mode) => ({
     ...(mode === 'light'
       ? {
           // Light Mode Palette
-          primary: { main: '#2c65d6' },
+          primary: { main: '#1c778a' },
           info: { main: '#000080' },
           background: { default: '#f8f9fa', paper: '#ffffff' },
           text: { primary: '#212121', secondary: '#5f6368' },
@@ -70,12 +73,20 @@ export const getDesignTokens = (mode) => ({
   components: {
     MuiButton: {
       styleOverrides: {
-        root: { boxShadow: 'none', '&:hover': { boxShadow: 'none' } },
+        root: { 
+          boxShadow: 'none', 
+          transition: 'transform 0.2s ease-in-out',
+          '&:hover': { 
+            boxShadow: 'none', 
+            transform: 'scale(1.05)', 
+          } 
+        },
       },
     },
     MuiCard: {
       styleOverrides: {
         root: {
+          position: 'relative', // Added from the previous refactor
           transition: 'box-shadow 0.3s ease-in-out, transform 0.3s ease-in-out',
           boxShadow: mode === 'light' ? '0 4px 12px rgba(0,0,0,0.08)' : '0 4px 12px rgba(0,0,0,0.25)',
         },

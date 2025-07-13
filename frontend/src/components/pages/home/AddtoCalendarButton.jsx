@@ -1,5 +1,5 @@
 import EventAvailableIcon from '@mui/icons-material/EventAvailable';
-import { StyledCalendarButton } from './styles';
+import { Button } from '@mui/material';
 
 const AddToCalendarButton = ({ event }) => {
   const createICSFile = () => {
@@ -42,14 +42,14 @@ const AddToCalendarButton = ({ event }) => {
   };
 
   return (
-    <StyledCalendarButton
+    <Button
       variant="contained"
       color="primary"
       onClick={createICSFile}
       startIcon={<EventAvailableIcon />}
     >
       Add to Calendar
-    </StyledCalendarButton>
+    </Button>
   );
 };
 

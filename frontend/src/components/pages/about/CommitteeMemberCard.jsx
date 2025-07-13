@@ -12,11 +12,11 @@ const CommitteeMemberCard = ({ member, formFields }) => {
   const { deleteCommitteeMember, updateCommitteeMember } = useCommitteeMembers();
 
   return (
-    <StyledCardGrid container spacing={4}>
-      <AvatarContainer item xs={12} md={4}>
+    <StyledCardGrid container spacing={4} direction="column">
+      <AvatarContainer item xs={12}>
         <StyledAvatar src={member.imageUrl} alt={member.name} />
       </AvatarContainer>
-      <InfoContainer item xs={12} md={8}>
+      <InfoContainer item xs={12}>
         <MemberInfo name={member.name} position={member.position} bio={member.bio} />
         <EditorActions
           formFields={formFields}

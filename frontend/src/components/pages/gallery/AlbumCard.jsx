@@ -1,15 +1,22 @@
 import { ImageSlider } from "./ImageSlider";
 import EditorActions from "../../cms/EditorActions";
-import { Card, CardContent, CardActions, Button, Typography, Box } from "@mui/material";
+import { Button, Typography } from "@mui/material";
+import {
+  StyledAlbumCard,
+  AlbumCardContent,
+  AlbumEditorActions,
+  SliderWrapper,
+  AlbumCardActions,
+} from "./styles";
 
 const AlbumCard = ({ album, formFields, onEdit, onDelete }) => {
   return (
-    <Card>
-      <CardContent sx={{ textAlign: 'center', position: 'relative' }}>
+    <StyledAlbumCard>
+      <AlbumCardContent>
         <Typography variant="h4" component="h2" gutterBottom>
           {album.title}
         </Typography>
-        <Box sx={{ position: 'absolute', top: 8, right: 8 }}>
+        <AlbumEditorActions>
           <EditorActions
             item="Album"
             existingData={album}
@@ -19,13 +26,13 @@ const AlbumCard = ({ album, formFields, onEdit, onDelete }) => {
             itemId={album._id}
             confirmMessage={`Are you sure you want to delete the album: ${album.title}?`}
           />
-        </Box>
-      </CardContent>
-      <Box sx={{ width: "100%", aspectRatio: "16/9" }}>
+        </AlbumEditorActions>
+      </AlbumCardContent>
+      <SliderWrapper>
         <ImageSlider imageUrls={album.images} />
-      </Box>
+      </SliderWrapper>
       {album.link && (
-        <CardActions sx={{ justifyContent: 'center', p: 2 }}>
+        <AlbumCardActions>
           <Button
             variant="contained"
             color="primary"
@@ -35,9 +42,9 @@ const AlbumCard = ({ album, formFields, onEdit, onDelete }) => {
           >
             View Full Album
           </Button>
-        </CardActions>
+        </AlbumCardActions>
       )}
-    </Card>
+    </StyledAlbumCard>
   );
 };
 

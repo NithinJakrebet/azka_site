@@ -1,6 +1,35 @@
 import { styled } from '@mui/material/styles';
-import { Box, IconButton, MobileStepper } from '@mui/material';
+import { Box, Card, CardContent, CardActions, IconButton, MobileStepper } from '@mui/material';
 
+// --- AlbumCard Styles ---
+export const StyledAlbumCard = styled(Card)({
+  // The base card styles (shadow, transition) are in the global theme.
+});
+
+export const AlbumCardContent = styled(CardContent)({
+  textAlign: 'center',
+});
+
+export const AlbumEditorActions = styled(Box)(({ theme }) => ({
+  position: 'absolute',
+  top: theme.spacing(1),
+  right: theme.spacing(1),
+}));
+
+export const SliderWrapper = styled(Box)({
+  width: '100%',
+  margin: '0 auto', // Center the slider
+  aspectRatio: '16 / 9',
+
+});
+
+export const AlbumCardActions = styled(CardActions)(({ theme }) => ({
+  justifyContent: 'center',
+  padding: theme.spacing(2),
+}));
+
+
+// --- ImageSlider Styles ---
 export const SliderContainer = styled(Box)({
   position: 'relative',
   height: '100%',
@@ -23,7 +52,7 @@ export const SliderImage = styled('img')({
 });
 
 // Base styles for both arrow buttons
-export const ArrowButton = styled(IconButton)(({ theme }) => ({
+const ArrowButton = styled(IconButton)(({ theme }) => ({
   position: 'absolute',
   top: '50%',
   transform: 'translateY(-50%)',
@@ -32,6 +61,15 @@ export const ArrowButton = styled(IconButton)(({ theme }) => ({
   '&:hover': {
     backgroundColor: 'rgba(0, 0, 0, 0.7)',
   },
+}));
+
+// Specific styles for left and right arrows
+export const LeftArrowButton = styled(ArrowButton)(({ theme }) => ({
+  left: theme.spacing(2),
+}));
+
+export const RightArrowButton = styled(ArrowButton)(({ theme }) => ({
+  right: theme.spacing(2),
 }));
 
 export const StyledStepper = styled(MobileStepper)(({ theme }) => ({
