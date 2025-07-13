@@ -8,7 +8,7 @@ import {
   Box,
   IconButton,
 } from "@mui/material";
-import { useState, useCallback } from "react";
+import { useState, useMemo } from "react";
 import { debounce } from "lodash";
 import DeleteIcon from "@mui/icons-material/Delete";
 
@@ -23,12 +23,14 @@ const Form = ({
   const [localFormData, setLocalFormData] = useState(formData);
 
   // Debounced function to update the main form state
-  const debouncedUpdate = useCallback(
-    debounce((newData) => {
-      setFormData(newData);
-    }, 200),
-    [setLocalFormData]
+  const debouncedUpdate = useMemo(
+    () =>
+      debounce((newData) => {
+        setFormData(newData);
+      }, 200),
+    [setFormData] // The dependency is the function used inside.
   );
+
 
   // Generic field update for text inputs
   const handleInputChange = (e) => {
