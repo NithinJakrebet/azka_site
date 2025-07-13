@@ -53,7 +53,7 @@ export const getDesignTokens = (mode) => ({
     ...(mode === 'light'
       ? {
           // Light Mode Palette
-          primary: { main: '#049fc9' },
+          primary: { main: '#2c65d6' },
           info: { main: '#000080' },
           background: { default: '#f8f9fa', paper: '#ffffff' },
           text: { primary: '#212121', secondary: '#5f6368' },

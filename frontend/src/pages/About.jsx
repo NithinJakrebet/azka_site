@@ -1,64 +1,40 @@
 import AppearOnScroll from "../components/aesthetics/AppearOnScroll";
 import useCommitteeMembers from "../hooks/useCommitteeMembers";
-import CommitteeMemberCard from "../components/pages/about/organisms/CommitteeMemberCard.jsx"; // Updated import
-import AddButton from "../components/cms/AddButton";
-import { Box, Typography, CircularProgress, Container, Divider, Stack } from "@mui/material";
-import PageContainer from "../components/layout/PageContainer.jsx"
+import CommitteeMemberCard from "../components/pages/about/CommitteeMemberCard.jsx";
+import PageLayout from "../components/layout/PageLayout"; // Import the new layout
+import { formConfig } from "../constants"; // Import the new form config
+import { Divider, Stack } from "@mui/material";
 
 const About = () => {
   const { committeeMembers, loading, addCommitteeMember } = useCommitteeMembers();
-  const isInEditorMode = localStorage.getItem("isInEditorMode") === "true";
 
-  const emptyForm = {
-    name: "",
-    position: "",
-    bio: "",
-    imageUrl: "",
+  const committeeMemberConfig = formConfig.committeeMember;
+
+  const addButtonProps = {
+    ...committeeMemberConfig,
+    addItem: addCommitteeMember,
   };
 
-  const formFields = [
-    { label: "Name", name: "name", type: "text" },
-    { label: "Position", name: "position", type: "text" },
-    { label: "Bio", name: "bio", type: "text", multiline: true, rows: 4 },
-    { label: "Image URL", name: "imageUrl", type: "text" },
-  ];
-
-  if (loading) {
-    return (
-      <Box sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '80vh' }}>
-        <CircularProgress color="primary" size={60} />
-      </Box>
-    );
-  }
-
   return (
-      <PageContainer>
-        <Typography variant="h2" component="h1" align="center" gutterBottom>
-          Executive Committee
-        </Typography>
-
-        {isInEditorMode && (
-          <Box sx={{ display: "flex", justifyContent: "center", my: 3 }}>
-            <AddButton
-              formFields={formFields}
-              item="Committee Member"
-              addItem={addCommitteeMember}
-              emptyForm={emptyForm}
+    <PageLayout
+      pageTitle="Executive Committee"
+      loading={loading}
+      addButtonProps={addButtonProps}
+    >
+      <Stack
+        divider={<Divider orientation="horizontal" flexItem sx={{ my: 2 }} />}
+        spacing={4}
+      >
+        {committeeMembers.map((member) => (
+          <AppearOnScroll key={member._id}>
+            <CommitteeMemberCard
+              member={member}
+              formFields={committeeMemberConfig.formFields}
             />
-          </Box>
-        )}
-
-        <Stack
-          divider={<Divider orientation="horizontal" flexItem sx={{ my: 2 }} />}
-          spacing={4}
-        >
-          {committeeMembers.map((member) => (
-            <AppearOnScroll key={member._id}>
-              <CommitteeMemberCard member={member} formFields={formFields} />
-            </AppearOnScroll>
-          ))}
-        </Stack>
-      </PageContainer>
+          </AppearOnScroll>
+        ))}
+      </Stack>
+    </PageLayout>
   );
 };
 

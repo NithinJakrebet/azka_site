@@ -1,45 +1,51 @@
-import { Card, CardContent, CardActions, Typography, Box } from "@mui/material";
-import EditButton from "../../../cms/EditButton";
-import DeleteButton from "../../../cms/DeleteButton";
+import EditorActions from "../../../cms/EditorActions";
 import { formatTime, formatDate } from "../../../../util/formatting";
+import {
+  StyledEventCard,
+  StyledCardContent,
+  CardEditorActions,
+  EventDescription,
+  EventDetail,
+  StyledCardActions,
+} from "../styles";
+import { Typography } from "@mui/material";
 
-const EventCard = ({ event, isInEditorMode, formFields, onEdit, onDelete, actions }) => {
+// The isInEditorMode prop is no longer needed here
+const EventCard = ({ event, formFields, onEdit, onDelete, actions }) => {
   return (
-    <Card >
-      <CardContent sx={{ textAlign: 'center' }}>
-        {isInEditorMode && (
-          <Box sx={{ position: 'absolute', top: 16, right: 16, display: 'flex', gap: 1 }}>
-            <EditButton
-              formFields={formFields}
-              item="Event"
-              existingData={event}
-              editItem={onEdit}
-            />
-            <DeleteButton
-              onDelete={onDelete}
-              confirmMessage="Are you sure you want to delete this event?"
-              itemId={event._id}
-            />
-          </Box>
-        )}
+    <StyledEventCard>
+      <StyledCardContent>
+        {/* The conditional wrapper is removed. EditorActions handles its own visibility. */}
+        <CardEditorActions>
+          <EditorActions
+            formFields={formFields}
+            item="Event"
+            existingData={event}
+            editItem={onEdit}
+            onDelete={onDelete}
+            confirmMessage="Are you sure you want to delete this event?"
+            itemId={event._id}
+          />
+        </CardEditorActions>
+        
         <Typography variant="h4" component="div" gutterBottom>
           {event.title}
         </Typography>
-        <Typography variant="body1" color="text.secondary" sx={{ mb: 2 }}>
+        <EventDescription variant="body1" color="text.secondary">
           {event.description}
-        </Typography>
-        <Typography variant="body1">
+        </EventDescription>
+        <EventDetail variant="body1">
           <strong>Date:</strong> {formatDate(event.date)}
-        </Typography>
-        <Typography variant="body1">
+        </EventDetail>
+        <EventDetail variant="body1">
           <strong>Time:</strong> {formatTime(event.startTime, event.endTime)}
-        </Typography>
-        <Typography variant="body1">
+        </EventDetail>
+        <EventDetail variant="body1">
           <strong>Location:</strong> {event.location}
-        </Typography>
-      </CardContent>
-      {actions && <CardActions sx={{ justifyContent: 'center', pb: 2 }}>{actions}</CardActions>}
-    </Card>
+        </EventDetail>
+      </StyledCardContent>
+      {actions && <StyledCardActions>{actions}</StyledCardActions>}
+    </StyledEventCard>
   );
 };
 

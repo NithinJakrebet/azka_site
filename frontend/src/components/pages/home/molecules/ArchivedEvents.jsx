@@ -1,20 +1,16 @@
-import useEvents from "../../../../hooks/useEvents";
 import EventCard from "../atoms/EventCard";
 import {
   Accordion,
   AccordionSummary,
   AccordionDetails,
   Typography,
-  Box,
   Stack,
 } from "@mui/material";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 
-const ArchivedEvents = () => {
-  const { archivedEvents } = useEvents();
-
+const ArchivedEvents = ({ archivedEvents }) => {
   return (
-    <Box sx={{ mt: 5 }}>
+    <>
       <Typography variant="h3" component="h2" align="center" gutterBottom>
         Archived Events
       </Typography>
@@ -38,7 +34,7 @@ const ArchivedEvents = () => {
           )}
         </AccordionDetails>
       </Accordion>
-    </Box>
+    </>
   );
 };
 

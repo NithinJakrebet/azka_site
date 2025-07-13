@@ -1,59 +1,26 @@
-import useEvents from "../../../../hooks/useEvents";
 import AddToCalendarButton from "../AddtoCalendarButton";
-import AddButton from "../../../cms/AddButton";
-import EventCard from "../atoms/EventCard"; // Import the new component
-import { Typography, Box, Stack } from "@mui/material";
+import EventCard from "../atoms/EventCard";
+import { Stack, Typography } from "@mui/material";
 
-const UpcomingEvents = ({ isInEditorMode }) => {
-  const { upcomingEvents, deleteEvent, addEvent, updateEvent } = useEvents();
-
-  const emptyForm = {
-    title: "",
-    description: "",
-    date: "",
-    startTime: "",
-    endTime: "",
-    location: "",
-  };
-
-  const formFields = [
-    { label: "Event Title", name: "title", type: "text" },
-    { label: "Description", name: "description", type: "text", multiline: true, rows: 4 },
-    { label: "Date", name: "date", type: "date" },
-    { label: "Start Time", name: "startTime", type: "time" },
-    { label: "End Time", name: "endTime", type: "time" },
-    { label: "Location", name: "location", type: "text" },
-  ];
-
+const UpcomingEvents = ({ events, formFields, onEdit, onDelete }) => {
   return (
-    <Box sx={{ p: 3 }}>
-      <Typography variant="h3" component="h1" gutterBottom align="center">
+    <>
+      <Typography variant="h3" component="h2" align="center" gutterBottom>
         Upcoming Events
       </Typography>
-      {isInEditorMode && (
-        <Box sx={{ display: "flex", justifyContent: "center", mb: 2 }}>
-          <AddButton
-            formFields={formFields}
-            item="Event"
-            addItem={addEvent}
-            emptyForm={emptyForm}
-          />
-        </Box>
-      )}
       <Stack spacing={2}>
-        {upcomingEvents.map((event) => (
+        {events.map((event) => (
           <EventCard
             key={event._id}
             event={event}
-            isInEditorMode={isInEditorMode}
             formFields={formFields}
-            onEdit={updateEvent}
-            onDelete={deleteEvent}
+            onEdit={onEdit}
+            onDelete={onDelete}
             actions={<AddToCalendarButton event={event} />}
           />
         ))}
       </Stack>
-    </Box>
+    </>
   );
 };
 
