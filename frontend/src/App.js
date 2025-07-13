@@ -1,15 +1,15 @@
-import React, { useState, useMemo } from "react";
+import { useState, useMemo } from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import { ThemeProvider, createTheme, CssBaseline, Box } from "@mui/material";
 import { getDesignTokens } from "./theme";
-import Navbar from "./components/Navbar";
+import Navbar from "./components/navbar/Navbar";
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Gallery from "./pages/Gallery";
 import Newsletter from "./pages/Newsletter";
 import Contact from "./pages/Contact";
 import DarkModeSwitch from "./components/aesthetics/DarkModeSwitch";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 
 function App() {
   const [mode, setMode] = useState('light');
