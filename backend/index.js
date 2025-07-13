@@ -1,14 +1,14 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import serverless from 'serverless-http'; // Make sure this is imported
+import serverless from 'serverless-http';
 
-// Import your routes
-import eventsRoute from './routes/eventsRoute.js';
-import albumsRoute from './routes/albumsRoute.js';
-import newslettersRoute from './routes/newslettersRoute.js';
-import committeeMembersRoute from './routes/committeeMembersRoute.js';
-import authRoutes from './routes/authRoutes.js';
+// FIX: Correct the filenames in the import statements
+import eventsRoute from './routes/events.js';
+import albumsRoute from './routes/albums.js';
+import newslettersRoute from './routes/newsletters.js';
+import committeeMembersRoute from './routes/committeeMembers.js';
+import authRoutes from './routes/users.js'; // Assuming auth logic is in users.js
 
 const app = express();
 
