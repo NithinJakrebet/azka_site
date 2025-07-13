@@ -27,7 +27,7 @@ const Form = ({
     debounce((newData) => {
       setFormData(newData);
     }, 200),
-    [setFormData]
+    [setLocalFormData]
   );
 
   // Generic field update for text inputs

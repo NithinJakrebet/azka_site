@@ -1,6 +1,6 @@
 import { Container, Typography, Divider, Box } from "@mui/material";
 import FacebookIcon from '@mui/icons-material/Facebook';
-import { FooterBox, SocialStack, StyledIconButton, EmailLink, StyledDonateButton } from './styles'; // Import styled components
+import { FooterBox, SocialStack, StyledIconButton, EmailLink } from './styles'; // Import styled components
 
 const socialLinks = [
   { icon: <FacebookIcon />, href: "https://www.facebook.com/groups/2620372688125086", name: "Facebook" },

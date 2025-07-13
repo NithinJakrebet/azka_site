@@ -1,4 +1,3 @@
-import TempleHinduRoundedIcon from '@mui/icons-material/TempleHinduRounded';
 import { NavLink as RouterNavLink } from "react-router-dom";
 import { StyledNavTitle } from "../navbar.styles";
 import { Box } from '@mui/material';

@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Card, CardActionArea, CardMedia, CardContent, Typography, Box } from '@mui/material';
+import { Card, CardActionArea, CardMedia, Box } from '@mui/material';
 
 export const StyledCard = styled(Card)({
   height: '100%',

@@ -24,7 +24,6 @@ export const MobileNavContainer = styled(Box)(({ theme }) => ({
 
 export const StyledNavLink = styled(Button)(({ theme }) => ({
   my: 2,
-  display: 'flex',
   alignItems: 'center',
   color: "white",
   display: "flex",

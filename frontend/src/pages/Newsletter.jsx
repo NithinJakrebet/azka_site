@@ -19,7 +19,7 @@ const Newsletter = () => {
   // This utility function is specific to this page's data, so it's fine for it to live here.
   const convertGoogleDriveLink = (url) => {
     if (!url) return "";
-    const match = url.match(/\/d\/([^\/]+)/);
+    const match = url.match(/\/d\/([^/]+)/);
     const fileId = match ? match[1] : null;
     return fileId ? `https://drive.google.com/file/d/${fileId}/preview` : url;
   };

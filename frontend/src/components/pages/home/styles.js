@@ -1,5 +1,5 @@
 import { styled } from '@mui/material/styles';
-import { Box, Card, CardContent, CardActions, Typography, Accordion, Button } from '@mui/material';
+import { Box, Card, CardActions, Typography  } from '@mui/material';
 
 // --- UpcomingEvents Styles ---
 export const UpcomingEventsContainer = styled(Box)(({ theme }) => ({
