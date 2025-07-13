@@ -31,6 +31,10 @@
       "dest": "/frontend/favicon.ico"
     },
     {
+      "src": "/om.png",
+      "dest": "/frontend/om.png"
+    },
+    {
       "src": "/(.*)",
       "dest": "/frontend/index.html"
     }
