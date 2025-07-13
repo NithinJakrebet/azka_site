@@ -2,13 +2,15 @@ import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
 import serverless from 'serverless-http';
+import dotenv from 'dotenv';
 
-// FIX: Correct the filenames in the import statements
 import eventsRoute from './routes/events.js';
 import albumsRoute from './routes/albums.js';
 import newslettersRoute from './routes/newsletters.js';
 import committeeMembersRoute from './routes/committeeMembers.js';
 import authRoutes from './routes/users.js'; // Assuming auth logic is in users.js
+
+dotenv.config();
 
 const app = express();
 
