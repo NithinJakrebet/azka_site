@@ -2,34 +2,56 @@ import EventAvailableIcon from '@mui/icons-material/EventAvailable';
 import { Button } from '@mui/material';
 
 const AddToCalendarButton = ({ event }) => {
+  // Return null or a disabled button if the event object is missing entirely.
+  if (!event) {
+    return null; 
+  }
+
   const createICSFile = () => {
-    const { title, date, startTime, endTime, location, description } = event;
+    // Destructure with defaults for all potentially missing properties
+    const {
+      title = 'Untitled Event',
+      date,
+      startTime,
+      endTime,
+      location = '',
+      description = ''
+    } = event;
 
-    // Parse date and time into ISO format
-    const startDateTime = new Date(`${date.split("T")[0]}T${startTime || "10:00"}:00`);
-    const endDateTime = new Date(`${date.split("T")[0]}T${endTime || "11:00"}:00`);
+    // Gracefully handle a missing date by defaulting to the current day
+    const eventDate = date ? new Date(date) : new Date();
+    const eventDateString = eventDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
 
-    // Format dates for ICS (YYYYMMDDTHHMMSS)
-    const formatICSDate = (date) => {
-      const pad = (num) => String(num).padStart(2, "0");
-      return `${date.getUTCFullYear()}${pad(date.getUTCMonth() + 1)}${pad(date.getUTCDate())}T${pad(
-        date.getUTCHours()
-      )}${pad(date.getUTCMinutes())}${pad(date.getUTCSeconds())}Z`;
+    const formatICSDate = (dateObj) => {
+      return dateObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
+    };
+    
+    // --- FIX: Use logical OR to provide defaults for time values ---
+    // This handles cases where startTime/endTime are undefined, null, or an empty string.
+    const startDateTime = new Date(`${eventDateString}T${startTime || '10:00'}:00`);
+    const endDateTime = new Date(`${eventDateString}T${endTime || '11:00'}:00`);
+    
+    const creationTimestamp = formatICSDate(new Date());
+
+    const escapeICS = (str) => {
+      return String(str).replace(/\\/g, "\\\\").replace(/,/g, "\\,").replace(/;/g, "\\;").replace(/\n/g, "\\n");
     };
 
-    const icsContent = `
-      BEGIN:VCALENDAR
-      VERSION:2.0
-      CALSCALE:GREGORIAN
-      BEGIN:VEVENT
-      SUMMARY:${title}
-      DESCRIPTION:${description}
-      DTSTART:${formatICSDate(startDateTime)}
-      DTEND:${formatICSDate(endDateTime)}
-      LOCATION:${location || ""}
-      END:VEVENT
-      END:VCALENDAR
-      `.trim();
+    const icsContent = [
+      'BEGIN:VCALENDAR',
+      'VERSION:2.0',
+      'CALSCALE:GREGORIAN',
+      'BEGIN:VEVENT',
+      `SUMMARY:${escapeICS(title)}`,
+      `DESCRIPTION:${escapeICS(description)}`,
+      `DTSTART:${formatICSDate(startDateTime)}`,
+      `DTEND:${formatICSDate(endDateTime)}`,
+      `DTSTAMP:${creationTimestamp}`,
+      `UID:${creationTimestamp}-${escapeICS(title)}@azka.com`,
+      `LOCATION:${escapeICS(location)}`,
+      'END:VEVENT',
+      'END:VCALENDAR'
+    ].join('\r\n');
 
     // Create Blob and trigger download
     const blob = new Blob([icsContent], { type: "text/calendar;charset=utf-8" });
