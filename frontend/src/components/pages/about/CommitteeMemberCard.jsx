@@ -1,11 +1,12 @@
 import useCommitteeMembers from "../../../hooks/useCommitteeMembers";
-import MemberInfo from "./atoms/MemberInfo";
+// import MemberInfo from "./atoms/MemberInfo";
 import EditorActions from "../../cms/EditorActions"; 
 import {
   StyledCardGrid,
   AvatarContainer,
   StyledAvatar,
   InfoContainer,
+  NameTypography,
 } from "./styles";
 
 const CommitteeMemberCard = ({ member, formFields }) => {
@@ -17,7 +18,9 @@ const CommitteeMemberCard = ({ member, formFields }) => {
         <StyledAvatar src={member.imageUrl} alt={member.name} />
       </AvatarContainer>
       <InfoContainer item xs={12}>
-        <MemberInfo name={member.name} position={member.position} bio={member.bio} />
+        <NameTypography variant="h3" component="h2" gutterBottom>
+        {member.name}
+      </NameTypography>
         <EditorActions
           formFields={formFields}
           item="Committee Member"

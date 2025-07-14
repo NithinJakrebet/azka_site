@@ -4,7 +4,7 @@ import { Avatar, Grid2 as Grid, Typography} from '@mui/material';
 export const StyledCardGrid = styled(Grid)(({ theme }) => ({
   alignItems: 'center',
   justifyContent: 'center',
-  marginBottom: theme.spacing(6),
+  marginBottom: theme.spacing(2),
 }));
 
 export const AvatarContainer = styled(Grid)({
@@ -34,17 +34,4 @@ export const NameTypography = styled(Typography)(({ theme }) => ({
   },
 }));
 
-export const PositionTypography = styled(Typography)(({ theme }) => ({
-  textAlign: 'left',
-  marginBottom: theme.spacing(2),
-  [theme.breakpoints.down('md')]: {
-    textAlign: 'center',
-  },
-}));
 
-export const BioTypography = styled(Typography)(({ theme }) => ({
-  textAlign: 'left',
-  [theme.breakpoints.down('md')]: {
-    textAlign: 'center',
-  },
-}));

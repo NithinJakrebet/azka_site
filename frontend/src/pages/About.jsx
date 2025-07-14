@@ -21,10 +21,7 @@ const About = () => {
       loading={loading}
       addButtonProps={addButtonProps}
     >
-      <Stack
-        divider={<Divider orientation="horizontal" flexItem sx={{ my: 2 }} />}
-        spacing={4}
-      >
+      <Stack divider={<Divider orientation="horizontal" flexItem sx={{ my: 2 }} />}>
         {committeeMembers.map((member) => (
           <AppearOnScroll key={member._id}>
             <CommitteeMemberCard

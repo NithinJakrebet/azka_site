@@ -8,7 +8,6 @@ const AddToCalendarButton = ({ event }) => {
   }
 
   const createICSFile = () => {
-    // Destructure with defaults for all potentially missing properties
     const {
       title = 'Untitled Event',
       date,
@@ -18,7 +17,6 @@ const AddToCalendarButton = ({ event }) => {
       description = ''
     } = event;
 
-    // Gracefully handle a missing date by defaulting to the current day
     const eventDate = date ? new Date(date) : new Date();
     const eventDateString = eventDate.toISOString().split('T')[0]; // Format as YYYY-MM-DD
 
@@ -26,8 +24,6 @@ const AddToCalendarButton = ({ event }) => {
       return dateObj.toISOString().replace(/[-:]/g, "").split(".")[0] + "Z";
     };
     
-    // --- FIX: Use logical OR to provide defaults for time values ---
-    // This handles cases where startTime/endTime are undefined, null, or an empty string.
     const startDateTime = new Date(`${eventDateString}T${startTime || '10:00'}:00`);
     const endDateTime = new Date(`${eventDateString}T${endTime || '11:00'}:00`);
     
