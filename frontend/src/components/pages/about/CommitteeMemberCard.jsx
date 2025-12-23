@@ -1,5 +1,4 @@
 import useCommitteeMembers from "../../../hooks/useCommitteeMembers";
-// import MemberInfo from "./atoms/MemberInfo";
 import EditorActions from "../../cms/EditorActions"; 
 import {
   StyledCardGrid,
@@ -13,14 +12,14 @@ const CommitteeMemberCard = ({ member, formFields }) => {
   const { deleteCommitteeMember, updateCommitteeMember } = useCommitteeMembers();
 
   return (
-    <StyledCardGrid container spacing={4} direction="column">
+    <StyledCardGrid container spacing={2} direction="column">
       <AvatarContainer item xs={12}>
         <StyledAvatar src={member.imageUrl} alt={member.name} />
       </AvatarContainer>
       <InfoContainer item xs={12}>
-        <NameTypography variant="h3" component="h2" gutterBottom>
-        {member.name}
-      </NameTypography>
+        <NameTypography variant="h5" component="h2" gutterBottom>
+          {member.name}
+        </NameTypography>
         <EditorActions
           formFields={formFields}
           item="Committee Member"

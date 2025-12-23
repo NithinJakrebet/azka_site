@@ -1,9 +1,8 @@
-import AppearOnScroll from "../components/aesthetics/AppearOnScroll";
 import useCommitteeMembers from "../hooks/useCommitteeMembers";
 import CommitteeMemberCard from "../components/pages/about/CommitteeMemberCard.jsx";
 import PageLayout from "../components/layout/PageLayout"; // Import the new layout
 import { formConfig } from "../constants"; // Import the new form config
-import { Divider, Stack } from "@mui/material";
+import { Grid2 as Grid } from "@mui/material";
 
 const About = () => {
   const { committeeMembers, loading, addCommitteeMember } = useCommitteeMembers();
@@ -21,16 +20,16 @@ const About = () => {
       loading={loading}
       addButtonProps={addButtonProps}
     >
-      <Stack divider={<Divider orientation="horizontal" flexItem sx={{ my: 2 }} />}>
+      <Grid container spacing={4}>
         {committeeMembers.map((member) => (
-          <AppearOnScroll key={member._id}>
+          <Grid size={{ xs: 12, md: 6 }} key={member._id}>
             <CommitteeMemberCard
               member={member}
               formFields={committeeMemberConfig.formFields}
             />
-          </AppearOnScroll>
+          </Grid>
         ))}
-      </Stack>
+      </Grid>
     </PageLayout>
   );
 };

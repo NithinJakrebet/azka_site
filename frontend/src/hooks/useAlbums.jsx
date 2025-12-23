@@ -7,13 +7,11 @@ const useAlbums = () => {
   const [loading, setLoading] = useState(false);
 
   async function getAlbums() {
-
     await GET({ 
       setItems: setAlbums,
       setLoading: setLoading,
       route: 'albums'
     })
-    
   }
 
   async function addAlbum(newAlbum) {

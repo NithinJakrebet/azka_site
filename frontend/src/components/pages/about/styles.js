@@ -13,12 +13,14 @@ export const AvatarContainer = styled(Grid)({
 });
 
 export const StyledAvatar = styled(Avatar)(({ theme }) => ({
-  width: 400,
-  height: 400,
+  width: 300,
+  height: 300,
   border: `4px solid ${theme.palette.primary.dark}`,
+  borderRadius: '5px',
+  boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
   [theme.breakpoints.down('md')]: {
-    width: 300,
-    height: 300,
+    width: 250,
+    height: 250,
   },
 }));
 
@@ -28,10 +30,7 @@ export const InfoContainer = styled(Grid)({
   justifyContent: 'center',
 });
 export const NameTypography = styled(Typography)(({ theme }) => ({
-  textAlign: 'left',
-  [theme.breakpoints.down('md')]: {
-    textAlign: 'center',
-  },
+  textAlign: 'center',
 }));
 
 

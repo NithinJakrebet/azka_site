@@ -11,23 +11,15 @@ export async function GET({
       setLoading(true);
       try {
             const response = await axios.get(`${API_URL}/${route}`);
-
             const returnedData = response.data?.data;
-
-            if (route==="events") {
-                  setItems(Array.isArray(returnedData) ? returnedData : []);
-            } else {
-                  setItems(response.data);
-            }
-            
+            if (route==="events") setItems(Array.isArray(returnedData) ? returnedData : []);
+            else setItems(response.data);
             console.log("GET/ \n", response.data);
-            
       } catch (error) {
             console.error("Error fetching:", error);
       } finally {
             setLoading(false);
       }
-
 }
 
 
@@ -38,7 +30,6 @@ export async function POST({
       try {
         const response = await axios.post(`${API_URL}/${route}`, newItem);
         console.log("POST/ \n", response.data);
-  
       } catch (error) {
         console.error("Error adding:", error);
       }
@@ -50,7 +41,6 @@ export async function PUT({
       route
 }) {
       const { _id, ...restOfItem } = updatedItem;
-
       if (!_id) {
             console.error("No _id provided; Cannot update.");
             return;

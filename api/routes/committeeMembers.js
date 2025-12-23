@@ -38,14 +38,12 @@ router.post('/', async (request, response) => {
   try {
     const {
       name,
-      bio,
       imageUrl
       } = request.body;
 
     // Validate required fields
     const missingFields = [];
     if (!name) missingFields.push('name');
-    if (!bio) missingFields.push('bio');
     if (!imageUrl) missingFields.push('imageUrl');
 
     // If there are missing fields, return an error message
@@ -58,7 +56,6 @@ router.post('/', async (request, response) => {
     // Create new event
     const newCommitteeMember = {
       name,
-      bio,
       imageUrl
     };
 
@@ -77,14 +74,11 @@ router.put('/:id', async (request, response) => {
   try {
     const { 
       name,
-      bio,
       imageUrl 
       } = request.body;
 
-    // Collect missing fields
     const missingFields = [];
     if (!name) missingFields.push('name');
-    if (!bio) missingFields.push('bio');
     if (!imageUrl) missingFields.push('imageUrl');
 
     // If there are missing fields, return an error message
